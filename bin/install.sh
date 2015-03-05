@@ -71,10 +71,26 @@ apt-fast install dos2unix -y --force-yes
 apt-fast install tree -y --force-yes
 apt-fast install g++ -y --force-yes
 
+#16进制编辑器
+apt-fast install hexedit -y --force-yes
+
+
 #PDF printer :print to pdf format. default out_dir ~/PDF/
 sudo apt-get install cups-pdf -y --force-yes
+
 #docky
 #apt-fast install docky -y --force-yes
+
+#chrome
+#wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+
+#wine
+#sudo add-apt-repository ppa:ubuntu-wine/ppa
+#sudo apt-get update
+
+#禁用自动挂载
+#gsettings set org.gnome.desktop.media-handling automount "false"
+#dconf write /org/gnome/desktop/media-handling/automount  "false"
 
 #在文件夹中右键打开终端
 apt-fast install nautilus-open-terminal
@@ -116,11 +132,16 @@ apt-fast install xsltproc -y --force-yes
 apt-fast install libxml2-utils -y --force-yes
 apt-fast install libncurses5-dev -y --force-yes
 
+#滚动条
+gsettings set com.canonical.desktop.interface scrollbar-mode normal
 
 
 
 
-
+#tweak
+sudo add-apt-repository ppa:tualatrix/ppa
+sudo apt-get update
+sudo apt-get install ubuntu-tweak
 
 
 echo "进入ubutun麒麟官网，下载并安装搜狗输入法。"
