@@ -11,7 +11,7 @@ echo alias git=\'LANG=en_GB git\' >> ~/.bashrc
 mv ~/.vim ~/.vim.old
 mv ~/.vimrc ~/.vimrc.old
 
-git clone https://github.com/gyl33333/gyl_vim ~/.vim
+git clone https://github.com/gyl33333/vim ~/.vim
 ln -s ~/.vim/vimrc .vimrc
 #add PATH
 echo "export PATH=~/.vim/bin:$PATH" >> ~/.bashrc
