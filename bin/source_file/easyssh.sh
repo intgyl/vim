@@ -1,5 +1,5 @@
 #! /bin/bash
-server_bookmark="$HOME/.vim/.data_server_bookmark"
+server_bookmark="$HOME/.data_server_bookmark"
 if test ! -e $server_bookmark
 then
 	touch $server_bookmark

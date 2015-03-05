@@ -1,7 +1,7 @@
 #! /bin/bash
 #need source this file before use it
 #you can add "source ~/.vim/bin/gt.sh" to ~/.bashrc
-DIRS="$HOME/.vim/.data_gtdirs"
+DIRS="$HOME/.data_gtdirs"
 if test ! -e $DIRS
 then
 	touch $DIRS
