@@ -1,0 +1,51 @@
+source ~/.vim/bin/source_file/easyssh.sh
+#source ~/.vim/bin/source_file/flash.sh
+source ~/.vim/bin/source_file/gt.sh
+source ~/.vim/bin/source_file/envsetup.sh
+source ~/.vim/bin/source_file/gg.sh
+
+
+#alias adb='adb wait-for-device&&adb '
+alias arb='adb wait-for-device&&adb reboot bootloader'
+alias c1='cd ..'
+alias c2='cd ../../'
+alias c3='cd ../../..'
+alias c4='cd ../../../..'
+alias fastboot='cat ~/.vim/.data_My_Passwd | sudo -S fastboot'
+alias ..='cd ..'
+alias git='LANG=en_GB git'
+alias n='nautilus .'
+alias g='grep -nrs '
+alias cr='croot'
+alias f='find ./ -name'
+alias repoall='repo forall -pc '
+alias todaylog='cd ~/log/`LCALL=C date +%F`'
+alias ai='adb install'
+alias gb='git branch'
+alias gc='git checkout'
+alias gs='git status'
+alias gd='git diff'
+alias ga='git add'
+alias gm='git commit'
+alias gl='git log'
+
+
+export USE_CCACHE=1
+export CCACHE_DIR=~/ccache
+
+#use w $@ to get the locate of exec file
+source ~/.vim/bin/source_file/where_which.sh
+
+#auto unzip into a folder
+source ~/.vim/bin/source_file/uzip.sh
+
+#Automatically corrected the cd path when you input error
+shopt -s cdspell
+
+export PATH=$PATH:~/.vim/bin/
+
+
+PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[32m\]\w \[\e[m\]\n$ '
+
+
+

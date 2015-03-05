@@ -1,0 +1,45 @@
+#!/bin/bash
+printusage ()
+{
+	echo "Usage:apkinfo [-r] apk_name"
+	echo -e "\t-r apk_name:	run apk"
+	echo -e "\tapk_name:	print apk info"
+}
+run_apk ()
+{
+	packagename=`aapt d badging $apk_name | grep "package: name" | awk -F\' '{print $2}'`
+	activityname=`aapt d badging $apk_name | grep "launchable-activity" | awk -F\' '{print $2}'`
+	echo adb shell am start -n $packagename/$activityname
+	adb shell am start -n $packagename/$activityname
+}
+print_apkinfo ()
+{
+	aapt d badging $apk_name
+}
+if [[ -z $1 ]]; then
+	printusage
+	exit 0
+fi
+if [ $1 = "-r" ]; then
+	need_run=true
+	if [ -z $2 ]; then
+		echo No such file or directory
+		exit 1
+	fi
+	apk_name=$2
+else
+	need_run=false
+	apk_name=$1
+fi
+is_apk=`file $apk_name 2>/dev/null | grep -c "Java Jar file data"`
+if [ $is_apk != 1 ]; then
+	echo -e "\e[5m\e[31mERROR:$apk_name is not a apk file or no such file or directory\e[0m"
+	exit 1
+fi
+if $need_run ; then
+	echo run_apk
+	run_apk
+else
+	echo print_apkinfo
+	print_apkinfo
+fi

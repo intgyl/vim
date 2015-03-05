@@ -1,0 +1,2 @@
+let g:__vbookmark_groups__ = [{"name": "default", "index": -1, "marks": []},]
+let g:__vbookmark_curGroupIndex__ = 0

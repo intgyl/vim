@@ -1,0 +1,24 @@
+#!/bin/bash
+#[ "`whoami`" = root ] || exec sudo "$0" "$@"
+if [  ! -d ~/log ]; then
+	echo there is no log derectery, please input this command
+	echo "mkdir ~/log"
+	exit 1
+fi
+today_dir=`LCALL=C date +%F`
+if [  ! -d ~/log/$today_dir ]; then
+		echo auto midir ~/log/$today_dir
+		mkdir ~/log/$today_dir
+fi
+if [  -z ~/.vim/.data_My_Passwd ]; then
+	echo there is no passwd file, please input the passwd to ~/.vim/.data_My_Passwd
+	exit 1
+fi
+cat ~/.vim/.data_My_Passwd | sudo -S ls > /dev/null
+logname=$today_dir/`LCALL=C date +%H%M%S`
+#echo param=$#
+if [ $# != 0 ]; then
+	sudo minicom $@
+else
+	sudo minicom -C ~/log/${logname}.log
+fi
