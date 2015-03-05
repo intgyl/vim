@@ -373,7 +373,7 @@ nmap <leader>bn :Tab /
 "}}}
 
 "********************************************************************************
-let g:vbookmark_bookmarkSaveFile = $HOME . '/.vim/.data_vimbookmark'
+let g:vbookmark_bookmarkSaveFile = $HOME . '/.data_vimbookmark'
 "********************************************************************************
 "十六进制转换{{{
 nmap t16 :%!xxd<CR>
