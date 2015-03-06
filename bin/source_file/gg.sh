@@ -1,7 +1,7 @@
 
 gg () {
 	value="$@"
-	git grep -n "$value"
+	git grep -in "$value"
 	value=""
 }
 
