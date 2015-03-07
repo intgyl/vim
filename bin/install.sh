@@ -71,6 +71,9 @@ apt-fast install dos2unix -y --force-yes
 apt-fast install tree -y --force-yes
 apt-fast install g++ -y --force-yes
 
+#for goagent
+apt-fast insatll python-vte -y --force-yes
+
 #16进制编辑器
 apt-fast install hexedit -y --force-yes
 
