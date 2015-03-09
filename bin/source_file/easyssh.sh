@@ -5,7 +5,7 @@ then
 	touch $server_bookmark
 fi
 chmod 600 $server_bookmark
-sshgo () {
+ssg () {
 	case $1 in
 		-d)
 			temp=`mktemp -t .gtdirs-XXXXXX`
@@ -85,4 +85,4 @@ function _comp_ssh {
 }
 
 shopt -s progcomp
-complete -F _comp_ssh sshgo
+complete -F _comp_ssh ssg
