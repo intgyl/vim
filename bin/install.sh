@@ -101,6 +101,9 @@ apt-fast install nautilus-open-terminal
 #krusader
 #apt-fast install krusader -y --force-yes
 
+#解码器
+apt-fast intall ubuntu-restricted-extras -y --force-yes
+
 #the min window view
 apt-fast install libappindicator1
 sudo apt-add-repository ppa:gurqn/systray-trusty
