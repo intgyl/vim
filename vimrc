@@ -177,6 +177,7 @@ nmap Q :q<ENTER>
 nmap wQ :wq!<ENTER>
 nmap WQ :wq!<ENTER>
 nnoremap <C-w> <C-w>w
+nnoremap <space> $
 let OpenDir=system("pwd")
 nmap <silent> <leader>cdr :exe 'cd ' . OpenDir<cr>:pwd<cr>
 nmap <silent> <leader>cdf :cd %:h<cr>:pwd<cr>
@@ -283,7 +284,7 @@ let g:NERDTreeShowLineNumbers=1
 let g:NERDTreeQuitOnOpen=1
 
 "********************************************************************************
-" set t_Co=256
+ set t_Co=256
 
  "highlight StatusLine cterm=bold ctermfg=yellow ctermbg=blue
 
