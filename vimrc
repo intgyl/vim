@@ -178,6 +178,9 @@ nmap wQ :wq!<ENTER>
 nmap WQ :wq!<ENTER>
 nnoremap <C-w> <C-w>w
 nnoremap <space> $
+nnoremap s %
+nnoremap e #
+nnoremap ; *
 let OpenDir=system("pwd")
 nmap <silent> <leader>cdr :exe 'cd ' . OpenDir<cr>:pwd<cr>
 nmap <silent> <leader>cdf :cd %:h<cr>:pwd<cr>
