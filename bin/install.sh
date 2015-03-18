@@ -13,6 +13,8 @@ mv ~/.vimrc ~/.vimrc.old
 
 git clone https://github.com/gyl33333/vim ~/.vim
 ln -s ~/.vim/vimrc .vimrc
+sudo ln -s /usr/bin/astyle ~/.vim/bin/astyle
+
 #add PATH
 echo "export PATH=~/.vim/bin:$PATH" >> ~/.bashrc
 
@@ -77,6 +79,8 @@ apt-fast insatll python-vte -y --force-yes
 #16进制编辑器
 apt-fast install hexedit -y --force-yes
 
+#gimp
+apt-fast install gimp -y --force-yes
 
 #PDF printer :print to pdf format. default out_dir ~/PDF/
 sudo apt-get install cups-pdf -y --force-yes
