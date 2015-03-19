@@ -10,8 +10,14 @@ echo alias git=\'LANG=en_GB git\' >> ~/.bashrc
 
 mv ~/.vim ~/.vim.old
 mv ~/.vimrc ~/.vimrc.old
-
 git clone https://github.com/gyl33333/vim ~/.vim
+
+mkdir software
+cd software
+git clone https://github.com/goagent/goagent
+git clome  https://github.com/huhamhire/huhamhire-hosts
+cd ~
+
 ln -s ~/.vim/vimrc .vimrc
 sudo ln -s /usr/bin/astyle ~/.vim/bin/astyle
 
