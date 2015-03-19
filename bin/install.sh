@@ -16,6 +16,10 @@ mkdir software
 cd software
 git clone https://github.com/goagent/goagent
 git clome  https://github.com/huhamhire/huhamhire-hosts
+
+cd ~/sofware/goagent*/local/
+./addto-startup.py
+
 cd ~
 
 ln -s ~/.vim/vimrc .vimrc
