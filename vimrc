@@ -176,6 +176,7 @@ nmap q :q<ENTER>
 nmap Q :q<ENTER>
 nmap wQ :wq!<ENTER>
 nmap WQ :wq!<ENTER>
+nnoremap W :w<ENTER>
 nnoremap <C-w> <C-w>w
 nnoremap <space> $
 nnoremap s %
