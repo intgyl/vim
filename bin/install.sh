@@ -162,6 +162,19 @@ gsettings set com.canonical.desktop.interface scrollbar-mode normal
 sudo add-apt-repository ppa:tualatrix/ppa
 sudo apt-get update
 sudo apt-get install ubuntu-tweak
+rm -rf ~/.config/ubuntu-tweak/
+sudo ln -s ~/.vim/soft_config/ubuntu-tweak/ ~/.config/ubuntu-tweak/
+
+#fonts
+sudo mkdir -p /usr/share/fonts/winfonts
+sudo cp ~/.vim/bin/winfonts/* /usr/share/fonts/winfonts
+sudo chmod 644 /usr/share/fonts/winfonts/*
+cd /usr/share/fonts/winfonts/
+sudo mkfontscale
+sudo mkfontdir
+sudo fc-cache -fv
+
+cd ~
 
 
 echo "进入ubutun麒麟官网，下载并安装搜狗输入法。"
