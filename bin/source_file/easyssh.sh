@@ -33,7 +33,7 @@ ssg () {
 				sshpass -p `awk -F '=' '/^'"$1"'=/ {print $3" ssh -X "$2 }' $server_bookmark`
 			elif [[ ! -z `awk -F '=' '/^'"$1"'=/ {print $2 }' $server_bookmark` ]]; then
 				echo ssh only
-				ssh `awk -F '=' '/^'"$1"'=/ {print $2 }' $server_bookmark`
+				ssh -X `awk -F '=' '/^'"$1"'=/ {print $2 }' $server_bookmark`
 			else
 				echo 'error: bookmark name not found'
 
