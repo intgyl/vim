@@ -98,11 +98,11 @@ if v:version >= 702
 	set   pumheight=10
 	set   ruler
 	set   scrolloff=5
-	set   shiftwidth=4
+	set   shiftwidth=8
 	set   showcmd
 	set   smartindent
 	set   smartcase
-	set   tabstop=4
+	set   tabstop=8
 	set   termencoding=utf-8
 	set   textwidth=280
 	set   whichwrap=h,l
