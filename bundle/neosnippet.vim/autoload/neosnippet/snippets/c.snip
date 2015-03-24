@@ -1,7 +1,6 @@
 snippet     if
 abbr        if () {}
     if (${1:#:condition}) {
-        ${0:TARGET}
     }
 
 snippet else
@@ -127,7 +126,6 @@ abbr        for () {}
 snippet     while
 abbr        while () {}
     while (${1:#:condition}) {
-        ${0:TARGET}
     }
 
 snippet     do_while
@@ -245,15 +243,14 @@ abbr    pr_err("gyl------%s\n",__func__);
     pr_err("gyl------%s:${1}\n",__func__);
 
 snippet comment
-alias /*
+alias /*   */
     /* ${1:#:comment} */
-    ${0}
 
 snippet sizeof
 alias size
     sizeof(${0:TARGET})
 
-snippet helloworld
+snippet hello
     #include <stdio.h>
     int main(int argc, char const* argv[])
     {
