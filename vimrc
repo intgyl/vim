@@ -114,6 +114,8 @@ if v:version >= 702
 	set   so=4
 	set   sidescroll=10
 	set   cmdheight=1
+	"set  invlist "show all char
+	"set  nolist
 endif
 
 "********************************************************************************
