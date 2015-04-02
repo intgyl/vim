@@ -14,9 +14,9 @@ git clone https://github.com/gyl33333/vim ~/.vim
 
 mkdir software
 cd software
-git clone https://github.com/goagent/goagent
-git clome  https://github.com/huhamhire/huhamhire-hosts
-
+#git clone https://github.com/goagent/goagent
+#git clone https://github.com/huhamhire/huhamhire-hosts
+git clone https://github.com/XX-net/XX-Net.git
 cd ~/sofware/goagent*/local/
 ./addto-startup.py
 
