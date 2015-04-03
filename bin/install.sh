@@ -86,6 +86,9 @@ apt-fast install g++ -y --force-yes
 #for goagent
 apt-fast insatll python-vte -y --force-yes
 
+#for XX-net
+apt-fast install libnss3-tools -y --force-yes
+
 #16进制编辑器
 apt-fast install hexedit -y --force-yes
 
