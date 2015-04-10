@@ -183,8 +183,8 @@ cd ~
 echo "进入ubutun麒麟官网，下载并安装搜狗输入法。"
 echo "安装完毕后，打开系统设置-->languageSupport-->keyboard input method system： fcitx"
 #安装深度音乐
- sudo apt-get install libmixlib-config-ruby libmixlib-log-ruby libmixlib-cli-ruby1.9.1 libmixlib-cli-ruby libmixlib-cli-ruby1.8 xlibosmesa-dev xlibmesa-glu-dev  libmixlib-log-ruby1.8 pxlib1 python-xlib libmixlib-authentication-ruby  libmixlib-config-ruby1.8 pxlib-dev libmixlib-authentication-ruby1.8
- sudo add-apt-repository ppa:mc3man/trusty-media
- sudo apt-add-repository ppa:noobslab/deepin-sc
- sudo apt-get update
- sudo apt-get install deepin-music-player
+ #sudo apt-get install libmixlib-config-ruby libmixlib-log-ruby libmixlib-cli-ruby1.9.1 libmixlib-cli-ruby libmixlib-cli-ruby1.8 xlibosmesa-dev xlibmesa-glu-dev  libmixlib-log-ruby1.8 pxlib1 python-xlib libmixlib-authentication-ruby  libmixlib-config-ruby1.8 pxlib-dev libmixlib-authentication-ruby1.8
+ #sudo add-apt-repository ppa:mc3man/trusty-media
+ #sudo apt-add-repository ppa:noobslab/deepin-sc
+ #sudo apt-get update
+ #sudo apt-get install deepin-music-player
