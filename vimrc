@@ -116,6 +116,15 @@ if v:version >= 702
 	set   cmdheight=1
 	"set  invlist "show all char
 	"set  nolist
+
+	" 显示tab和空格
+	 set list
+	" 设置tab和空格样式
+	 set lcs=tab:\┊\ ,nbsp:%,trail:-
+	" 设定行首tab为灰色
+	 highlight LeaderTab guifg=#666666
+	 " 匹配行首tab
+	 match LeaderTab /^\t/"
 endif
 
 "********************************************************************************
@@ -200,6 +209,7 @@ let g:vimrc_homepage=''
 "********************************************************************************
 let g:indentLine_char = '┊'
 "let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#A4E57E'
 
 "********************************************************************************
 "C，C++ 按F5编译运行
