@@ -28,6 +28,7 @@ alias gd='git diff'
 alias ga='git add'
 alias gm='git commit'
 alias gl='git log'
+alias astyle='astyle --style=linux -p --indent=force-tab --suffix=none --recursive'
 
 
 export USE_CCACHE=1
