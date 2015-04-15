@@ -4,6 +4,7 @@ source ~/.vim/bin/source_file/gt.sh
 source ~/.vim/bin/source_file/envsetup.sh
 source ~/.vim/bin/source_file/gg.sh
 source ~/.vim/bin/source_file/ast.sh
+source ~/.vim/bin/source_file/tounix.sh
 
 
 #alias adb='adb wait-for-device&&adb '
