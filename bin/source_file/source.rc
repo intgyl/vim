@@ -31,7 +31,7 @@ alias ga='git add'
 alias gm='git commit'
 alias gl='git log'
 alias gdt='git difftool -y -t meld'
-alias gdth='git difftool -y -y meld HEAD^'
+alias gdth='git difftool -y -t meld HEAD^'
 alias sf='sudo fastboot'
 
 
