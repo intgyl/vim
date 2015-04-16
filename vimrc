@@ -189,8 +189,9 @@ nmap wQ :wq!<ENTER>
 nmap WQ :wq!<ENTER>
 nnoremap W :w<ENTER>
 nnoremap <C-w> <C-w>w
+nnoremap <space> $
 nnoremap s %
-nnoremap e $
+nnoremap e #
 nnoremap ; *
 nnoremap f 0
 let OpenDir=system("pwd")
