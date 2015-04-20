@@ -130,6 +130,9 @@ sudo apt-get upgrade
 git config --global core.editor vim
 git config --global merge.tool vimdiff
 
+#mac 任务栏
+apt-fast insatll cairo-dock -y --force-yes
+
 #编译android需要安装的一些软件
 apt-fast install g++ -y --force-yes
 apt-fast install m4 -y --force-yes
