@@ -48,8 +48,8 @@ sudo sed -i 's/gedit/vim/g' /etc/gnome/defaults.list
 apt-fast install minicom -y --force-yes
 
 #easystroke
-apt-fast install easystroke -y --force-yes
-ln -s ~/.vim/soft_config/easystroke/ .easystroke
+#apt-fast install easystroke -y --force-yes
+#ln -s ~/.vim/soft_config/easystroke/ .easystroke
 
 #samba
 apt-fast install samba -y --force-yes
