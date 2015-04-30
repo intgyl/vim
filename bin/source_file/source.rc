@@ -49,6 +49,7 @@ source ~/.vim/bin/source_file/where_which.sh
 
 #auto unzip into a folder
 source ~/.vim/bin/source_file/uzip.sh
+source ~/.vim/bin/source_file/urar.sh
 
 #Automatically corrected the cd path when you input error
 shopt -s cdspell
