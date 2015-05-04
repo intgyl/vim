@@ -488,7 +488,6 @@ nmap <silent> <leader>wm :WMToggle<cr>
 
 "modify ctags' shortcuts 
 noremap ]  <C-]>
-noremap t  <C-t>
 
 "This tip provides the same autoloading functionality for Cscope
 function! LoadCscope()
