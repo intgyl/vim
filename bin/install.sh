@@ -171,6 +171,10 @@ sudo apt-get install ubuntu-tweak
 rm -rf ~/.config/ubuntu-tweak/
 sudo ln -s ~/.vim/soft_config/ubuntu-tweak/ ~/.config/ubuntu-tweak/
 
+#caro-dock
+sudo add-apt-repository ppa:cairo-dock-team/ppa
+sudo apt-get update
+
 #fonts
 sudo mkdir -p /usr/share/fonts/winfonts
 sudo cp ~/.vim/bin/winfonts/* /usr/share/fonts/winfonts
