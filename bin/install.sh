@@ -6,7 +6,7 @@ sudo apt-get install axel -y --force-yes
 sudo apt-get install git -y --force-yes
 cd ~
 #git 使用英文提示
-echo alias git=\'LANG=en_GB git\' >> ~/.bashrc
+#echo alias git=\'LANG=en_GB git\' >> ~/.bashrc
 
 mv ~/.vim ~/.vim.old
 mv ~/.vimrc ~/.vimrc.old
