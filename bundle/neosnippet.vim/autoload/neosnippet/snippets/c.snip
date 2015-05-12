@@ -25,7 +25,7 @@ snippet     debugu
 abbr        set debug log
     /* gyl add for debug */
     #define LOG_LEVEL LOG_LEVEL_I
-    #define MODULE_TAG "gyl-----"
+    #define MODULE_TAG "[gyl]"
 
     #define LOG_LEVEL_E 3
     #define LOG_LEVEL_N 5
@@ -65,7 +65,7 @@ snippet     debugk
 abbr        debug difine
     /* gyl add for debug */
     #define LOG_LEVEL LOG_LEVEL_I
-    #define MODULE_TAG "gyl-----"
+    #define MODULE_TAG "[gyl]"
 
     #define LOG_LEVEL_E 3
     #define LOG_LEVEL_N 5
@@ -239,8 +239,8 @@ abbr    fprintf(..., "...\n", ...);
     fprintf(${1:stderr}, "${2}\n");
 
 snippet log
-abbr    pr_err("gyl------%s\n",__func__);
-    pr_err("gyl------%s:${1}\n",__func__);
+abbr    pr_err("[gyl] %s\n",__func__);
+    pr_err("[gyl] %s:${1}\n",__func__);
 
 snippet comment
 alias /*   */
