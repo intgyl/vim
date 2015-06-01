@@ -1,11 +1,8 @@
 
-#准备下载环境，安装下载工具
 sudo apt-get install axel -y --force-yes
-
-#下载vim配置即一些脚本
 sudo apt-get install git -y --force-yes
 cd ~
-#git 使用英文提示
+#git use English
 #echo alias git=\'LANG=en_GB git\' >> ~/.bashrc
 
 mv ~/.vim ~/.vim.old
@@ -17,19 +14,15 @@ cd software
 #git clone https://github.com/goagent/goagent
 #git clone https://github.com/huhamhire/huhamhire-hosts
 git clone https://github.com/XX-net/XX-Net.git
-cd ~/sofware/goagent*/local/
-./addto-startup.py
+#cd ~/sofware/goagent*/local/
+#./addto-startup.py
 
 cd ~
 
 ln -s ~/.vim/vimrc .vimrc
-sudo ln -s /usr/bin/astyle ~/.vim/bin/astyle
 
-#add PATH
-echo "export PATH=~/.vim/bin:$PATH" >> ~/.bashrc
-
-#add easy sh
-echo "source ~/.vim/bin/source_file/source.rc" >> ~/.bashrc
+#add my tools
+echo "source ~/.vim/bin/source.rc" >> ~/.bashrc
 
 #add apt-fast
 sudo cp .vim/bin/other/apt-fast /usr/bin/
@@ -89,7 +82,7 @@ apt-fast insatll python-vte -y --force-yes
 #for XX-net
 apt-fast install libnss3-tools -y --force-yes
 
-#16进制编辑器
+#16 editor
 apt-fast install hexedit -y --force-yes
 
 #gimp
@@ -108,17 +101,17 @@ sudo apt-get install cups-pdf -y --force-yes
 #sudo add-apt-repository ppa:ubuntu-wine/ppa
 #sudo apt-get update
 
-#禁用自动挂载
+#disable automount
 #gsettings set org.gnome.desktop.media-handling automount "false"
 #dconf write /org/gnome/desktop/media-handling/automount  "false"
 
-#在文件夹中右键打开终端
+#open the terminal on right click
 apt-fast install nautilus-open-terminal
 
 #krusader
 #apt-fast install krusader -y --force-yes
 
-#解码器
+#codec
 apt-fast intall ubuntu-restricted-extras -y --force-yes
 
 #the min window view
@@ -130,10 +123,9 @@ sudo apt-get upgrade
 git config --global core.editor vim
 git config --global merge.tool vimdiff
 
-#mac 任务栏
 apt-fast insatll cairo-dock -y --force-yes
 
-#编译android需要安装的一些软件
+#Android tools
 apt-fast install g++ -y --force-yes
 apt-fast install m4 -y --force-yes
 apt-fast install gperf -y --force-yes
@@ -158,7 +150,7 @@ apt-fast install xsltproc -y --force-yes
 apt-fast install libxml2-utils -y --force-yes
 apt-fast install libncurses5-dev -y --force-yes
 
-#滚动条
+#scrollbar-mode normal
 gsettings set com.canonical.desktop.interface scrollbar-mode normal
 
 
@@ -175,7 +167,7 @@ sudo ln -s ~/.vim/soft_config/ubuntu-tweak/ ~/.config/ubuntu-tweak/
 sudo add-apt-repository ppa:cairo-dock-team/ppa
 sudo apt-get update
 
-#fonts
+#yahei fonts
 sudo mkdir -p /usr/share/fonts/winfonts
 sudo cp ~/.vim/bin/winfonts/* /usr/share/fonts/winfonts
 sudo chmod 644 /usr/share/fonts/winfonts/*
@@ -185,11 +177,12 @@ sudo mkfontdir
 sudo fc-cache -fv
 
 cd ~
-
+source ~/.bashrc
 
 echo "进入ubutun麒麟官网，下载并安装搜狗输入法。"
 echo "安装完毕后，打开系统设置-->languageSupport-->keyboard input method system： fcitx"
-#安装深度音乐
+
+#install deepin music
  #sudo apt-get install libmixlib-config-ruby libmixlib-log-ruby libmixlib-cli-ruby1.9.1 libmixlib-cli-ruby libmixlib-cli-ruby1.8 xlibosmesa-dev xlibmesa-glu-dev  libmixlib-log-ruby1.8 pxlib1 python-xlib libmixlib-authentication-ruby  libmixlib-config-ruby1.8 pxlib-dev libmixlib-authentication-ruby1.8
  #sudo add-apt-repository ppa:mc3man/trusty-media
  #sudo apt-add-repository ppa:noobslab/deepin-sc

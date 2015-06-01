@@ -3,21 +3,21 @@
 # check env
 if [ ! -x /usr/bin/7z ]
 then echo "7z is not installed, perform this?(y/n)"
-    read ops
-    case $ops in
-         y) if sudo apt-get install p7zip-full -y --force-yes
-               then echo "7z installed"
-            else echo "unable to install the 7z. you are using sudo?" ; exit
-            fi ;;
-         n) echo "not possible usage 7z" ; exit ;;
-    esac
+	read ops
+	case $ops in
+		y) if sudo apt-get install p7zip-full -y --force-yes
+		then echo "7z installed"
+		else echo "unable to install the 7z. you are using sudo?" ; exit
+		fi ;;
+	n) echo "not possible usage 7z" ; exit ;;
+esac
 fi
 
 # check input ...
 if [ $# -lt 2 ]; then
 	echo \$#=$#
 	echo  'Usage:'
-   	echo  $0 a.sh b.bin
+	echo  $0 a.sh b.bin
 	exit 1
 fi
 file_sh=$1
@@ -73,14 +73,14 @@ exit 0
 # check env
 if [ ! -x /usr/bin/7z ]
 then echo "7z is not installed, perform this?(y/n)"
-    read ops
-    case $ops in
-         y) if sudo apt-get install p7zip-full -y --force-yes
-               then echo "7z installed"
-            else echo "unable to install the 7z. you are using sudo?" ; exit
-            fi ;;
-         n) echo "not possible usage apt-fast" ; exit ;;
-    esac
+	read ops
+	case $ops in
+		y) if sudo apt-get install p7zip-full -y --force-yes
+		then echo "7z installed"
+		else echo "unable to install the 7z. you are using sudo?" ; exit
+		fi ;;
+	n) echo "not possible usage apt-fast" ; exit ;;
+esac
 fi
 temp_7z=`mktemp`.7z
 temp_dir=`mktemp -d`
@@ -88,9 +88,9 @@ md5_7z=_MD5_7Z_
 tail -n +_LINE_ $0 > $temp_7z
 md5out=`md5sum $temp_7z | awk '{print $1}'`
 if [ $md5out != $md5_7z ]; then
-echo unpack $0 error, exit..
-rm $temp_7z
-exit 1
+	echo unpack $0 error, exit..
+	rm $temp_7z
+	exit 1
 fi
 7z x $temp_7z -o$temp_dir > /dev/null
 export PATH=$temp_dir:$PATH
@@ -98,9 +98,9 @@ rm $temp_7z
 chmod +x $temp_dir/_FILE_
 _FILE_ $@
 if [ $? != 0 ]; then
-echo _FILE_ error found, exit..
-rm $temp_dir -rf
-exit 1
+	echo _FILE_ error found, exit..
+	rm $temp_dir -rf
+	exit 1
 fi
 echo _FILE_ over, Success
 rm $temp_dir -rf
