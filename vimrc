@@ -193,6 +193,8 @@ nnoremap <space> $
 nnoremap s %
 nnoremap ; *
 nnoremap f 0
+nnoremap b B
+nnoremap e E
 let OpenDir=system("pwd")
 nmap <silent> <leader>cdr :exe 'cd ' . OpenDir<cr>:pwd<cr>
 nmap <silent> <leader>cdf :cd %:h<cr>:pwd<cr>
