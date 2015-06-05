@@ -39,6 +39,7 @@ call vundle#rc()
    Bundle 'godlygeek/tabular'
    Bundle 'Lokaltog/vim-easymotion'
    Bundle 'altercation/vim-colors-solarized'
+   Bundle 'https://github.com/vim-scripts/xptemplate.git'
    "Bundle 'tpope/vim-fugitive'
    "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
    "Bundle 'tpope/vim-rails.git'
