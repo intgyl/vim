@@ -242,6 +242,10 @@ snippet log
 abbr    pr_err("[gyl] %s\n",__func__);
     pr_err("[gyl] %s:${1}\n",__func__);
 
+snippet kinfo
+abbr    pr_info("[gyl] %s\n",__func__);
+    pr_info("[gyl] %s:${1}\n",__func__);
+
 snippet comment
 alias /*   */
     /* ${1:#:comment} */
