@@ -15,6 +15,7 @@ source ~/.vim/bin/tools/7z.sh
 
 #alias adb='adb wait-for-device&&adb '
 alias arb='adb wait-for-device&&adb reboot bootloader'
+alias arr='adb reboot recovery'
 alias c1='cd ..'
 alias c2='cd ../../'
 alias c3='cd ../../..'
