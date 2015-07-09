@@ -91,7 +91,7 @@ if v:version >= 702
 	set   incsearch
 	set   laststatus=2
 	"You can copy context if use v
-	set   mouse=n
+	"set   mouse=n
 	set   selection=exclusive
 	set   selectmode=mouse,key
 
