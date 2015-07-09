@@ -193,6 +193,7 @@ nnoremap <space> $
 nnoremap s %
 nnoremap ; *
 nnoremap f 0
+nnoremap e #
 "nnoremap b B
 "nnoremap e E
 let OpenDir=system("pwd")
