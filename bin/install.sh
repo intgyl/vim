@@ -14,7 +14,7 @@ cd software
 #git clone https://github.com/goagent/goagent
 #git clone https://github.com/huhamhire/huhamhire-hosts
 git clone https://github.com/XX-net/XX-Net.git
-#cd ~/sofware/goagent*/local/
+#cd ~/software/goagent*/local/
 #./addto-startup.py
 
 cd ~
