@@ -43,6 +43,7 @@ alias gdt='git difftool -y -t meld'
 alias gdth='git difftool -y -t meld HEAD^'
 alias sf='sudo fastboot'
 alias as='adb shell'
+alias R='ctags -R'
 
 
 export USE_CCACHE=1
