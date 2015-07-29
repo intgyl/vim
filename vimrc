@@ -194,6 +194,7 @@ nnoremap s %
 nnoremap ; *
 nnoremap f 0
 nnoremap e #
+noremap <leader>n :set mouse=n<ENTER>
 "nnoremap b B
 "nnoremap e E
 let OpenDir=system("pwd")
