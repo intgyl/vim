@@ -4,7 +4,6 @@
 "
 " Maintainer: gyl
 "    Created: 2013-07-02
-" LastChange: 2014-02-14
 
 
 set nocompatible
@@ -14,44 +13,44 @@ call vundle#rc()
 
 "from http://vim-scripts.org/vim/scripts.html
 "you can just write Bundle 'name'
-   Bundle 'Lokaltog/vim-powerline'
-   Bundle 'vim-scripts/Tagbar'
-  " Bundle 'vim-scripts/lookupfile'
-   Bundle 'https://github.com/Yggdroot/indentLine'
-   Bundle 'vim-scripts/genutils'
-   Bundle 'jslint.vim'
-   Bundle 'Auto-Pairs'
-   Bundle 'AuthorInfo'
-   "Bundle 'https://github.com/vimscript/c-support'
-   Bundle 'scrooloose/syntastic'
-   Bundle 'autoload_cscope.vim'
-   Bundle 'https://github.com/scrooloose/nerdtree.git'
-   Bundle 'https://github.com/Shougo/neocomplcache.vim.git'
-   Bundle 'https://github.com/Shougo/neosnippet.vim.git'
-   Bundle 'https://github.com/scrooloose/nerdcommenter.git'
-   Bundle 'https://github.com/vim-scripts/vcscommand.vim.git'
-   Bundle 'https://github.com/wesleyche/SrcExpl.git'
-   Bundle 'https://github.com/name5566/vim-bookmark.git'
-   Bundle 'git://github.com/altercation/vim-colors-solarized.git'
-   "Bundle 'fholgado/minibufexpl.vim'
-   Bundle 'bronson/vim-trailing-whitespace'
-   Bundle 'vim-scripts/TaskList.vim'
-   Bundle 'godlygeek/tabular'
-   Bundle 'Lokaltog/vim-easymotion'
-   Bundle 'altercation/vim-colors-solarized'
-   Bundle 'https://github.com/vim-scripts/xptemplate.git'
-   "Bundle 'tpope/vim-fugitive'
-   "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-   "Bundle 'tpope/vim-rails.git'
-   " vim-scripts repos
-   Bundle 'L9'
-   "Bundle ''
-   "Bundle 'FuzzyFinder'
-   " non-GitHub repos
-   "Bundle 'git://git.wincent.com/command-t.git'
-   " Git repos on your local machine (i.e. when working on your own plugin)
-   "Bundle 'file:///Users/gmarik/path/to/plugin'
-   " ...
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'vim-scripts/Tagbar'
+"Bundle 'vim-scripts/lookupfile'
+Bundle 'https://github.com/Yggdroot/indentLine'
+Bundle 'vim-scripts/genutils'
+Bundle 'jslint.vim'
+Bundle 'Auto-Pairs'
+Bundle 'AuthorInfo'
+"Bundle 'https://github.com/vimscript/c-support'
+Bundle 'scrooloose/syntastic'
+Bundle 'autoload_cscope.vim'
+Bundle 'https://github.com/scrooloose/nerdtree.git'
+Bundle 'https://github.com/Shougo/neocomplcache.vim.git'
+Bundle 'https://github.com/Shougo/neosnippet.vim.git'
+Bundle 'https://github.com/scrooloose/nerdcommenter.git'
+Bundle 'https://github.com/vim-scripts/vcscommand.vim.git'
+Bundle 'https://github.com/wesleyche/SrcExpl.git'
+Bundle 'https://github.com/name5566/vim-bookmark.git'
+Bundle 'git://github.com/altercation/vim-colors-solarized.git'
+"Bundle 'fholgado/minibufexpl.vim'
+Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'vim-scripts/TaskList.vim'
+Bundle 'godlygeek/tabular'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'https://github.com/vim-scripts/xptemplate.git'
+"Bundle 'tpope/vim-fugitive'
+"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Bundle 'tpope/vim-rails.git'
+" vim-scripts repos
+Bundle 'L9'
+"Bundle ''
+"Bundle 'FuzzyFinder'
+" non-GitHub repos
+"Bundle 'git://git.wincent.com/command-t.git'
+" Git repos on your local machine (i.e. when working on your own plugin)
+"Bundle 'file:///Users/gmarik/path/to/plugin'
+" ...
 
 "********************************************************************************
 
@@ -214,6 +213,14 @@ let g:vimrc_homepage=''
 let g:indentLine_char = '┊'
 "let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#A4E57E'
+
+"********************************************************************************
+"Config for Auto-Pairs
+
+let g:AutoPairsShortcutToggle = '<leader>a'
+"let g:AutoPairsShortcutFastWrap
+"let g:AutoPairsShortcutJump
+"let g:AutoPairsShortcutBackInsert
 
 "********************************************************************************
 "C，C++ 按F5编译运行
