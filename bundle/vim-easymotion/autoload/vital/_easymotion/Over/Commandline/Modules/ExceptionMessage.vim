@@ -2,10 +2,6 @@ scriptencoding utf-8
 let s:save_cpo = &cpo
 set cpo&vim
 
-
-let s:vname = expand("<sfile>:h:h:h:h:t")
-
-
 let s:module = {
 \	"name" : "ExceptionMessage",
 \}
@@ -26,7 +22,7 @@ endfunction
 
 function! s:module.message(...)
 	echohl ErrorMsg
-	execute self.command string(self.prefix . " : " . self.throwpoint . " " . self.exception)
+	execute self.command string(self.prefix . self.throwpoint . " " . self.exception)
 	echohl None
 endfunction
 
@@ -38,14 +34,12 @@ function! s:module.on_leave(cmdline)
 	endif
 endfunction
 
-
 function! s:make(...)
 	let result = deepcopy(s:module)
-	let result.prefix = get(a:, 1, "vital-over(".s:vname.") Exception")
-	let result.command = get(a:, 2, "echom")
+	let result.prefix = get(a:, 1, "vital-over:")
+	let result.command = get(a:, 2, "echo")
 	return result
 endfunction
-
 
 let &cpo = s:save_cpo
 unlet s:save_cpo

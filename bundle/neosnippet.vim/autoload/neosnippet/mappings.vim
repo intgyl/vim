@@ -1,6 +1,7 @@
 "=============================================================================
 " FILE: mappings.vim
 " AUTHOR:  Shougo Matsushita <Shougo.Matsu@gmail.com>
+" Last Modified: 21 Nov 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -49,9 +50,12 @@ function! neosnippet#mappings#_clear_select_mode_mappings() "{{{
     silent! smap
   redir END
 
-  for map in map(filter(split(mappings, '\n'),
-        \ "v:val !~# '^s' && v:val !~ '^\\a*\\s*<\\S\\+>'"),
-        \ "matchstr(v:val, '^\\a*\\s*\\zs\\S\\+')")
+  for line in map(filter(split(mappings, '\n'),
+        \ "v:val !~# '^s'"),
+        \ "substitute(v:val, '<NL>', '<C-J>', 'g')")
+    let map = matchstr(line, '^\a*\s*\zs\S\+')
+    let map = substitute(map, '<NL>', '<C-j>', 'g')
+
     silent! execute 'sunmap' map
     silent! execute 'sunmap <buffer>' map
   endfor
@@ -119,19 +123,7 @@ function! neosnippet#mappings#_expand_target_trigger(trigger) "{{{
 
   call cursor(line, col)
 
-  if col == 1
-    let cur_text = a:trigger
-  else
-    let cur_text = neosnippet#util#get_cur_text()
-    let cur_text = cur_text[: col-2] . a:trigger . cur_text[col :]
-  endif
-
-  call neosnippet#view#_expand(cur_text, col, a:trigger)
-
-  if !neosnippet#mappings#jumpable()
-    call cursor(0, col('.') - 1)
-    stopinsert
-  endif
+  call neosnippet#view#_expand(neosnippet#util#get_cur_text(), col, a:trigger)
 endfunction"}}}
 
 function! s:snippets_expand(cur_text, col) "{{{
@@ -170,7 +162,7 @@ function! s:snippets_jump_or_expand(cur_text, col) "{{{
 endfunction"}}}
 
 function! s:SID_PREFIX() "{{{
-  return matchstr(expand('<sfile>'), '<SNR>\d\+_\ze\w\+$')
+  return matchstr(expand('<sfile>'), '<SNR>\d\+_')
 endfunction"}}}
 
 function! s:trigger(function) "{{{
@@ -188,7 +180,7 @@ function! s:trigger(function) "{{{
   " Get selected text.
   let neosnippet = neosnippet#variables#current_neosnippet()
   let neosnippet.trigger = 1
-  if mode() ==# 's' && neosnippet.optional_tabstop
+  if mode() ==# 's' && neosnippet.selected_text =~ '^#:'
     let expr .= "\<C-o>\"_d"
   endif
 
@@ -209,7 +201,7 @@ function! neosnippet#mappings#expand_impl()
   return s:trigger(s:SID_PREFIX().'snippets_expand')
 endfunction
 function! neosnippet#mappings#jump_impl()
-  return s:trigger('neosnippet#view#_jump')
+  return s:trigger('neosnippet#jump')
 endfunction
 
 let &cpo = s:save_cpo

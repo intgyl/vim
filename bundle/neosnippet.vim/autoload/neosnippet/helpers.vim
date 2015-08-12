@@ -1,6 +1,7 @@
 "=============================================================================
 " FILE: helpers.vim
 " AUTHOR:  Shougo Matsushita <Shougo.Matsu@gmail.com>
+" Last Modified: 21 Nov 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -188,7 +189,7 @@ function! s:get_sources_filetypes(filetype) "{{{
         \   neocomplete#get_source_filetypes(a:filetype) :
         \ exists('*neocomplcache#get_source_filetypes') ?
         \   neocomplcache#get_source_filetypes(a:filetype) :
-        \ split(((a:filetype == '') ? 'nothing' : a:filetype), '\.')
+        \   [(a:filetype == '') ? 'nothing' : a:filetype]
   return filetypes + ['_']
 endfunction"}}}
 
