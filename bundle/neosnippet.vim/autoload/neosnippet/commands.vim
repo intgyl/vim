@@ -1,7 +1,6 @@
 "=============================================================================
 " FILE: commands.vim
 " AUTHOR:  Shougo Matsushita <Shougo.Matsu@gmail.com>
-" Last Modified: 21 Nov 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -33,6 +32,13 @@ let s:edit_options = [
       \ '-vertical', '-horizontal', '-direction=', '-split',
       \]
 "}}}
+
+function! s:get_list() "{{{
+  if !exists('s:List')
+    let s:List = vital#of('neosnippet').import('Data.List')
+  endif
+  return s:List
+endfunction"}}}
 
 function! neosnippet#commands#_edit(args) "{{{
   if neosnippet#util#is_sudo()
@@ -80,7 +86,7 @@ function! neosnippet#commands#_edit(args) "{{{
   endif
 
   try
-    edit `=filename`
+    execute 'edit' fnameescape(filename)
   catch /^Vim\%((\a\+)\)\=:E749/
   endtry
 endfunction"}}}
@@ -98,29 +104,78 @@ function! neosnippet#commands#_make_cache(filetype) "{{{
   if has_key(snippets, filetype)
     return
   endif
+  let snippets[filetype] = {}
 
-  let snippets_dir = neosnippet#helpers#get_snippets_directory()
-  let snippet = {}
-  let snippets_files =
-        \   split(globpath(join(snippets_dir, ','),
-        \   filetype .  '.snip*'), '\n')
-        \ + split(globpath(join(snippets_dir, ','),
-        \   filetype .  '_*.snip*'), '\n')
-        \ + split(globpath(join(snippets_dir, ','),
-        \   filetype .  '/**/*.snip*'), '\n')
-  for snippets_file in reverse(snippets_files)
-    call neosnippet#parser#_parse(snippet, snippets_file)
+  let path = join(neosnippet#helpers#get_snippets_directory(), ',')
+  let snippets_files = []
+  for glob in s:get_list().flatten(
+        \ map(split(get(g:neosnippet#scope_aliases,
+        \   filetype, filetype), '\s*,\s*'), "
+        \   [v:val . '.snip*', v:val .  '/**/*.snip*']
+        \ + (filetype != '_' &&
+        \    !has_key(g:neosnippet#scope_aliases, filetype) ?
+        \    [v:val . '_*.snip*'] : [])"))
+    let snippets_files += split(globpath(path, glob), '\n')
   endfor
 
   let snippets = neosnippet#variables#snippets()
-  let snippets[filetype] = snippet
+  for snippet_file in reverse(s:get_list().uniq(snippets_files))
+    let snippets[filetype] = extend(snippets[filetype],
+          \ neosnippet#parser#_parse(snippet_file))
+  endfor
 endfunction"}}}
 
 function! neosnippet#commands#_source(filename) "{{{
   call neosnippet#init#check()
 
   let neosnippet = neosnippet#variables#current_neosnippet()
-  call neosnippet#parser#_parse(neosnippet.snippets, a:filename)
+  let neosnippet.snippets = extend(neosnippet.snippets,
+        \ neosnippet#parser#_parse(a:filename))
+endfunction"}}}
+
+function! neosnippet#commands#_clear_markers() "{{{
+  let expand_stack = neosnippet#variables#expand_stack()
+
+  " Get patterns and count.
+  if !&l:modifiable
+        \ || empty(expand_stack)
+        \ || neosnippet#variables#current_neosnippet().trigger
+    return
+  endif
+
+  let expand_info = expand_stack[-1]
+
+  " Search patterns.
+  let [begin, end] = neosnippet#view#_get_snippet_range(
+        \ expand_info.begin_line,
+        \ expand_info.begin_patterns,
+        \ expand_info.end_line,
+        \ expand_info.end_patterns)
+
+  let pos = getpos('.')
+
+  " Found snippet.
+  let found = 0
+  try
+    while neosnippet#view#_search_snippet_range(
+          \ begin, end, expand_info.holder_cnt, 0)
+
+      " Next count.
+      let expand_info.holder_cnt += 1
+      let found = 1
+    endwhile
+
+    " Search placeholder 0.
+    if neosnippet#view#_search_snippet_range(begin, end, 0)
+      let found = 1
+    endif
+  finally
+    if found
+      stopinsert
+    endif
+
+    call setpos('.', pos)
+  endtry
 endfunction"}}}
 
 " Complete helpers.
