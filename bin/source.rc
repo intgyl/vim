@@ -60,7 +60,7 @@ shopt -s cdspell
 export PATH=$PATH:~/.vim/bin/debug/
 
 #if [ "$color_prompt" = yes  ]; then
-#	PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[32m\]\w \[\e[m\]\n$ '
+#	PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[33m\]\w \[\e[m\]\n$ '
 #fi
 
 
