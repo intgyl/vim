@@ -38,7 +38,7 @@ Bundle 'vim-scripts/TaskList.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'https://github.com/vim-scripts/xptemplate.git'
+Bundle 'https://github.com/vim-scripts/xptemplate'
 "Bundle 'tpope/vim-fugitive'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 "Bundle 'tpope/vim-rails.git'
@@ -296,16 +296,20 @@ endfunc
 
 "********************************************************************************
 
+let g:tagbar_width=35
+let g:tagbar_left = 1
+autocmd VimEnter * nested :TagbarOpen
+
 " PLUGIN SETTINGS:
 " taglist.vim
-let g:Tlist_Auto_Update=1
-let g:Tlist_Process_File_Always=1
-let g:Tlist_Exit_OnlyWindow=1
-let g:Tlist_Show_One_File=1
-let g:Tlist_WinWidth=35
-let g:Tlist_Enable_Fold_Column=0
-let g:Tlist_Auto_Highlight_Tag=1
-let g:Tlist_Auto_Open=1
+"let g:Tlist_Auto_Update=1
+"let g:Tlist_Process_File_Always=1
+"let g:Tlist_Exit_OnlyWindow=1
+"let g:Tlist_Show_One_File=1
+"let g:Tlist_WinWidth=35
+"let g:Tlist_Enable_Fold_Column=0
+"let g:Tlist_Auto_Highlight_Tag=1
+"let g:Tlist_Auto_Open=1
 
 " NERDTree.vim
 let g:NERDTreeWinPos="right"
@@ -464,7 +468,7 @@ function! RunShell(Msg, Shell)
 	call system(a:Shell)
 	echon 'done'
 endfunction
-nmap  <F2> :TlistToggle<cr>
+nmap  <F2> :TagbarToggle<cr>
 nmap  <F3> :NERDTreeToggle<cr>
 "nmap  <F4> :MRU<cr>
 "nmap  <F5> <Plug>LookupFile<cr>
