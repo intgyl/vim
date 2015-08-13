@@ -298,7 +298,8 @@ endfunc
 
 let g:tagbar_width=35
 let g:tagbar_left = 1
-autocmd VimEnter * nested :TagbarOpen
+"autocmd VimEnter * nested :TagbarOpen
+autocmd VimEnter * nested :call tagbar#autoopen(1)
 
 " PLUGIN SETTINGS:
 " taglist.vim
