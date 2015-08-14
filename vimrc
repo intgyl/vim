@@ -321,7 +321,7 @@ let g:NERDTreeQuitOnOpen=1
 "********************************************************************************
 set t_Co=256
 
- let g:Powerline_colorscheme = 'solarized256'
+ let g:Powerline_colorscheme = 'solarized16'
  let g:Powerline_stl_path_style = 'full'
  "let g:Powerline_symbols = 'unicode'
  let g:Powerline_mode_n = 'NORMAL'
