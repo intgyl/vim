@@ -30,11 +30,11 @@ suffix() {
 
 		cd - > /dev/null
 	else
-		echo "$3 is not a directory!"
+		echo "$3 is not a directory, why don't you use mv!"
 	fi
 }
 function print_suffix_usage {
 
 	echo  'Usage:'
-	echo  'suffix <original> <new> <file/directory>'
+	echo  'suffix <original> <new> <directory>'
 }
