@@ -24,6 +24,7 @@ ln -s ~/.vim/vimrc .vimrc
 #add my tools
 echo "source ~/.vim/bin/source.rc" >> ~/.bashrc
 
+#sudo echo "gyl ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 #add apt-fast
 sudo cp .vim/bin/other/apt-fast /usr/bin/
 sudo chmod 755 /usr/bin/apt-fast
