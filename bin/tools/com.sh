@@ -1,15 +1,15 @@
 #!/bin/bash
 #[ "`whoami`" = root ] || exec sudo "$0" "$@"
 com() {
-	if [  ! -d ~/log ]; then
+	if [  ! -d ~/log/minicom_log/ ]; then
 		echo there is no log derectery, please input this command
-		echo "mkdir ~/log"
-		exit 1
+		echo "mkdir ~/log/minicom_log/"
+		mkdir -p ~/log/minicom_log/
 	fi
 	today_dir=`LCALL=C date +%F`
-	if [  ! -d ~/log/$today_dir ]; then
-		echo auto midir ~/log/$today_dir
-		mkdir ~/log/$today_dir
+	if [  ! -d ~/log/minicom_log/$today_dir ]; then
+		echo auto midir ~/log/minicom_log/$today_dir
+		mkdir ~/log/minicom_log/$today_dir
 	fi
 	#if [  -z ~/.data_my_passwd ]; then
 	#	echo there is no passwd file, please input the passwd to ~/.data_my_passwd
@@ -22,6 +22,6 @@ com() {
 	if [ $# != 0 ]; then
 		sudo minicom $@
 	else
-		sudo minicom -C ~/log/${logname}.log
+		sudo minicom -C ~/log/minicom_log/${logname}.log
 	fi
 }
