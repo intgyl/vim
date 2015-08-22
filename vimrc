@@ -224,41 +224,43 @@ let g:AutoPairsShortcutToggle = '<leader>a'
 
 "********************************************************************************
 "C，C++ 按F5编译运行
-map <F5> :call CompileRunGcc()<CR>
-func! CompileRunGcc()
-	exec "w"
-	if &filetype == 'c'
-		exec "!g++ % -o %<"
-		exec "!time ./%<"
-	elseif &filetype == 'cpp'
-		exec "!g++ % -o %<"
-		exec "!time ./%<"
-	elseif &filetype == 'java' 
-		exec "!javac %" 
-		exec "!time java %<"
-	elseif &filetype == 'sh'
-		:!time bash %
-	elseif &filetype == 'python'
-		exec "!time python2.7 %"
-    elseif &filetype == 'html'
-        exec "!firefox % &"
-    elseif &filetype == 'go'
-"        exec "!go build %<"
-        exec "!time go run %"
-    elseif &filetype == 'mkd'
-        exec "!~/.vim/markdown.pl % > %.html &"
-        exec "!firefox %.html &"
-	endif
-endfunc
-"C,C++的调试
-map <F8> :call Rungdb()<CR>
-func! Rungdb()
-	exec "w"
-	exec "!g++ % -g -o %<"
-	exec "!gdb ./%<"
-endfunc
-
-
+"map <F5> :call CompileRunGcc()<CR>
+"func! CompileRunGcc()
+"	exec "w"
+"	if &filetype == 'c'
+"		exec "!g++ % -o %<"
+"		exec "!time ./%<"
+"	elseif &filetype == 'cpp'
+"		exec "!g++ % -o %<"
+"		exec "!time ./%<"
+"	elseif &filetype == 'java' 
+"		exec "!javac %" 
+"		exec "!time java %<"
+"	elseif &filetype == 'sh'
+"		:!time bash %
+"	elseif &filetype == 'python'
+"		exec "!time python2.7 %"
+"    elseif &filetype == 'html'
+"        exec "!firefox % &"
+"    elseif &filetype == 'go'
+""        exec "!go build %<"
+"        exec "!time go run %"
+"    elseif &filetype == 'mkd'
+"        exec "!~/.vim/markdown.pl % > %.html &"
+"        exec "!firefox %.html &"
+"	endif
+"endfunc
+""C,C++的调试
+"map <F8> :call Rungdb()<CR>
+"func! Rungdb()
+"	exec "w"
+"	exec "!g++ % -g -o %<"
+"	exec "!gdb ./%<"
+"endfunc
+"
+"
+map <F5> :Sex<Enter>
+map <F6> :Sex!<Enter>
 "********************************************************************************
 "代码格式优化化
 
