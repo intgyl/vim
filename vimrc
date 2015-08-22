@@ -270,19 +270,19 @@ map <F10> :call FormartSrc()<CR><CR>
 func FormartSrc()
     exec "w"
     if &filetype == 'c'
-        exec "!astyle --style=linux -p --indent=force-tab --suffix=none %"
+        exec "!~/.vim/bin/tools/astyle --style=linux -p --indent=force-tab --suffix=none %"
     elseif &filetype == 'cpp' || &filetype == 'hpp' || &filetype == 'cc'
-        exec "r !astyle --style=linux -p --indent=force-tab --suffix=none %"
+        exec "r !~/.vim/bin/tools/astyle --style=linux -p --indent=force-tab --suffix=none %"
     elseif &filetype == 'perl'
-        exec "!astyle --style=gnu --suffix=none %"
+        exec "!~/.vim/bin/tools/astyle --style=gnu --suffix=none %"
     elseif &filetype == 'py'||&filetype == 'python'
         exec "r !autopep8 -i --aggressive %"
     elseif &filetype == 'java'
-        exec "!astyle --style=java --suffix=none %"
+        exec "!~/.vim/bin/tools/astyle --style=java --suffix=none %"
     elseif &filetype == 'jsp'
-        exec "!astyle --style=gnu --suffix=none %"
+        exec "!~/.vim/bin/tools/astyle --style=gnu --suffix=none %"
     elseif &filetype == 'xml'
-        exec "!astyle --style=gnu --suffix=none %"
+        exec "!~/.vim/bin/tools/astyle --style=gnu --suffix=none %"
     else
         exec "normal gg=G"
         return
