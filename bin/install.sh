@@ -92,6 +92,9 @@ apt-fast install gimp -y --force-yes
 #PDF printer :print to pdf format. default out_dir ~/PDF/
 sudo apt-get install cups-pdf -y --force-yes
 
+sudo apt-get install compizconfig-settings-manager
+sudo apt-get install compiz-plugins
+
 #docky
 #apt-fast install docky -y --force-yes
 
