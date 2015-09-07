@@ -1,7 +1,6 @@
 "=============================================================================
 " FILE: variables.vim
 " AUTHOR:  Shougo Matsushita <Shougo.Matsu@gmail.com>
-" Last Modified: 21 Nov 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -34,6 +33,7 @@ function! neosnippet#variables#current_neosnippet() "{{{
           \ 'selected_text' : '',
           \ 'target' : '',
           \ 'trigger' : 0,
+          \ 'optional_tabstop' : 0,
           \}
   endif
 
@@ -45,6 +45,9 @@ function! neosnippet#variables#expand_stack() "{{{
   endif
 
   return s:expand_stack
+endfunction"}}}
+function! neosnippet#variables#clear_expand_stack() "{{{
+  let s:expand_stack = []
 endfunction"}}}
 function! neosnippet#variables#snippets() "{{{
   if !exists('s:snippets')
@@ -73,6 +76,19 @@ function! neosnippet#variables#runtime_dir() "{{{
   endif
 
   return s:runtime_dir
+endfunction"}}}
+function! neosnippet#variables#data_dir() "{{{
+  let g:neosnippet#data_directory =
+        \ substitute(fnamemodify(get(
+        \   g:, 'neosnippet#data_directory',
+        \  ($XDG_CACHE_HOME != '' ?
+        \   $XDG_CACHE_HOME . '/neosnippet' : expand('~/.cache/neosnippet'))),
+        \  ':p'), '\\', '/', 'g')
+  if !isdirectory(g:neosnippet#data_directory)
+    call mkdir(g:neosnippet#data_directory, 'p')
+  endif
+
+  return g:neosnippet#data_directory
 endfunction"}}}
 
 let &cpo = s:save_cpo
