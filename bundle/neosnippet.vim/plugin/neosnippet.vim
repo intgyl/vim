@@ -1,6 +1,7 @@
 "=============================================================================
 " FILE: neosnippet.vim
 " AUTHOR:  Shougo Matsushita <Shougo.Matsu@gmail.com>
+" Last Modified: 21 Nov 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -59,11 +60,13 @@ xnoremap <silent> <Plug>(neosnippet_get_selected_text)
 
 xnoremap <silent> <Plug>(neosnippet_expand_target)
       \ :<C-u>call neosnippet#mappings#_expand_target()<CR>
+xnoremap <silent><expr> <Plug>(neosnippet_start_unite_snippet_target)
+      \ unite#sources#snippet_target#start()
 xnoremap <silent> <Plug>(neosnippet_register_oneshot_snippet)
       \ :<C-u>call neosnippet#mappings#_register_oneshot_snippet()<CR>
 
 inoremap <expr><silent> <Plug>(neosnippet_start_unite_snippet)
-      \ unite#sources#neosnippet#start_complete()
+      \ unite#sources#snippet#start_complete()
 "}}}
 
 augroup neosnippet "{{{
@@ -82,9 +85,6 @@ command! -nargs=? -complete=customlist,neosnippet#commands#_filetype_complete
 command! -nargs=1 -complete=file
       \ NeoSnippetSource
       \ call neosnippet#commands#_source(<q-args>)
-
-command! NeoSnippetClearMarkers
-      \ call neosnippet#commands#_clear_markers()
 "}}}
 
 let g:loaded_neosnippet = 1

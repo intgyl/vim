@@ -1,6 +1,7 @@
 "=============================================================================
 " FILE: helpers.vim
 " AUTHOR:  Shougo Matsushita <Shougo.Matsu@gmail.com>
+" Last Modified: 21 Nov 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -67,10 +68,6 @@ function! neosnippet#helpers#get_snippets() "{{{
   call filter(snippets, "cur_text =~# get(v:val, 'regexp', '')")
 
   return snippets
-endfunction"}}}
-function! neosnippet#helpers#get_completion_snippets() "{{{
-  return filter(neosnippet#helpers#get_snippets(),
-        \ "!get(v:val.options, 'oneshot', 0)")
 endfunction"}}}
 
 function! neosnippet#helpers#get_snippets_directory() "{{{
@@ -192,7 +189,7 @@ function! s:get_sources_filetypes(filetype) "{{{
         \   neocomplete#get_source_filetypes(a:filetype) :
         \ exists('*neocomplcache#get_source_filetypes') ?
         \   neocomplcache#get_source_filetypes(a:filetype) :
-        \ split(((a:filetype == '') ? 'nothing' : a:filetype), '\.')
+        \   [(a:filetype == '') ? 'nothing' : a:filetype]
   return filetypes + ['_']
 endfunction"}}}
 

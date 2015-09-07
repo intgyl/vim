@@ -1,6 +1,7 @@
 "=============================================================================
 " FILE: neosnippet.vim
 " AUTHOR:  Shougo Matsushita <Shougo.Matsu@gmail.com>
+" Last Modified: 21 Nov 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -31,19 +32,16 @@ let s:source = {
       \ 'kind' : 'keyword',
       \ 'rank' : 8,
       \ 'hooks' : {},
-      \ 'matchers' :
-      \      (g:neocomplete#enable_fuzzy_completion ?
-      \          ['matcher_fuzzy'] : ['matcher_head']),
       \}
 
+function! s:source.hooks.on_init(context) "{{{
+  " Initialize.
+  call neosnippet#util#set_default(
+        \ 'g:neosnippet#enable_preview', 0)
+endfunction"}}}
+
 function! s:source.gather_candidates(context) "{{{
-  let snippets = values(neosnippet#helpers#get_completion_snippets())
-  if matchstr(a:context.input, '\S\+$') !=#
-        \ matchstr(a:context.input, '\w\+$')
-    " Word filtering
-    call filter(snippets, 'v:val.options.word')
-  endif
-  return snippets
+  return values(neosnippet#helpers#get_snippets())
 endfunction"}}}
 
 function! s:source.hooks.on_post_filter(context) "{{{
@@ -51,6 +49,9 @@ function! s:source.hooks.on_post_filter(context) "{{{
     let snippet.dup = 1
     let snippet.menu = neosnippet#util#strwidthpart(
           \ snippet.menu_template, winwidth(0)/3)
+    if g:neosnippet#enable_preview
+      let snippet.info = snippet.snip
+    endif
   endfor
 
   return a:context.candidates

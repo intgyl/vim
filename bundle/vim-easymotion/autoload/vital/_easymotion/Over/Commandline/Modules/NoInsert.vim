@@ -15,6 +15,7 @@ endfunction
 
 function! s:module.on_char_pre(cmdline)
 	if self.is_no_insert(a:cmdline.char())
+\	&& a:cmdline.char() == a:cmdline.variables.input
 		call a:cmdline.setchar("", 0)
 	endif
 endfunction

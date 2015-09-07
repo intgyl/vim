@@ -1,6 +1,7 @@
 "=============================================================================
 " FILE: neosnippet.vim
 " AUTHOR:  Shougo Matsushita <Shougo.Matsu@gmail.com>
+" Last Modified: 21 Nov 2013.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -30,17 +31,11 @@ set cpo&vim
 call neosnippet#util#set_default(
       \ 'g:neosnippet#disable_runtime_snippets', {})
 call neosnippet#util#set_default(
-      \ 'g:neosnippet#scope_aliases', {})
-call neosnippet#util#set_default(
       \ 'g:neosnippet#snippets_directory', '')
 call neosnippet#util#set_default(
       \ 'g:neosnippet#disable_select_mode_mappings', 1)
 call neosnippet#util#set_default(
       \ 'g:neosnippet#enable_snipmate_compatibility', 0)
-call neosnippet#util#set_default(
-      \ 'g:neosnippet#expand_word_boundary', 0)
-call neosnippet#util#set_default(
-      \ 'g:neosnippet#enable_conceal_markers', 1)
 "}}}
 
 function! neosnippet#expandable_or_jumpable() "{{{

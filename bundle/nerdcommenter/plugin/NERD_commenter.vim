@@ -303,7 +303,7 @@ let s:delimiterMap = {
     \ 'psf': { 'left': '#' },
     \ 'ptcap': { 'left': '#' },
     \ 'puppet': { 'left': '#' },
-    \ 'python': { 'left': '# ', 'leftAlt': '#' },
+    \ 'python': { 'left': '#' },
     \ 'radiance': { 'left': '#' },
     \ 'ratpoison': { 'left': '#' },
     \ 'r': { 'left': '#' },
@@ -405,8 +405,6 @@ let s:delimiterMap = {
     \ 'xquery': { 'left': '(:', 'right': ':)' },
     \ 'z8a': { 'left': ';' }
     \ }
-
-let g:NERDDelimiterMap = s:delimiterMap
 
 if exists("g:NERDCustomDelimiters")
     call extend(s:delimiterMap, g:NERDCustomDelimiters)

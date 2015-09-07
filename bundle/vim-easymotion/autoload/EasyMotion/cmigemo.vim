@@ -1,6 +1,7 @@
 "=============================================================================
 " FILE: autoload/EasyMotion/cmigemo.vim
 " AUTHOR: haya14busa
+" Last Change: 17 Jan 2014.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -98,7 +99,7 @@ function! EasyMotion#cmigemo#getMigemoPattern(input) "{{{
         return EasyMotion#cmigemo#system('cmigemo -v -w "'.a:input.'" -d "'.s:migemodict.'"')
     else
         " Not supported
-        return a:input
+        return input
     endif
 endfunction "}}}
 
