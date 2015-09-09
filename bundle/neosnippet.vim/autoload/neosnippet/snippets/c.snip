@@ -228,7 +228,7 @@ snippet typedef
 
 snippet printf
 abbr    printf("...\n", ...);
-    printf("${1}%s\n",__func__);
+    printf("${1}%s: %d\n",__func__, __LINE__);
 
 snippet printk
 abbr    printk("...\n", ...);
