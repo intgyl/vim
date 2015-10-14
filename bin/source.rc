@@ -44,6 +44,7 @@ alias gdth='git difftool -y -t meld HEAD^'
 alias sf='sudo fastboot'
 alias as='adb shell'
 alias R='ctags -R'
+alias lh='ll -h'
 
 
 export USE_CCACHE=1
@@ -51,7 +52,7 @@ export CCACHE_DIR=~/ccache
 
 #export JAVA_HOME=~/tools/jdk/jdk1.6.0_35
 #export PATH=$JAVA_HOME/bin:$PATH
-#export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+#export CLASSPATH=:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
 
 #Automatically corrected the cd path when you input error
