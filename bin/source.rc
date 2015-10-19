@@ -29,7 +29,7 @@ alias astyle='~/.vim/bin/tools/astyle'
 alias cr='croot'
 alias f='find ./ -iname'
 alias repoall='repo forall -c '
-alias log='cd ~/log/`LCALL=C date +%F`'
+alias log='cd ~/log/minicom_log/`LCALL=C date +%F`'
 alias ai='adb install'
 alias gb='git branch'
 alias gc='git checkout'
@@ -45,6 +45,7 @@ alias sf='sudo fastboot'
 alias as='adb shell'
 alias R='ctags -R'
 alias lh='ll -h'
+alias cp='cp -va'
 
 
 export USE_CCACHE=1
