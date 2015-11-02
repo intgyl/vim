@@ -80,7 +80,7 @@ if v:version >= 702
 	set   foldcolumn=0
 	"set  expandtab "tab键展开为空格
 	set   cursorline
-	hi    CursorLine   cterm=NONE ctermbg=blue guibg=black guifg=NONE
+	hi    CursorLine   cterm=NONE ctermbg=darkblue guibg=black guifg=NONE
 	set   helpheight=10
 	set   helplang=cn
 	set   hidden
