@@ -33,28 +33,28 @@ abbr        set debug log
     #define LOG_LEVEL_D 7
 
     #if (LOG_LEVEL >= LOG_LEVEL_E)
-    #define PERR(fmt, args...) printf("[ERROR]" MODULE_TAG "<%s><%d>:" fmt "\n",\
+    #define PERR(fmt, args...) printf("[ERROR]" MODULE_TAG "%s:%d:" fmt "\n",\
             __func__, __LINE__, ##args)
     #else
     #define PERR(fmt, args...)
     #endif
 
     #if (LOG_LEVEL >= LOG_LEVEL_N)
-    #define PNOTICE(fmt, args...) printf("[NOTICE]" MODULE_TAG "<%s><%d>:" fmt "\n",\
+    #define PNOTICE(fmt, args...) printf("[NOTICE]" MODULE_TAG "%s:%d:" fmt "\n",\
             __func__, __LINE__, ##args)
     #else
     #define PNOTICE(fmt, args...)
     #endif
 
     #if (LOG_LEVEL >= LOG_LEVEL_I)
-    #define PINFO(fmt, args...) printf("[INFO]" MODULE_TAG "<%s><%d>:" fmt "\n",\
+    #define PINFO(fmt, args...) printf("[INFO]" MODULE_TAG "%s:%d:" fmt "\n",\
             __func__, __LINE__, ##args)
     #else
     #define PINFO(fmt, args...)
     #endif
 
     #if (LOG_LEVEL >= LOG_LEVEL_D)
-    #define PDEBUG(fmt, args...) printf("[DEBUG]" MODULE_TAG "<%s><%d>:" fmt "\n",\
+    #define PDEBUG(fmt, args...) printf("[DEBUG]" MODULE_TAG "%s:%d:" fmt "\n",\
             __func__, __LINE__, ##args)
     #else
     #define PDEBUG(fmt, args...)
@@ -73,28 +73,28 @@ abbr        debug difine
     #define LOG_LEVEL_D 7
 
     #if (LOG_LEVEL >= LOG_LEVEL_E)
-    #define PERR(fmt, args...) printk(KERN_ERR "[ERROR]" MODULE_TAG "<%s><%d>:" fmt "\n",\
+    #define PERR(fmt, args...) printk(KERN_ERR "[ERROR]" MODULE_TAG "%s:%d:" fmt "\n",\
             __func__, __LINE__, ##args)
     #else
     #define PERR(fmt, args...)
     #endif
 
     #if (LOG_LEVEL >= LOG_LEVEL_N)
-    #define PNOTICE(fmt, args...) printk(KERN_NOTICE "[NOTICE]"  MODULE_TAG "<%s><%d>:" fmt "\n",\
+    #define PNOTICE(fmt, args...) printk(KERN_NOTICE "[NOTICE]"  MODULE_TAG "%s:%d:" fmt "\n",\
             __func__, __LINE__, ##args)
     #else
     #define PNOTICE(fmt, args...)
     #endif
 
     #if (LOG_LEVEL >= LOG_LEVEL_I)
-    #define PINFO(fmt, args...) printk(KERN_INFO "[INFO]"  MODULE_TAG "<%s><%d>:" fmt "\n",\
+    #define PINFO(fmt, args...) printk(KERN_INFO "[INFO]"  MODULE_TAG "%s:%d:" fmt "\n",\
             __func__, __LINE__, ##args)
     #else
     #define PINFO(fmt, args...)
     #endif
 
     #if (LOG_LEVEL >= LOG_LEVEL_D)
-    #define PDEBUG(fmt, args...) printk(KERN_DEBUG "[DEBUG]"  MODULE_TAG "<%s><%d>:" fmt "\n",\
+    #define PDEBUG(fmt, args...) printk(KERN_DEBUG "[DEBUG]"  MODULE_TAG "%s:%d:" fmt "\n",\
             __func__, __LINE__, ##args)
     #else
     #define PDEBUG(fmt, args...)
