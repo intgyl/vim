@@ -13,6 +13,7 @@ call vundle#rc()
 
 "from http://vim-scripts.org/vim/scripts.html
 "you can just write Bundle 'name'
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'vim-scripts/Tagbar'
 "Bundle 'vim-scripts/lookupfile'
@@ -25,11 +26,11 @@ Bundle 'AuthorInfo'
 Bundle 'scrooloose/syntastic'
 Bundle 'autoload_cscope.vim'
 Bundle 'https://github.com/scrooloose/nerdtree.git'
-Bundle 'https://github.com/Shougo/neocomplcache.vim.git'
+"Bundle 'https://github.com/Shougo/neocomplcache.vim.git'
 Bundle 'https://github.com/Shougo/neosnippet.vim.git'
 Bundle 'https://github.com/scrooloose/nerdcommenter.git'
 Bundle 'https://github.com/vim-scripts/vcscommand.vim.git'
-Bundle 'https://github.com/wesleyche/SrcExpl.git'
+"Bundle 'https://github.com/wesleyche/SrcExpl.git'
 Bundle 'https://github.com/name5566/vim-bookmark.git'
 Bundle 'git://github.com/altercation/vim-colors-solarized.git'
 "Bundle 'fholgado/minibufexpl.vim'
@@ -135,6 +136,30 @@ if v:version >= 703
 endif
 
 "********************************************************************************
+" YCM 补全菜单配色
+" 菜单
+"highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
+" 选中项
+"highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
+" 补全功能在注释中同样有效
+let g:ycm_complete_in_comments=1
+" 允许 vim 加载 .ycm_extra_conf.py 文件，不再提示
+" let g:ycm_confirm_extra_conf= 0
+" 开启 YCM 标签补全引擎
+let g:ycm_collect_identifiers_from_tags_files=1
+" 引入 C++ 标准库tags
+set tags+=/data/misc/software/misc./vim/stdcpp.tags
+" YCM 集成 OmniCppComplete 补全引擎，设置其快捷键
+inoremap <leader>; <C-x><C-o>
+" 补全内容不以分割子窗口形式出现，只显示补全列表
+set completeopt-=preview
+" 从第一个键入字符就开始罗列匹配项
+let g:ycm_min_num_of_chars_for_completion=1
+" 禁止缓存匹配项，每次都重新生成匹配项
+let g:ycm_cache_omnifunc=0
+" 语法关键字补全
+let g:ycm_seed_identifiers_with_syntax=1
+"********************************************************************************
 " Config for win32 gvim.
 if has("win32")
 	set   guioptions-=T
@@ -205,14 +230,10 @@ nmap <silent> <leader>cdf :cd %:h<cr>:pwd<cr>
 "let g:C_FormatTime='%X'
 "let g:C_FormatYear='%y'
 
-let g:vimrc_author='gyl'
-let g:vimrc_email='gyl33333@gmail.com'
-let g:vimrc_homepage=''
-
 "********************************************************************************
-let g:indentLine_char = '│'
-let g:indentLine_color_term = 249
-let g:indentLine_color_gui = '#A4E57E'
+"let g:indentLine_char = '│'
+"let g:indentLine_color_term = 249
+"let g:indentLine_color_gui = '#A4E57E'
 
 "********************************************************************************
 "Config for Auto-Pairs
