@@ -11,6 +11,7 @@ source ~/.vim/bin/tools/uzip.sh
 source ~/.vim/bin/tools/urar.sh
 source ~/.vim/bin/tools/7z.sh
 source ~/.vim/bin/tools/suffix.sh
+source ~/.vim/bin/tools/killpid.sh
 
 
 
