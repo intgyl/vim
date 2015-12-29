@@ -7,6 +7,7 @@ cd ~
 
 mv ~/.vim ~/.vim.old
 mv ~/.vimrc ~/.vimrc.old
+mv ~/.gvimrc ~/.gvimrc.old
 git clone https://github.com/gyl33333/vim ~/.vim
 
 mkdir software
@@ -20,6 +21,7 @@ git clone https://github.com/XX-net/XX-Net.git
 cd ~
 
 ln -s ~/.vim/vimrc .vimrc
+ln -s ~/.vim/gvimrc .gvimrc
 
 #add my tools
 echo "source ~/.vim/bin/source.rc" >> ~/.bashrc
