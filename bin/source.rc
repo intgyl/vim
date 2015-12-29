@@ -52,6 +52,8 @@ alias LS='ls'
 alias lsl='ls'
 alias sls='ls'
 alias cp='cp -va'
+alias s="subl"
+alias g="gvim"
 
 
 export USE_CCACHE=1
