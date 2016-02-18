@@ -160,7 +160,7 @@ let g:ycm_cache_omnifunc=0
 " 语法关键字补全
 let g:ycm_seed_identifiers_with_syntax=1
 "********************************************************************************
-set   guifont=DejaVuSansMono\ 12
+set   guifont=DejaVuSansMono\ 11
 source $VIMRUNTIME/colors/desert.vim
 " Config for win32 gvim.
 if has("win32")
