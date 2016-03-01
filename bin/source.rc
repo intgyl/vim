@@ -50,8 +50,8 @@ alias cp='cp -va'
 alias g="gvim"
 
 
-export USE_CCACHE=1
-export CCACHE_DIR=~/ccache
+#export USE_CCACHE=1
+#export CCACHE_DIR=~/ccache
 
 #export JAVA_HOME=~/tools/jdk/jdk1.6.0_35
 #export PATH=$JAVA_HOME/bin:$PATH
