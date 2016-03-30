@@ -1,7 +1,7 @@
 
 sudo apt-get install axel -y --force-yes
 sudo apt-get install git -y --force-yes
-sudo apt-get install gitk -y --force-yes
+sudo apt-get install gitg -y --force-yes
 cd ~
 #git use English
 #echo alias git=\'LANG=en_GB git\' >> ~/.bashrc
