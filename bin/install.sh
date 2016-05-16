@@ -139,7 +139,7 @@ sudo $apt intall ubuntu-restricted-extras -y --force-yes
 git config --global core.editor vim
 git config --global merge.tool vimdiff
 
-sudo $apt insatll cairo-dock -y --force-yes
+#sudo $apt install cairo-dock -y --force-yes
 
 #Android tools
 sudo $apt install g++ -y --force-yes
