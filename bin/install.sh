@@ -41,6 +41,9 @@ echo "source ~/.vim/bin/source.rc" >> ~/.bashrc
 #vim
 sudo $apt install vim -y --force-yes
 
+#indent
+sudo $apt install indent -y --force-yes
+
 sudo $apt install exuberant-ctags -y --force-yes
 sudo $apt install cscope -y --force-yes
 
