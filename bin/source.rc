@@ -68,5 +68,12 @@ export PATH=$PATH:~/.vim/bin/debug/
 #	PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[33m\]\w \[\e[m\]\n$ '
 #fi
 
-
+#  If this is an xterm set the title to user@host:dir
+# case "$TERM" in
+# xterm*|rxvt*)
+#     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+#     ;;
+# *)
+#     ;;
+# esac
 
