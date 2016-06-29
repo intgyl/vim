@@ -72,6 +72,8 @@ sudo $apt install stardict -y --force-yes
 sudo rm /usr/share/stardict/dic -rf
 sudo ln -s ~/.vim/soft_config/stardict/dic/ /usr/share/stardict/dic
 
+sudo $apt install goldendict -y --force-yes
+
 #android adb fastboot
 sudo $apt install android-tools-adb -y --force-yes
 sudo chmod 4755 /usr/bin/adb
