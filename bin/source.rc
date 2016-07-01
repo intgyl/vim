@@ -14,6 +14,8 @@ source ~/.vim/bin/tools/suffix.sh
 source ~/.vim/bin/tools/killpid.sh
 source ~/.vim/bin/tools/list_all.sh
 
+source ~/.vim/bin/debug/cpu_gpu_clk.sh
+
 alias lindent='~/.vim/bin/tools/lindent'
 
 
