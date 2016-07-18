@@ -54,6 +54,7 @@ alias sls='ls'
 alias cp='cp -va'
 
 
+HISTTIMEFORMAT='%F %T  '
 #export USE_CCACHE=1
 #export CCACHE_DIR=~/ccache
 
@@ -68,7 +69,7 @@ shopt -s cdspell
 export PATH=$PATH:~/.vim/bin/debug/
 
 #if [ "$color_prompt" = yes  ]; then
-#	PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[33m\]\w \[\e[m\]\n$ '
+#	PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[33m\]\w \[\e[m\]\n\$ '
 #fi
 
 #  If this is an xterm set the title to user@host:dir

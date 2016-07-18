@@ -1,4 +1,3 @@
-#! /bin/bash
 #need source this file before use it
 #you can add "source ~/.vim/bin/gt.sh" to ~/.bashrc
 DIRS="$HOME/.data_gtdirs"
