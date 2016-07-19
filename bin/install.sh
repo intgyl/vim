@@ -105,6 +105,9 @@ sudo $apt install gimp -y --force-yes
 #PDF printer :print to pdf format. default out_dir ~/PDF/
 sudo $apt install cups-pdf -y --force-yes
 
+# used to modify the noticication
+sudo $apt install mate-notification-daemo -y --force-yes
+
 #sudo $apt install compizconfig-settings-manager
 #sudo $apt install compiz-plugins
 
