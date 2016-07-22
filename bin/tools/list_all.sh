@@ -6,7 +6,9 @@ list_all()
 			list_all "$1/$file2"
 		fi
 
-		echo "$1/$file2,`cat $1/$file2`"
+		if [ -a $1/$file2 ]; then
+			echo "$1/$file2,`cat $1/$file2`"
+		fi
 	done
 }
 
