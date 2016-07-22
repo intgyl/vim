@@ -3,6 +3,10 @@ list_target()
 	target=$2
 	for file2 in `ls $1`
 	do
+		if [ -L "$1/$file2" ]; then
+			continue
+		fi
+
 		if [ -d "$1/$file2"  ]; then
 			list_target "$1/$file2" $target
 		fi
