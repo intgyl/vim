@@ -101,6 +101,7 @@ sudo $apt install hexedit -y --force-yes
 
 #gimp
 sudo $apt install gimp -y --force-yes
+sudo $apt install gparted -y --force-yes
 
 #PDF printer :print to pdf format. default out_dir ~/PDF/
 sudo $apt install cups-pdf -y --force-yes
