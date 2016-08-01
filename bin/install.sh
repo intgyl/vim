@@ -87,6 +87,9 @@ sudo $apt install p7zip-full -y --force-yes
 #dos2unix
 sudo $apt install dos2unix -y --force-yes
 
+#meld
+sudo $apt install meld -y --force-yes
+
 #tree
 sudo $apt install tree -y --force-yes
 
@@ -107,7 +110,14 @@ sudo $apt install gparted -y --force-yes
 sudo $apt install cups-pdf -y --force-yes
 
 # used to modify the noticication
-sudo $apt install mate-notification-daemo -y --force-yes
+sudo $apt install mate-notification-daemon -y --force-yes
+sudo $apt remove notify-osd
+
+sudo $apt install dconf-editor -y --force-yes
+
+sudo add-apt-repository ppa:wiznote-team
+sudo $apt update
+sudo $apt install wiznote
 
 #sudo $apt install compizconfig-settings-manager
 #sudo $apt install compiz-plugins
