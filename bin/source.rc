@@ -16,6 +16,7 @@ source ~/.vim/bin/tools/list_all.sh
 source ~/.vim/bin/tools/list_target.sh
 
 source ~/.vim/bin/debug/cpu_gpu_clk.sh
+source ~/.vim/bin/debug/adb-connect.sh
 
 alias lindent='~/.vim/bin/tools/lindent'
 
