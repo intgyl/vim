@@ -6,7 +6,7 @@ flash() {
 		return
 	fi
 
-	if [ $1 = "." ]; then
+	if [ $1 != "." ]; then
 
 		if [ $OUT ]; then
 			echo "ANDROID_PRODUCT_OUT = $OUT"
