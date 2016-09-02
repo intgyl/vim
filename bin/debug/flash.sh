@@ -21,8 +21,10 @@ flash() {
 
 	if [ -z "`sudo fastboot devices`"  ]; then
 
-		if [ -z "`adb devices`"  ]; then
-			echo "No device connected"
+		tmp=`adb devices | sed -n '/device$/p'`
+
+		if [ -z "$tmp"  ]; then
+			echo -e "\nConnect the devce and authorize it\n"
 			return
 		else
 			echo "Reboot to fastboot mode"
