@@ -2,7 +2,7 @@ flash() {
 	value=$@
 
 	if [ $# = 0 ]; then
-		echo "Please enter the partition"
+		print_usage
 		return
 	fi
 
@@ -166,3 +166,13 @@ else
 	shopt -s progcomp
 	complete -F _comp_flash flash
 fi
+
+
+function print_usage {
+
+echo  'Usage:'
+
+echo  'flash <partition> <partition> ...  this command will goes to the ANDROID_PRODUCT_OUT'
+
+echo  'flash . <partition> <partition> ... this command will flash from current directory'
+}
