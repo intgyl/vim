@@ -30,7 +30,6 @@ alias c4='cd ../../../..'
 #alias fastboot='cat ~/.data_my_passwd | sudo -S fastboot'
 alias ..='cd ..'
 alias n='nautilus .'
-alias grep='~/.vim/bin/tools/grep --color=auto'
 alias astyle='~/.vim/bin/tools/astyle'
 alias cr='croot'
 alias f='find ./ -iname'
@@ -58,6 +57,11 @@ alias lsl='ls'
 alias sls='ls'
 alias cp='cp -va'
 
+if [ `uname -s` == "Linux" ]; then
+	alias grep='~/.vim/bin/tools/grep_linux --color=auto'
+elif [`uname -s` == "Darwin" ]; then
+	alias grep='~/.vim/bin/tools/grep_mac --color=auto'
+fi
 
 HISTTIMEFORMAT='%F %T  '
 #export USE_CCACHE=1
