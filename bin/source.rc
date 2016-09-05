@@ -59,7 +59,7 @@ alias cp='cp -va'
 
 if [ `uname -s` == "Linux" ]; then
 	alias grep='~/.vim/bin/tools/grep_linux --color=auto'
-elif [`uname -s` == "Darwin" ]; then
+elif [ `uname -s` == "Darwin" ]; then
 	alias grep='~/.vim/bin/tools/grep_mac --color=auto'
 fi
 
