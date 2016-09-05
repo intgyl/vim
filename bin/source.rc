@@ -14,13 +14,12 @@ source ~/.vim/bin/tools/suffix.sh
 source ~/.vim/bin/tools/killpid.sh
 source ~/.vim/bin/tools/list_all.sh
 source ~/.vim/bin/tools/list_target.sh
-source ~/.vim/bin/debug/flash.sh
 
+source ~/.vim/bin/debug/flash.sh
 source ~/.vim/bin/debug/cpu_gpu_clk.sh
 source ~/.vim/bin/debug/adb-connect.sh
 
 alias lindent='~/.vim/bin/tools/lindent'
-
 
 
 alias c1='cd ..'
@@ -30,7 +29,6 @@ alias c4='cd ../../../..'
 #alias fastboot='cat ~/.data_my_passwd | sudo -S fastboot'
 alias ..='cd ..'
 alias n='nautilus .'
-alias astyle='~/.vim/bin/tools/astyle'
 alias cr='croot'
 alias f='find ./ -iname'
 alias repoall='repo forall -c '
@@ -59,9 +57,14 @@ alias cp='cp -va'
 
 if [ `uname -s` == "Linux" ]; then
 	alias grep='~/.vim/bin/tools/grep_linux --color=auto'
+	alias astyle='~/.vim/bin/tools/astyle_linux'
 elif [ `uname -s` == "Darwin" ]; then
 	alias grep='~/.vim/bin/tools/grep_mac --color=auto'
+	alias astyle='~/.vim/bin/tools/astyle_mac'
 fi
+
+
+
 
 HISTTIMEFORMAT='%F %T  '
 #export USE_CCACHE=1
