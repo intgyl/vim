@@ -80,7 +80,7 @@ HISTTIMEFORMAT='%F %T  '
 shopt -s cdspell
 
 export PATH=$PATH:~/.vim/bin/debug/
-export PATH=$PATH ~/.vim/bin/android_tools
+export PATH=$PATH:~/.vim/bin/android_tools/
 
 #if [ "$color_prompt" = yes  ]; then
 #	PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[33m\]\w \[\e[m\]\n\$ '
