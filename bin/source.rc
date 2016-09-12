@@ -18,6 +18,7 @@ source ~/.vim/bin/tools/list_target.sh
 source ~/.vim/bin/debug/flash.sh
 source ~/.vim/bin/debug/cpu_gpu_clk.sh
 source ~/.vim/bin/debug/adb-connect.sh
+source ~/.vim/bin/android_tools/packimage.sh
 
 
 alias lindent='~/.vim/bin/tools/lindent'
