@@ -135,7 +135,7 @@ autocmd BufReadPost *
 			\ endif
 "********************************************************************************
 
-function g:tagbarByFileType()
+function! TagbarByFileType()
 	if &filetype!="go"
 		let g:tagbar_width=35
 		let g:tagbar_left = 1
@@ -144,7 +144,7 @@ function g:tagbarByFileType()
 		nmap  <F2> :TagbarToggle<cr>
 	endif
 endfunction
-autocmd FileType * call g:tagbarByFileType()
+autocmd FileType * call TagbarByFileType()
 
 "********************************************************************************
 "
