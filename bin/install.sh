@@ -72,13 +72,10 @@ sudo $apt install stardict -y --force-yes
 sudo rm /usr/share/stardict/dic -rf
 sudo ln -s ~/.vim/soft_config/stardict/dic/ /usr/share/stardict/dic
 
-sudo $apt install goldendict -y --force-yes
-
 #android adb fastboot
 sudo $apt install android-tools-adb -y --force-yes
-sudo chmod 4755 /usr/bin/adb
 sudo $apt install android-tools-fastboot -y --force-yes
-sudo chmod 4755 /usr/bin/fastboot
+sudo usermod -a -G audio `whoami`
 
 #unzip unrar 7z
 sudo $apt install unzip unrar -y --force-yes
@@ -210,11 +207,3 @@ sudo fc-cache -fv
 
 cd ~
 source ~/.bashrc
-
-#install deepin music
-#sudo $apt install libmixlib-config-ruby libmixlib-log-ruby libmixlib-cli-ruby1.9.1 libmixlib-cli-ruby libmixlib-cli-ruby1.8 xlibosmesa-dev xlibmesa-glu-dev  libmixlib-log-ruby1.8 pxlib1 python-xlib libmixlib-authentication-ruby  libmixlib-config-ruby1.8 pxlib-dev libmixlib-authentication-ruby1.8
-#sudo add-apt-repository ppa:mc3man/trusty-media -y
-#sudo apt-add-repository ppa:noobslab/deepin-sc
-#sudo $apt update
-#sudo $apt install deepin-music-player
-
