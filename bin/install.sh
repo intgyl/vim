@@ -32,6 +32,7 @@ cd ~
 
 ln -s ~/.vim/vimrc .vimrc
 ln -s ~/.vim/gvimrc .gvimrc
+ln -s ~/.vim/inputrc .inputrc
 
 #add my tools
 echo "source ~/.vim/bin/source.rc" >> ~/.bashrc
