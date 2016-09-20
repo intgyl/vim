@@ -1,5 +1,4 @@
 source ~/.vim/bin/tools/easyssh.sh
-#source ~/.vim/bin/tools/flash.sh
 source ~/.vim/bin/tools/gt.sh
 source ~/.vim/bin/tools/envsetup.sh
 source ~/.vim/bin/tools/gg.sh
@@ -68,8 +67,8 @@ fi
 
 
 HISTTIMEFORMAT='%F %T  '
-#export USE_CCACHE=1
-#export CCACHE_DIR=~/ccache
+export USE_CCACHE=1
+export CCACHE_DIR=~/.ccache
 
 #export JAVA_HOME=~/tools/jdk/jdk1.6.0_35
 #export PATH=$JAVA_HOME/bin:$PATH
