@@ -14,21 +14,17 @@ source ~/.vim/bin/tools/killpid.sh
 source ~/.vim/bin/tools/list_all.sh
 source ~/.vim/bin/tools/list_target.sh
 
-source ~/.vim/bin/debug/flash.sh
-source ~/.vim/bin/debug/cpu_gpu_clk.sh
-source ~/.vim/bin/debug/adb-connect.sh
-source ~/.vim/bin/android_tools/packimage.sh
+source ~/.vim/bin/android_tools/common/flash.sh
+source ~/.vim/bin/android_tools/common/cpu_gpu_clk.sh
+source ~/.vim/bin/android_tools/common/adb-connect.sh
+source ~/.vim/bin/android_tools/common/packimage.sh
 
 
 alias lindent='~/.vim/bin/tools/lindent'
-
-
-alias c1='cd ..'
+alias ..='cd ..'
 alias c2='cd ../../'
 alias c3='cd ../../..'
 alias c4='cd ../../../..'
-#alias fastboot='cat ~/.data_my_passwd | sudo -S fastboot'
-alias ..='cd ..'
 alias n='nautilus .'
 alias cr='croot'
 alias f='find ./ -iname'
@@ -54,6 +50,7 @@ alias LS='ls'
 alias lsl='ls'
 alias sls='ls'
 alias cp='cp -va'
+#alias fastboot='cat ~/.data_my_passwd | sudo -S fastboot'
 
 if [ `uname -s` == "Linux" ]; then
 	alias grep='~/.vim/bin/tools/grep_linux --color=auto'
@@ -64,22 +61,21 @@ elif [ `uname -s` == "Darwin" ]; then
 fi
 
 
-
-
 HISTTIMEFORMAT='%F %T  '
+
 export USE_CCACHE=1
 export CCACHE_DIR=~/.ccache
+
+#Automatically corrected the cd path when you input error
+shopt -s cdspell
+
+export PATH=$PATH:~/.vim/bin/android_tools/common/
+export PATH=$PATH:~/.vim/bin/android_tools/
 
 #export JAVA_HOME=~/tools/jdk/jdk1.6.0_35
 #export PATH=$JAVA_HOME/bin:$PATH
 #export CLASSPATH=:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
-
-#Automatically corrected the cd path when you input error
-shopt -s cdspell
-
-export PATH=$PATH:~/.vim/bin/debug/
-export PATH=$PATH:~/.vim/bin/android_tools/
 
 #if [ "$color_prompt" = yes  ]; then
 #	PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[33m\]\w \[\e[m\]\n\$ '
