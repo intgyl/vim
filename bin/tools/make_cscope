@@ -1,2 +1,4 @@
-cscope -Rbkq
-ctags -R
+maketag() {
+	cscope -Rbkq
+	ctags -R
+}

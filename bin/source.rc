@@ -13,6 +13,7 @@ source ~/.vim/bin/tools/suffix.sh
 source ~/.vim/bin/tools/killpid.sh
 source ~/.vim/bin/tools/list_all.sh
 source ~/.vim/bin/tools/list_target.sh
+source ~/.vim/bin/tools/make_cscope
 
 source ~/.vim/bin/android_tools/common/flash.sh
 source ~/.vim/bin/android_tools/common/cpu_gpu_clk.sh
