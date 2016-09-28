@@ -13,7 +13,7 @@ pack() {
 	out_path=$3
 
 	case $1 in
-		8976|8956)
+		8976|8956|8992)
 			system_xml="rawprogram_unsparse.xml"
 			userdata_xml="rawprogram_unsparse.xml"
 			cache_xml="rawprogram_unsparse.xml"
@@ -54,7 +54,7 @@ echo 'Usage:'
 echo 'pack <img> <out_path>'
 }
 
-supported="8976 8956 8996"
+supported="8976 8956 8992 8996"
 
 function _comp_pack {
 	local curw
