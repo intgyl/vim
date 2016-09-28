@@ -1,33 +1,46 @@
 pack() {
 
-	if [ $# != 2 ]; then
+	if [ $# != 3 ]; then
 		print_usage
 		return
 	fi
 
-	if [ ! -d $2 ]; then
+	if [ ! -d $3 ]; then
 		echo "$2 does not exit"
 		return
 	fi
 
-	out_path=$2
+	out_path=$3
 
 	case $1 in
+		8976|8956)
+			system_xml="rawprogram_unsparse.xml"
+			userdata_xml="rawprogram_unsparse.xml"
+			cache_xml="rawprogram_unsparse.xml"
+			;;
+		8996)
+			system_xml="rawprogram_unsparse4.xml"
+			userdata_xml="rawprogram_unsparse0.xml"
+			cache_xml="rawprogram_unsparse0.xml"
+			;;
+	esac
+
+	case $2 in
 		system)
 
-			packsparseimg -t system -o $out_path -x rawprogram_unsparse4.xml
+			packsparseimg -t system -o $out_path -x $system_xml
 			img2simg $out_path/system.raw $out_path/system.img
 			rm -rf $out_path/system.raw
 			;;
 
 		userdata)
-			packsparseimg -t userdata -o $out_path -x rawprogram_unsparse0.xml
+			packsparseimg -t userdata -o $out_path -x $userdata_xml
 			img2simg $out_path/userdata.raw $out_path/userdata.img
 			rm -rf $out_path/userdata.raw
 			;;
 
 		cache)
-			packsparseimg -t cache -o $out_path -x rawprogram_unsparse0.xml
+			packsparseimg -t cache -o $out_path -x $cache_xml
 			img2simg $out_path/cache.raw $out_path/cache.img
 			rm -rf $out_path/cache.raw
 			;;
@@ -41,7 +54,7 @@ echo 'Usage:'
 echo 'pack <img> <out_path>'
 }
 
-supported="system userdata cache"
+supported="8976 8956 8996"
 
 function _comp_pack {
 	local curw
