@@ -51,7 +51,8 @@ pack() {
 
 function print_usage {
 echo 'Usage:'
-echo 'pack <img> <out_path>'
+echo 'pack <platform> <img> <out_path>'
+echo 'example: pack 8996 system ~/tmp'
 }
 
 supported="8976 8956 8992 8996"
