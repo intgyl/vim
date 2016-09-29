@@ -19,6 +19,7 @@ source ~/.vim/bin/android_tools/common/flash.sh
 source ~/.vim/bin/android_tools/common/cpu_gpu_clk.sh
 source ~/.vim/bin/android_tools/common/adb-connect.sh
 source ~/.vim/bin/android_tools/common/packimage.sh
+source ~/.vim/bin/android_tools/qcom/edl-flash.sh
 
 
 alias lindent='~/.vim/bin/tools/lindent'
