@@ -27,8 +27,13 @@ suffix() {
 
 		for file2 in `ls $3`
 		do
+			if [ -d "$3/$file2" ]; then
+				suffix "$old_name" "$new_name" "$3/$file2"
+			fi
+
 			if [ `echo $3/$file2 | sed 's/^.*\.//'` == $old_name ]; then
 				mv $3/$file2 `echo $3/$file2 | sed 's/\.[^.]*$//'`.${new_name}
+				file2=""
 			fi
 		done
 
