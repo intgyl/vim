@@ -2,7 +2,7 @@
 
 #### vim plugin
 	autoload
-	bundle 管理插件，打开vi 输入 :bundleInstall 安装vimrc文件中的插件
+	bundle 管理插件，打开vi 输入 :bundleInstall 安装vimrc文件中的插件,vimrc中的目前已安装
 	plugin
 	snippets
 	syntax
@@ -27,7 +27,7 @@
 	├── boot2ota.sh
 	├── checkfc
 	├── check_seapp
-	├── cpu_gpu_clk.sh //查看手机cpu gpu 是clock
+	├── cpu_gpu_clk.sh //查看手机cpu gpu 的clock
 	├── fastboot
 	├── flash.sh       //简化fastboot刷机
 	├── ftrace.sh
@@ -38,7 +38,7 @@
 	├── mkbootfs
 	├── mkbootimg
 	├── ota_signer.sh
-	├── packimage.sh    //将高通拆分开的img，如syste_01.img 打包成完成img,支持system.img userdata.img cache.img
+	├── packimage.sh    //将高通拆分开的img，如syste_01.img 打包成完整img,支持system.img userdata.img cache.img
 	├── packramdisk.sh  //打包ramdisk
 	├── packsparseimg
 	├── sepolicy-analyze
@@ -52,7 +52,7 @@
 
 
 	qcom
-	├── edl-flash.sh  //linux 刷整包工具
+	├── edl-flash.sh  //linux 刷整包工具,无需使用QFIL
 	├── emmcdl
 	├── fh_loader
 	└── QSaharaServer
@@ -65,14 +65,14 @@
 	├── com.sh            //minicom 工具，自动保存log到 ~/log/minicom_log 按照日期创建目录，根据时间创建文件
 	├── easyssh.sh        //快速登录主机，主机ip存在~/.data_server_bookmark, 将本机id_rsa.pub贴到目标机器的~/.ssh/authorized_keys 文件可实现ssh scp免输密码，反之亦然。
 	├── envsetup.sh
-	├── gg.sh             //grep 命令的简化，可免除引号，不足：不能搜着指定文件
+	├── gg.sh             //grep 命令的简化，可免除引号，不足：不能搜索指定文件
 	├── grep_linux        //grep linux修改版，搜索结果将：换成+ 方便vi 直接打开
 	├── grep_mac          //grep mac 修改版
 	├── gt.sh             //快速进入指定目录，标签位于~/.data_gtdirs
 	├── killpid.sh        //快速杀掉进程，不必先ps 找到进程号再杀
 	├── lindent           //格式化代码，kernel scri目录中有该脚本
 	├── list_all.sh       //列出当前目录下所有节点的值，格式：node,value方便debug查看所有节点值以及导出到excel中
-	├── list_target.sh    //与list_all类似，递归遍历所有目录下指定节点的值。
+	├── list_target.sh    //与list_all类似，递归遍历所有目录下指定节点的值, list_target . xxx
 	├── make_cscope       //生成cscope 和tags
 	├── make_lookupfile
 	├── make_lookupfile_TAGS
