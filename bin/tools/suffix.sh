@@ -17,18 +17,21 @@ suffix() {
 	fi
 
 	if [ ! -e $3 ]; then
-		echo 'No such file or directory'
+		echo "$3 No such file or directory"
 		return
 	fi
 
 	if [ -d $3 ]; then
-		cd $3
 		old_name=$1
 		new_name=$2
 
-		find ./ -name "*.${old_name}" | awk -F "." '{print $2}' | xargs -i -t mv ./{}.${old_name} ./{}.${new_name}
+		for file2 in `ls $3`
+		do
+			if [ `echo $3/$file2 | sed 's/^.*\.//'` == $old_name ]; then
+				mv $3/$file2 `echo $3/$file2 | sed 's/\.[^.]*$//'`.${new_name}
+			fi
+		done
 
-		cd - > /dev/null
 	else
 		echo "$3 is not a directory, why don't you use mv!"
 	fi
