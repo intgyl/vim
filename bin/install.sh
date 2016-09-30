@@ -11,31 +11,31 @@ fi
 sudo $apt install axel -y --force-yes
 sudo $apt install git -y --force-yes
 sudo $apt install gitg -y --force-yes
-cd ~
+cd $HOME
 #git use English
-#echo alias git=\'LANG=en_GB git\' >> ~/.bashrc
+#echo alias git=\'LANG=en_GB git\' >> $HOME/.bashrc
 
-#mv ~/.vim ~/.vim.old
-#mv ~/.vimrc ~/.vimrc.old
-#mv ~/.gvimrc ~/.gvimrc.old
-#git clone https://github.com/gyl33333/vim ~/.vim
+#mv $HOME/.vim $HOME/.vim.old
+#mv $HOME/.vimrc $HOME/.vimrc.old
+#mv $HOME/.gvimrc $HOME/.gvimrc.old
+#git clone https://github.com/gyl33333/vim $HOME/.vim
 
 #mkdir software
 #cd software
 #git clone https://github.com/goagent/goagent
 #git clone https://github.com/huhamhire/huhamhire-hosts
 #git clone https://github.com/XX-net/XX-Net.git
-#cd ~/software/goagent*/local/
+#cd $HOME/software/goagent*/local/
 #./addto-startup.py
 
-cd ~
+cd $HOME
 
-ln -s ~/.vim/vimrc .vimrc
-ln -s ~/.vim/gvimrc .gvimrc
-ln -s ~/.vim/inputrc .inputrc
+ln -s $HOME/.vim/vimrc .vimrc
+ln -s $HOME/.vim/gvimrc .gvimrc
+ln -s $HOME/.vim/inputrc .inputrc
 
 #add my tools
-echo "source ~/.vim/bin/source.rc" >> ~/.bashrc
+echo "source $HOME/.vim/bin/source.rc" >> $HOME/.bashrc
 
 #sudo echo "gyl ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
@@ -48,7 +48,7 @@ sudo $apt install indent -y --force-yes
 sudo $apt install exuberant-ctags -y --force-yes
 sudo $apt install cscope -y --force-yes
 
-sudo cp ~/.vim/bin/other/vim.desktop /usr/share/applications/
+sudo cp $HOME/.vim/bin/other/vim.desktop /usr/share/applications/
 sudo sed -i 's/gedit/vim/g' /etc/gnome/defaults.list
 
 #UART DEBUG
@@ -56,7 +56,7 @@ sudo $apt install minicom -y --force-yes
 
 #easystroke
 #sudo $apt install easystroke -y --force-yes
-#ln -s ~/.vim/soft_config/easystroke/ .easystroke
+#ln -s $HOME/.vim/soft_config/easystroke/ .easystroke
 
 #samba
 sudo $apt install samba -y --force-yes
@@ -71,7 +71,7 @@ sudo $apt install openssh-server -y --force-yes
 #stardict
 sudo $apt install stardict -y --force-yes
 sudo rm /usr/share/stardict/dic -rf
-sudo ln -s ~/.vim/soft_config/stardict/dic/ /usr/share/stardict/dic
+sudo ln -s $HOME/.vim/soft_config/stardict/dic/ /usr/share/stardict/dic
 
 #android adb fastboot
 sudo $apt install android-tools-adb -y --force-yes
@@ -104,7 +104,7 @@ sudo $apt install hexedit -y --force-yes
 sudo $apt install gimp -y --force-yes
 sudo $apt install gparted -y --force-yes
 
-#PDF printer :print to pdf format. default out_dir ~/PDF/
+#PDF printer :print to pdf format. default out_dir $HOME/PDF/
 sudo $apt install cups-pdf -y --force-yes
 
 # used to modify the noticication
@@ -190,8 +190,8 @@ gsettings set com.canonical.desktop.interface scrollbar-mode normal
 sudo add-apt-repository ppa:tualatrix/ppa -y
 sudo $apt update
 sudo $apt install ubuntu-tweak -y --force-yes
-rm -rf ~/.config/ubuntu-tweak/
-sudo ln -s ~/.vim/soft_config/ubuntu-tweak/ ~/.config/ubuntu-tweak/
+rm -rf $HOME/.config/ubuntu-tweak/
+sudo ln -s $HOME/.vim/soft_config/ubuntu-tweak/ $HOME/.config/ubuntu-tweak/
 
 #caro-dock
 sudo add-apt-repository ppa:cairo-dock-team/ppa -y
@@ -199,12 +199,12 @@ sudo $apt update
 
 #yahei fonts
 sudo mkdir -p /usr/share/fonts/winfonts
-sudo cp ~/.vim/bin/winfonts/* /usr/share/fonts/winfonts
+sudo cp $HOME/.vim/bin/winfonts/* /usr/share/fonts/winfonts
 sudo chmod 644 /usr/share/fonts/winfonts/*
 cd /usr/share/fonts/winfonts/
 sudo mkfontscale
 sudo mkfontdir
 sudo fc-cache -fv
 
-cd ~
-source ~/.bashrc
+cd $HOME
+source $HOME/.bashrc

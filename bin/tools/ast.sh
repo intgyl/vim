@@ -7,37 +7,37 @@ ast () {
 		if [ -d $value ]; then
 			if [ $(find $value -type d | wc -l) -gt 1 ]; then
 
-				~/.vim/bin/tools/astyle_linux --style=linux -p --indent=force-tab --suffix=none --recursive $value/*.cc
-				~/.vim/bin/tools/astyle_linux --style=linux -p --indent=force-tab --suffix=none --recursive $value/*.cpp
-				~/.vim/bin/tools/astyle_linux --style=linux -p --indent=force-tab --suffix=none --recursive $value/*.h
-				~/.vim/bin/tools/astyle_linux --style=linux -p --indent=force-tab --suffix=none --recursive $value/*.c
+				$HOME/.vim/bin/tools/astyle_linux --style=linux -p --indent=force-tab --suffix=none --recursive $value/*.cc
+				$HOME/.vim/bin/tools/astyle_linux --style=linux -p --indent=force-tab --suffix=none --recursive $value/*.cpp
+				$HOME/.vim/bin/tools/astyle_linux --style=linux -p --indent=force-tab --suffix=none --recursive $value/*.h
+				$HOME/.vim/bin/tools/astyle_linux --style=linux -p --indent=force-tab --suffix=none --recursive $value/*.c
 			else
-				~/.vim/bin/tools/astyle_linux --style=linux -p --indent=force-tab --suffix=none $value/*.cc
-				~/.vim/bin/tools/astyle_linux --style=linux -p --indent=force-tab --suffix=none $value/*.cpp
-				~/.vim/bin/tools/astyle_linux --style=linux -p --indent=force-tab --suffix=none $value/*.h
-				~/.vim/bin/tools/astyle_linux --style=linux -p --indent=force-tab --suffix=none $value/*.c
+				$HOME/.vim/bin/tools/astyle_linux --style=linux -p --indent=force-tab --suffix=none $value/*.cc
+				$HOME/.vim/bin/tools/astyle_linux --style=linux -p --indent=force-tab --suffix=none $value/*.cpp
+				$HOME/.vim/bin/tools/astyle_linux --style=linux -p --indent=force-tab --suffix=none $value/*.h
+				$HOME/.vim/bin/tools/astyle_linux --style=linux -p --indent=force-tab --suffix=none $value/*.c
 
 			fi
 		else
-			~/.vim/bin/tools/astyle_linux --style=linux -p --indent=force-tab --suffix=none $value
+			$HOME/.vim/bin/tools/astyle_linux --style=linux -p --indent=force-tab --suffix=none $value
 		fi
 	elif [ $sysos == "Darwin" ]; then
 		if [ -d $value ]; then
 			if [ $(find $value -type d | wc -l) -gt 1 ]; then
 
-				~/.vim/bin/tools/astyle_mac --style=linux -p --indent=force-tab --suffix=none --recursive $value/*.cc
-				~/.vim/bin/tools/astyle_mac --style=linux -p --indent=force-tab --suffix=none --recursive $value/*.cpp
-				~/.vim/bin/tools/astyle_mac --style=linux -p --indent=force-tab --suffix=none --recursive $value/*.h
-				~/.vim/bin/tools/astyle_mac --style=linux -p --indent=force-tab --suffix=none --recursive $value/*.c
+				$HOME/.vim/bin/tools/astyle_mac --style=linux -p --indent=force-tab --suffix=none --recursive $value/*.cc
+				$HOME/.vim/bin/tools/astyle_mac --style=linux -p --indent=force-tab --suffix=none --recursive $value/*.cpp
+				$HOME/.vim/bin/tools/astyle_mac --style=linux -p --indent=force-tab --suffix=none --recursive $value/*.h
+				$HOME/.vim/bin/tools/astyle_mac --style=linux -p --indent=force-tab --suffix=none --recursive $value/*.c
 			else
-				~/.vim/bin/tools/astyle_mac --style=linux -p --indent=force-tab --suffix=none $value/*.cc
-				~/.vim/bin/tools/astyle_mac --style=linux -p --indent=force-tab --suffix=none $value/*.cpp
-				~/.vim/bin/tools/astyle_mac --style=linux -p --indent=force-tab --suffix=none $value/*.h
-				~/.vim/bin/tools/astyle_mac --style=linux -p --indent=force-tab --suffix=none $value/*.c
+				$HOME/.vim/bin/tools/astyle_mac --style=linux -p --indent=force-tab --suffix=none $value/*.cc
+				$HOME/.vim/bin/tools/astyle_mac --style=linux -p --indent=force-tab --suffix=none $value/*.cpp
+				$HOME/.vim/bin/tools/astyle_mac --style=linux -p --indent=force-tab --suffix=none $value/*.h
+				$HOME/.vim/bin/tools/astyle_mac --style=linux -p --indent=force-tab --suffix=none $value/*.c
 
 			fi
 		else
-			~/.vim/bin/tools/astyle_mac --style=linux -p --indent=force-tab --suffix=none $value
+			$HOME/.vim/bin/tools/astyle_mac --style=linux -p --indent=force-tab --suffix=none $value
 		fi
 	fi
 	value=""
