@@ -14,7 +14,7 @@ dtc() {
 		return
 	fi
 
-	$HOME/.vim/bin/android_tools/common/dtc -I dtb -O dts -o $(echo $1 | awk -F "." '{print$1}').dts $1
+	$HOME/.vim/bin/android_tools/common/dtc_bin -I dtb -O dts -o $(echo $1 | awk -F "." '{print$1}').dts $1
 }
 
 function print_usage {

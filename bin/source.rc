@@ -1,28 +1,29 @@
-source ~/.vim/bin/tools/easyssh.sh
-source ~/.vim/bin/tools/gt.sh
-source ~/.vim/bin/tools/envsetup.sh
-source ~/.vim/bin/tools/gg.sh
-source ~/.vim/bin/tools/ast.sh
-source ~/.vim/bin/tools/tounix.sh
-source ~/.vim/bin/tools/com.sh
-source ~/.vim/bin/tools/where_which.sh
-source ~/.vim/bin/tools/uzip.sh
-source ~/.vim/bin/tools/urar.sh
-source ~/.vim/bin/tools/7z.sh
-source ~/.vim/bin/tools/suffix.sh
-source ~/.vim/bin/tools/killpid.sh
-source ~/.vim/bin/tools/list_all.sh
-source ~/.vim/bin/tools/list_target.sh
-source ~/.vim/bin/tools/make_cscope
+source $HOME/.vim/bin/tools/easyssh.sh
+source $HOME/.vim/bin/tools/gt.sh
+source $HOME/.vim/bin/tools/envsetup.sh
+source $HOME/.vim/bin/tools/gg.sh
+source $HOME/.vim/bin/tools/ast.sh
+source $HOME/.vim/bin/tools/tounix.sh
+source $HOME/.vim/bin/tools/com.sh
+source $HOME/.vim/bin/tools/where_which.sh
+source $HOME/.vim/bin/tools/uzip.sh
+source $HOME/.vim/bin/tools/urar.sh
+source $HOME/.vim/bin/tools/7z.sh
+source $HOME/.vim/bin/tools/suffix.sh
+source $HOME/.vim/bin/tools/killpid.sh
+source $HOME/.vim/bin/tools/list_all.sh
+source $HOME/.vim/bin/tools/list_target.sh
+source $HOME/.vim/bin/tools/make_cscope
 
-source ~/.vim/bin/android_tools/common/flash.sh
-source ~/.vim/bin/android_tools/common/cpu_gpu_clk.sh
-source ~/.vim/bin/android_tools/common/adb-connect.sh
-source ~/.vim/bin/android_tools/common/packimage.sh
-source ~/.vim/bin/android_tools/qcom/edl-flash.sh
+source $HOME/.vim/bin/android_tools/common/flash.sh
+source $HOME/.vim/bin/android_tools/common/cpu_gpu_clk.sh
+source $HOME/.vim/bin/android_tools/common/adb-connect.sh
+source $HOME/.vim/bin/android_tools/common/packimage.sh
+source $HOME/.vim/bin/android_tools/qcom/edl-flash.sh
+source $HOME/.vim/bin/android_tools/common/dtc.sh
 
 
-alias lindent='~/.vim/bin/tools/lindent'
+alias lindent='$HOME/.vim/bin/tools/lindent'
 alias ..='cd ..'
 alias c2='cd ../../'
 alias c3='cd ../../..'
@@ -31,7 +32,7 @@ alias n='nautilus .'
 alias cr='croot'
 alias f='find ./ -iname'
 alias repoall='repo forall -c '
-alias log='cd ~/log/minicom_log/`LCALL=C date +%F`'
+alias log='cd $HOME/log/minicom_log/`LCALL=C date +%F`'
 alias gb='git branch'
 alias gc='git checkout'
 alias gs='git status'
@@ -52,29 +53,29 @@ alias LS='ls'
 alias lsl='ls'
 alias sls='ls'
 alias cp='cp -va'
-#alias fastboot='cat ~/.data_my_passwd | sudo -S fastboot'
+#alias fastboot='cat $HOME/.data_my_passwd | sudo -S fastboot'
 
 if [ `uname -s` == "Linux" ]; then
-	alias grep='~/.vim/bin/tools/grep_linux --color=auto'
-	alias astyle='~/.vim/bin/tools/astyle_linux'
+	alias grep='$HOME/.vim/bin/tools/grep_linux --color=auto'
+	alias astyle='$HOME/.vim/bin/tools/astyle_linux'
 elif [ `uname -s` == "Darwin" ]; then
-	alias grep='~/.vim/bin/tools/grep_mac --color=auto'
-	alias astyle='~/.vim/bin/tools/astyle_mac'
+	alias grep='$HOME/.vim/bin/tools/grep_mac --color=auto'
+	alias astyle='$HOME/.vim/bin/tools/astyle_mac'
 fi
 
 
 HISTTIMEFORMAT='%F %T  '
 
 export USE_CCACHE=1
-export CCACHE_DIR=~/.ccache
+export CCACHE_DIR=$HOME/.ccache
 
 #Automatically corrected the cd path when you input error
 shopt -s cdspell
 
-export PATH=$PATH:~/.vim/bin/android_tools/common/
-export PATH=$PATH:~/.vim/bin/android_tools/
+export PATH=$PATH:$HOME/.vim/bin/android_tools/common/
+export PATH=$PATH:$HOME/.vim/bin/android_tools/
 
-#export JAVA_HOME=~/tools/jdk/jdk1.6.0_35
+#export JAVA_HOME=$HOME/tools/jdk/jdk1.6.0_35
 #export PATH=$JAVA_HOME/bin:$PATH
 #export CLASSPATH=:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
