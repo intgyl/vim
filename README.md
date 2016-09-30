@@ -47,6 +47,7 @@
 	├── simg2img
 	├── touch_phone.sh
 	├── unpackbootimg  //解包boot.img
+	├── dtc.sh         //反编译dtb
 	└── unpackramdisk.sh
 
 
