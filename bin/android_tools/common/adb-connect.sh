@@ -4,7 +4,9 @@ adb-connect() {
 	adb wait-for-device
 	adb root
 	adb wait-for-device
-	adb shell setprop service.adb.tcp.port 5555
+	adb tcpip 5555
+	adb wait-for-device
+#	adb shell setprop service.adb.tcp.port 5555
 
 	ip=`adb shell ifconfig wlan0|grep 'inet addr'|awk -F'[ : ]' '{print $13}'`
 
