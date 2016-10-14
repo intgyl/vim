@@ -183,6 +183,11 @@ sudo $apt install xsltproc -y --force-yes
 sudo $apt install libxml2-utils -y --force-yes
 sudo $apt install libncurses5-dev -y --force-yes
 
+#openjdk-8-jdk
+sudo add-apt-repository ppa:openjdk-r/ppa -y
+sudo $apt update
+sudo $apt install openjdk-8-jdk -y --force-yes
+
 #scrollbar-mode normal
 gsettings set com.canonical.desktop.interface scrollbar-mode normal
 
