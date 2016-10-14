@@ -113,7 +113,7 @@ sudo $apt remove notify-osd
 
 sudo $apt install dconf-editor -y --force-yes
 
-sudo add-apt-repository ppa:wiznote-team
+sudo add-apt-repository ppa:wiznote-team -y
 sudo $apt update
 sudo $apt install wiznote
 
