@@ -17,7 +17,7 @@ edl-flash() {
 			platform="old"
 			;;
 		8992)
-			prog_ddr_file="prog_emmc_firehose_8992_ddr.mbn"
+			prog_ddr_file="prog_emmc_firehose_8992_lite.mbn"
 			xml_file="rawprogram_unsparse.xml"
 			platform="old"
 			;;
