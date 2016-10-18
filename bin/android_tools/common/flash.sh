@@ -2,7 +2,7 @@ flash() {
 	value=$@
 
 	if [ $# = 0 ]; then
-		print_usage
+		print_flash_usage
 		return
 	fi
 
@@ -170,7 +170,7 @@ else
 fi
 
 
-function print_usage {
+function print_flash_usage {
 
 echo  'Usage:'
 

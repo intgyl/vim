@@ -1,7 +1,7 @@
 pack() {
 
 	if [ $# != 3 ]; then
-		print_usage
+		print_pack_usage
 		return
 	fi
 
@@ -49,7 +49,7 @@ pack() {
 	esac
 }
 
-function print_usage {
+function print_pack_usage {
 echo 'Usage:'
 echo 'pack <platform> <img> <out_path>'
 echo 'example: pack 8996 system ~/tmp'

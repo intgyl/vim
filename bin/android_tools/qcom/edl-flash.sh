@@ -1,7 +1,7 @@
 edl-flash() {
 
 	if [ $# != 1 ]; then
-		print_usage
+		print_edl-flash_usage
 		return
 	fi
 
@@ -106,7 +106,7 @@ edl-flash() {
 	echo "###################################"
 }
 
-function print_usage {
+function print_edl-flash_usage {
 	echo 'Usage'
 	echo 'edl-flash <platform>'
 }
