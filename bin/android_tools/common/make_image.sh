@@ -8,3 +8,13 @@ makelk() {
 	croot
 
 }
+
+makesystem() {
+	mm snod -j8
+
+}
+
+makeuserdata() {
+	mm userdataimage-nodeps -j8
+
+}
