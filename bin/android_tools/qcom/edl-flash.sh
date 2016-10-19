@@ -16,6 +16,13 @@ edl-flash() {
 			xml_file="rawprogram0.xml"
 			platform="old"
 			;;
+
+		8953)
+			prog_ddr_file="prog_emmc_firehose_8953_ddr.mbn"
+			xml_file="rawprogram_unsparse.xml"
+			platform="old"
+			;;
+
 		8992)
 			prog_ddr_file="prog_emmc_firehose_8992_lite.mbn"
 			xml_file="rawprogram_unsparse.xml"
@@ -111,7 +118,7 @@ function print_edl-flash_usage {
 	echo 'edl-flash <platform>'
 }
 
-supported="8916 8936 8956 8976 8992 8996"
+supported="8916 8936 8956 8976 8953 8992 8996"
 
 function _comp_edl_flash {
 	local curw
