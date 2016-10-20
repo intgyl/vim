@@ -54,17 +54,17 @@ alias SL='ls'
 alias LS='ls'
 alias lsl='ls'
 alias sls='ls'
-alias cp='cp -va'
 #alias fastboot='cat $HOME/.data_my_passwd | sudo -S fastboot'
 
 if [ `uname -s` == "Linux" ]; then
 	alias grep='$HOME/.vim/bin/tools/grep_linux --color=auto'
 	alias astyle='$HOME/.vim/bin/tools/astyle_linux'
+	alias cp='$HOME/.vim/bin/tools/cp_linux -ag'
 elif [ `uname -s` == "Darwin" ]; then
 	alias grep='$HOME/.vim/bin/tools/grep_mac --color=auto'
 	alias astyle='$HOME/.vim/bin/tools/astyle_mac'
+	alias cp='$HOME/.vim/bin/tools/cp_mac -ag'
 fi
-
 
 HISTTIMEFORMAT='%F %T  '
 
