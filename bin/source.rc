@@ -60,10 +60,12 @@ if [ `uname -s` == "Linux" ]; then
 	alias grep='$HOME/.vim/bin/tools/grep_linux --color=auto'
 	alias astyle='$HOME/.vim/bin/tools/astyle_linux'
 	alias cp='$HOME/.vim/bin/tools/cp_linux -ag'
+	alias mv='$HOME/.vim/bin/tools/mv_linux -g'
 elif [ `uname -s` == "Darwin" ]; then
 	alias grep='$HOME/.vim/bin/tools/grep_mac --color=auto'
 	alias astyle='$HOME/.vim/bin/tools/astyle_mac'
 	alias cp='$HOME/.vim/bin/tools/cp_mac -ag'
+	alias mv='$HOME/.vim/bin/tools/mv_mac -g'
 fi
 
 HISTTIMEFORMAT='%F %T  '
