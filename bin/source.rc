@@ -78,6 +78,7 @@ shopt -s cdspell
 
 export PATH=$PATH:$HOME/.vim/bin/android_tools/common/
 export PATH=$PATH:$HOME/.vim/bin/android_tools/
+export PATH=$PATH:$HOME/.vim/bin/android_tools/qcom/parse-script/
 
 #export JAVA_HOME=$HOME/tools/jdk/jdk1.6.0_35
 #export PATH=$JAVA_HOME/bin:$PATH
