@@ -204,8 +204,8 @@ rm -rf $HOME/.config/ubuntu-tweak/
 sudo ln -s $HOME/.vim/soft_config/ubuntu-tweak/ $HOME/.config/ubuntu-tweak/
 
 #caro-dock
-sudo add-apt-repository ppa:cairo-dock-team/ppa -y
-sudo $apt update
+# sudo add-apt-repository ppa:cairo-dock-team/ppa -y
+# sudo $apt update
 
 #yahei fonts
 sudo mkdir -p /usr/share/fonts/winfonts
