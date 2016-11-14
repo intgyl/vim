@@ -23,6 +23,12 @@ edl-flash() {
 			platform="old"
 			;;
 
+		8953-full-flash)
+			prog_ddr_file="prog_emmc_firehose_8953_ddr.mbn"
+			xml_file="rawprogram_unsparse_full_flash.xml"
+			platform="old"
+			;;
+
 		8992)
 			prog_ddr_file="prog_emmc_firehose_8992_lite.mbn"
 			xml_file="rawprogram_unsparse.xml"
@@ -31,6 +37,23 @@ edl-flash() {
 		8996)
 			prog_ddr_file="prog_ufs_firehose_8996_ddr.elf"
 			platform="new"
+			xml0="rawprogram_unsparse0.xml"
+			xml1="rawprogram1.xml"
+			xml2="rawprogram2.xml"
+			xml3="rawprogram3.xml"
+			xml4="rawprogram_unsparse4.xml"
+			xml5="rawprogram5.xml"
+			;;
+
+		8996-full-flash)
+			prog_ddr_file="prog_ufs_firehose_8996_ddr.elf"
+			platform="new"
+			xml0="rawprogram_unsparse0_full_flash.xml"
+			xml1="rawprogram1_full_flash.xml"
+			xml2="rawprogram2_full_flash.xml"
+			xml3="rawprogram3_full_flash.xml"
+			xml4="rawprogram_unsparse4_full_flash.xml"
+			xml5="rawprogram5_full_flash.xml"
 			;;
 		*)
 			echo -e "\n'$1' is not supported now\n"
@@ -83,28 +106,28 @@ edl-flash() {
 		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --reset
 
 	elif [ $platform = "new" ]; then
+
 		sudo $script_dir/QSaharaServer -p /dev/$port_num -s 13:$prog_ddr_file
 
-		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=rawprogram_unsparse0.xml --memoryname=UFS
+		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=$xml0 --memoryname=UFS
 		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=patch0.xml --memoryname=UFS
 
-		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=rawprogram1.xml --memoryname=UFS
+		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=$xml1 --memoryname=UFS
 		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=patch1.xml --memoryname=UFS
 
-		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=rawprogram2.xml --memoryname=UFS
+		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=$xml2 --memoryname=UFS
 		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=patch2.xml --memoryname=UFS
 
-		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=rawprogram3.xml --memoryname=UFS
+		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=$xml3 --memoryname=UFS
 		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=patch3.xml --memoryname=UFS
 
-		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=rawprogram_unsparse4.xml --memoryname=UFS
+		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=$xml4 --memoryname=UFS
 		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=patch4.xml --memoryname=UFS
 
-		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=rawprogram5.xml --memoryname=UFS
+		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=$xml5 --memoryname=UFS
 		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=patch5.xml --memoryname=UFS
 
 		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --memoryname=UFS --setactivepartition=1 --reset
-
 	fi
 
 
@@ -118,7 +141,7 @@ function print_edl-flash_usage {
 	echo 'edl-flash <platform>'
 }
 
-supported="8916 8936 8956 8976 8953 8992 8996"
+supported="8916 8936 8956 8976 8953 8953-full-flash 8992 8996 8996-full-flash"
 
 function _comp_edl_flash {
 	local curw
