@@ -45,7 +45,7 @@ function print_fmk_usage {
 	echo 'fmk <image>'
 }
 
-supported="systemimage aboot bootimage recoveryimage otapackage updatepackage"
+supported_fmk="systemimage aboot bootimage recoveryimage otapackage updatepackage"
 
 function _comp_fmk {
 	local curw
@@ -58,7 +58,7 @@ function _comp_fmk {
 		return 0
 	fi
 
-	COMPREPLY=($(compgen -W '$supported' -- $curw))
+	COMPREPLY=($(compgen -W '$supported_fmk' -- $curw))
 
 	return 0
 }

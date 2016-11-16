@@ -141,7 +141,7 @@ function print_edl-flash_usage {
 	echo 'edl-flash <platform>'
 }
 
-supported="8916 8936 8956 8976 8953 8953-full-flash 8992 8996 8996-full-flash"
+supported_edl_flash="8916 8936 8956 8976 8953 8953-full-flash 8992 8996 8996-full-flash"
 
 function _comp_edl_flash {
 	local curw
@@ -154,7 +154,7 @@ function _comp_edl_flash {
 		return 0
 	fi
 
-	COMPREPLY=($(compgen -W '$supported' -- $curw))
+	COMPREPLY=($(compgen -W '$supported_edl_flash' -- $curw))
 
 	return 0
 }
