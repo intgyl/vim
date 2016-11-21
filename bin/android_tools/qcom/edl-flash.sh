@@ -88,7 +88,7 @@ edl-flash() {
 		lsusb | grep 'QDL mode'
 	done
 
-	port_num=$(ls /sys/bus/usb-serial/drivers/qcserial/ | grep tty)
+	port_num=$(/bin/ls /sys/bus/usb-serial/drivers/qcserial/ | grep tty)
 
 	script_dir="$HOME/.vim/bin/android_tools/qcom"
 
