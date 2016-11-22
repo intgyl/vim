@@ -16,6 +16,8 @@ source $HOME/.vim/bin/tools/list_target.sh
 source $HOME/.vim/bin/tools/make_cscope
 
 source $HOME/.vim/bin/android_tools/common/flash.sh
+source $HOME/.vim/bin/android_tools/common/screen_off_timeout.sh
+source $HOME/.vim/bin/android_tools/common/airplan_mode.sh
 source $HOME/.vim/bin/android_tools/common/cpu_gpu_clk.sh
 source $HOME/.vim/bin/android_tools/common/adb-connect.sh
 source $HOME/.vim/bin/android_tools/common/packimage.sh
