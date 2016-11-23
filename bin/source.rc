@@ -69,6 +69,7 @@ elif [ `uname -s` == "Darwin" ]; then
 	alias astyle='$HOME/.vim/bin/tools/astyle_mac'
 	alias cp='$HOME/.vim/bin/tools/cp_mac -ag'
 	alias mv='$HOME/.vim/bin/tools/mv_mac -g'
+	source $HOME/.vim/soft_config/iterm2/tab_color.sh
 fi
 
 HISTTIMEFORMAT='%F %T  '
