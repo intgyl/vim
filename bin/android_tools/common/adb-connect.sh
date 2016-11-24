@@ -1,4 +1,4 @@
-adb-connect() {
+connect() {
 	unset ip
 	echo -e "Waiting for device\n"
 	adb wait-for-device
