@@ -13,7 +13,7 @@ pack() {
 	out_path=$3
 
 	case $1 in
-		8976|8956|8992)
+		8953|8976|8956|8992)
 			system_xml="rawprogram_unsparse.xml"
 			userdata_xml="rawprogram_unsparse.xml"
 			cache_xml="rawprogram_unsparse.xml"
