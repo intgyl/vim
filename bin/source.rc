@@ -1,19 +1,19 @@
-source $HOME/.vim/bin/tools/easyssh.sh
-source $HOME/.vim/bin/tools/gt.sh
-source $HOME/.vim/bin/tools/envsetup.sh
-source $HOME/.vim/bin/tools/gg.sh
-source $HOME/.vim/bin/tools/ast.sh
-source $HOME/.vim/bin/tools/tounix.sh
-source $HOME/.vim/bin/tools/com.sh
-source $HOME/.vim/bin/tools/where_which.sh
-source $HOME/.vim/bin/tools/uzip.sh
-source $HOME/.vim/bin/tools/urar.sh
-source $HOME/.vim/bin/tools/7z.sh
-source $HOME/.vim/bin/tools/suffix.sh
-source $HOME/.vim/bin/tools/killpid.sh
-source $HOME/.vim/bin/tools/list_all.sh
-source $HOME/.vim/bin/tools/list_target.sh
-source $HOME/.vim/bin/tools/make_cscope
+source $HOME/.vim/bin/tools/common/easyssh.sh
+source $HOME/.vim/bin/tools/common/gt.sh
+source $HOME/.vim/bin/tools/common/envsetup.sh
+source $HOME/.vim/bin/tools/common/gg.sh
+source $HOME/.vim/bin/tools/common/ast.sh
+source $HOME/.vim/bin/tools/common/tounix.sh
+source $HOME/.vim/bin/tools/common/com.sh
+source $HOME/.vim/bin/tools/common/where_which.sh
+source $HOME/.vim/bin/tools/common/uzip.sh
+source $HOME/.vim/bin/tools/common/urar.sh
+source $HOME/.vim/bin/tools/common/7z.sh
+source $HOME/.vim/bin/tools/common/suffix.sh
+source $HOME/.vim/bin/tools/common/killpid.sh
+source $HOME/.vim/bin/tools/common/list_all.sh
+source $HOME/.vim/bin/tools/common/list_target.sh
+source $HOME/.vim/bin/tools/common/make_cscope
 
 source $HOME/.vim/bin/android_tools/common/flash.sh
 source $HOME/.vim/bin/android_tools/common/screen_off_timeout.sh
@@ -27,7 +27,7 @@ source $HOME/.vim/bin/android_tools/common/make_image.sh
 source $HOME/.vim/bin/android_tools/common/android_n_fast_make.sh
 
 
-alias lindent='$HOME/.vim/bin/tools/lindent'
+alias lindent='$HOME/.vim/bin/tools/common/lindent'
 alias ..='cd ..'
 alias c2='cd ../../'
 alias c3='cd ../../..'
@@ -43,7 +43,6 @@ alias gs='git status'
 alias gd='git diff'
 alias ga='git add'
 alias gm='git commit'
-alias gl='tig log'
 alias gw='git show'
 alias gdt='git difftool -y -t meld'
 alias gdth='git difftool -y -t meld HEAD^'
@@ -60,15 +59,17 @@ alias sls='ls'
 #alias fastboot='cat $HOME/.data_my_passwd | sudo -S fastboot'
 
 if [ `uname -s` == "Linux" ]; then
-	alias grep='$HOME/.vim/bin/tools/grep_linux --color=auto'
-	alias astyle='$HOME/.vim/bin/tools/astyle_linux'
-	alias cp='$HOME/.vim/bin/tools/cp_linux -ag'
-	alias mv='$HOME/.vim/bin/tools/mv_linux -g'
+	alias grep='$HOME/.vim/bin/tools/linux/grep --color=auto'
+	alias astyle='$HOME/.vim/bin/tools/linux/astyle'
+	alias cp='$HOME/.vim/bin/tools/linux/cp -ag'
+	alias mv='$HOME/.vim/bin/tools/linux/mv -g'
+	alias gl='$HOME/.vim/bin/tools/linux/tig log'
 elif [ `uname -s` == "Darwin" ]; then
-	alias grep='$HOME/.vim/bin/tools/grep_mac --color=auto'
-	alias astyle='$HOME/.vim/bin/tools/astyle_mac'
-	alias cp='$HOME/.vim/bin/tools/cp_mac -ag'
-	alias mv='$HOME/.vim/bin/tools/mv_mac -g'
+	alias grep='$HOME/.vim/bin/tools/mac/grep --color=auto'
+	alias astyle='$HOME/.vim/bin/tools/mac/astyle'
+	alias cp='$HOME/.vim/bin/tools/mac/cp -ag'
+	alias mv='$HOME/.vim/bin/tools/mac/mv -g'
+	alias gl='$HOME/.vim/bin/tools/mac/tig log'
 	source $HOME/.vim/soft_config/iterm2/tab_color.sh
 fi
 

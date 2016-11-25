@@ -1,5 +1,3 @@
-
-
 w () {
 		whereis $@
 		which $@
