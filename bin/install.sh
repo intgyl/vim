@@ -30,9 +30,9 @@ cd $HOME
 
 cd $HOME
 
-ln -s $HOME/.vim/vimrc .vimrc
-ln -s $HOME/.vim/gvimrc .gvimrc
-ln -s $HOME/.vim/inputrc .inputrc
+ln -s $HOME/.vim/config/vimrc .vimrc
+ln -s $HOME/.vim/config/gvimrc .gvimrc
+ln -s $HOME/.vim/config/inputrc .inputrc
 
 #add my tools
 echo "source $HOME/.vim/bin/source.rc" >> $HOME/.bashrc
