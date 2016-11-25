@@ -115,7 +115,7 @@ set vertical-split		= auto		# Enum: horizontal, vertical, auto; Use auto to
 set split-view-width		= 50%		# Width of right-most view for vertical splits
 set editor-line-number		= yes		# Automatically pass line number to editor? Used
 						# for opening file at specific line e.g. from a diff
-set mouse			= no		# Enable mouse support?
+set mouse			= yes		# Enable mouse support?
 set mouse-scroll		= 3		# Number of lines to scroll via the mouse
 
 # User-defined commands
@@ -358,7 +358,7 @@ color file			default	default
 color grep.file			yellow	default
 color file-size			default	default
 color line-number		cyan	default
-color title-blur		white	yellow
+color title-blur		white	blue
 color title-focus		white	black	bold
 color main-commit		default	default
 color main-tag			magenta	default	bold
