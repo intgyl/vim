@@ -227,7 +227,7 @@ bind generic	-	move-page-up
 #bind generic	<Home>	move-first-line
 bind generic	g	move-first-line
 #bind generic	<SHIFT-G>	move-last-line
-bind main	G	move-last-line
+bind generic	G	move-last-line
 
 # Scrolling
 bind generic	|	scroll-first-col
@@ -244,7 +244,7 @@ bind generic	<SFwd>	scroll-page-down
 
 # Searching
 bind generic	/	search
-bind generic	?	search-back
+bind generic	?	view-help
 bind generic	n	find-next
 bind generic	N	find-prev
 # Navigation keys used while searching
