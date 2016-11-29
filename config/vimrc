@@ -121,6 +121,10 @@ if has("win32")
 	language messages zh_CN.utf-8
 endif
 
+if &diff
+	colors blue
+endif
+
 "********************************************************************************
 
  "AUTO COMMANDS:
