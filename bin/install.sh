@@ -33,6 +33,7 @@ cd $HOME
 ln -s $HOME/.vim/config/vimrc .vimrc
 ln -s $HOME/.vim/config/gvimrc .gvimrc
 ln -s $HOME/.vim/config/inputrc .inputrc
+ln -s $HOME/.vim/config/tigrc .tigrc
 
 #add my tools
 echo "source $HOME/.vim/bin/source.rc" >> $HOME/.bashrc
