@@ -167,13 +167,13 @@ bind refs	!	?git branch -D %(branch)
 # View switching
 bind generic	m	view-main
 bind generic	d	view-diff
-bind generic	l	view-log
+# bind generic	l	view-log
 bind generic	t	view-tree
 bind generic	f	view-blob
 bind generic	b	view-blame
 bind generic	r	view-refs
 bind generic	p	view-pager
-bind generic	h	view-help
+# bind generic	h	view-help
 bind generic	s	view-status
 bind generic	S	view-status		# Compat binding to avoid going crazy!
 bind generic	c	view-stage
@@ -231,8 +231,10 @@ bind main	G	move-last-line
 
 # Scrolling
 bind generic	|	scroll-first-col
-bind generic	<Left>	scroll-left
-bind generic	<Right>	scroll-right
+# bind generic	<Left>	scroll-left
+bind generic	h	scroll-left
+# bind generic	<Right>	scroll-right
+bind generic	l	scroll-right
 bind generic	<Ins>	scroll-line-up
 bind generic	<C-Y>	scroll-line-up
 bind generic	<Del>	scroll-line-down
