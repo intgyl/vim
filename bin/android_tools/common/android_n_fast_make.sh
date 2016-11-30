@@ -37,7 +37,10 @@ fmk() {
 		echo "****************************"
 		return
 	fi
-	export NINJA_STATUS="[%p %s/%t] " && source out/env-$TARGET_PRODUCT.sh && out/host/linux-x86/bin/makeparallel --ninja prebuilts/ninja/linux-x86/ninja $image -C . -f out/build-$TARGET_PRODUCT.ninja -j$(CPU_JOB_NUM)
+
+	export NINJA_STATUS="[%p %s/%t]"
+	source out/env-$TARGET_PRODUCT.sh
+	out/host/linux-x86/bin/makeparallel --ninja prebuilts/ninja/linux-x86/ninja $image -C . -f out/build-$TARGET_PRODUCT.ninja -j$CPU_JOB_NUM
 }
 
 function print_fmk_usage {
