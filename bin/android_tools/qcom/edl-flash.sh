@@ -76,7 +76,12 @@ edl-flash() {
 
 	while [ $? != 0 ]
 	do
-		echo "wait for COM(9008)"
+		adb devices |  sed -n 2p | grep device > /dev/null
+		if [ $? = 0 ]; then
+			adb reboot edl
+		fi
+
+		echo "waiting for (9008)"
 		sleep 2
 		loop_time=$(expr $loop_time + 1)
 		if [ $loop_time = 10 ]; then
