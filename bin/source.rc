@@ -22,6 +22,7 @@ source $HOME/.vim/bin/android_tools/common/cpu_gpu_clk.sh
 source $HOME/.vim/bin/android_tools/common/adb-connect.sh
 source $HOME/.vim/bin/android_tools/common/packimage.sh
 source $HOME/.vim/bin/android_tools/qcom/edl-flash.sh
+source $HOME/.vim/bin/android_tools/qcom/powertop.sh
 source $HOME/.vim/bin/android_tools/common/dtc.sh
 source $HOME/.vim/bin/android_tools/common/make_image.sh
 source $HOME/.vim/bin/android_tools/common/android_n_fast_make.sh
