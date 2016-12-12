@@ -95,7 +95,7 @@ edl-flash() {
 
 	port_num=$(/bin/ls /sys/bus/usb-serial/drivers/qcserial/ | grep tty)
 
-	script_dir="$HOME/.vim/bin/android_tools/qcom"
+	script_dir=`dirname "$BASH_SOURCE"`
 
 	if [ $platform = "old" ]; then
 
