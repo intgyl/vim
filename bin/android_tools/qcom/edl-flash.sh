@@ -72,7 +72,7 @@ edl-flash() {
 	fi
 
 	loop_time=0
-	lsusb | grep 'QDL mode'
+	lsusb | grep 'QDL mode' > /dev/null
 
 	while [ $? != 0 ]
 	do
@@ -90,7 +90,7 @@ edl-flash() {
 			echo "###################################"
 			exit 1
 		fi
-		lsusb | grep 'QDL mode'
+		lsusb | grep 'QDL mode' > /dev/null
 	done
 
 	port_num=$(/bin/ls /sys/bus/usb-serial/drivers/qcserial/ | grep tty)
@@ -134,11 +134,6 @@ edl-flash() {
 
 		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --memoryname=UFS --setactivepartition=1 --reset
 	fi
-
-
-	echo "###################################"
-	echo "######  EDL Flash Done!!!  ########"
-	echo "###################################"
 }
 
 function print_edl-flash_usage {
