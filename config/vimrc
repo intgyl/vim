@@ -20,7 +20,7 @@ Bundle 'Auto-Pairs'
 Bundle 'autoload_cscope.vim'
 Bundle 'https://github.com/Shougo/neosnippet.vim.git'
 Bundle 'https://github.com/scrooloose/nerdcommenter.git'
-Bundle 'https://github.com/vim-scripts/vcscommand.vim.git'
+" Bundle 'https://github.com/vim-scripts/vcscommand.vim.git'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'vim-scripts/Tagbar'
 "********************************************************************************
@@ -182,17 +182,6 @@ nmap t2 :%!xxd -r<CR>
 nmap delline :g/^$/d
 
 "********************************************************************************
-noremap <Leader>gl    :VCSLog<CR>
-noremap <Leader>git    :VCSVimDiff<CR><C-H>
-noremap <Leader>gd    :VCSVimDiff
-noremap <Leader>gb    :VCSBlame<CR><C-H>
-noremap <Leader>gr    :VCSRevert<CR>
-let VCSCommandEnableBufferSetup=0            "slow if set 1
-
-nnoremap <silent> <leader>db [c
-nnoremap <silent> <leader>dn ]c
-
-"********************************************************************************
 "vim-go
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -292,15 +281,6 @@ nmap <leader>gs :GetScripts<cr>
 
 
 "********************************************************************************
-let g:winManagerWindowLayout='FileExplorer|BufExplorer'
-let g:persistentBehaviour=0
-let g:winManagerWidth=20
-let g:defaultExplorer=1
-nmap <silent> <leader>fir :FirstExplorerWindow<cr>
-nmap <silent> <leader>bot :BottomExplorerWindow<cr>
-nmap <silent> <leader>wm :WMToggle<cr>
-"********************************************************************************
-
 "This tip provides the same autoloading functionality for Cscope
 function! LoadCscope()
 	let db = findfile("cscope.out", ".;")
