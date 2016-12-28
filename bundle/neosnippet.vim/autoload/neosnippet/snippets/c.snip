@@ -240,11 +240,11 @@ abbr    fprintf(..., "...\n", ...);
 
 snippet kerr
 abbr    pr_err("[gyl] %s\n",__func__);
-    pr_err("[gyl] %s:%d${1}\n",__func__, __LINE__);
+    pr_err("[gyl] ${1}\n",);
 
 snippet kinfo
 abbr    pr_info("[gyl] %s\n",__func__);
-    pr_info("[gyl] %s:%d${1}\n",__func__, __LINE__);
+    pr_info("[gyl] ${1}\n",);
 
 snippet comment
 alias /*   */
