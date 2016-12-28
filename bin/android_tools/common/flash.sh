@@ -132,7 +132,7 @@ flash() {
 
 	done
 
-
+	croot
 }
 
 supported_partition="boot system recovery userdata cache aboot abootbak rpm rpmbak
