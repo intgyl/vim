@@ -29,6 +29,7 @@ source $HOME/.vim/bin/android_tools/common/android_n_fast_make.sh
 source $HOME/.vim/bin/android_tools/common/ota_signer.sh
 source $HOME/.vim/bin/android_tools/common/packramdisk.sh
 source $HOME/.vim/bin/android_tools/common/unpackramdisk.sh
+source $HOME/.vim/bin/android_tools/common/dumpsys_surfaceflinger_fps.sh
 
 
 alias lindent='$HOME/.vim/bin/tools/common/lindent'
