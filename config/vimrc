@@ -122,7 +122,7 @@ if has("win32")
 endif
 
 if &diff
-	colors aiseered
+	colors my
 endif
 
 "********************************************************************************
