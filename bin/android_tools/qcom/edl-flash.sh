@@ -101,13 +101,13 @@ edl-flash() {
 
 		sudo $script_dir/QSaharaServer -p /dev/$port_num -s 13:$prog_ddr_file
 
-		busybox sleep 5
+		# busybox sleep 5
 		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=$xml_file
 
-		busybox sleep 5
+		# busybox sleep 5
 		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=patch0.xml
 
-		busybox sleep 3
+		# busybox sleep 3
 		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --reset
 
 	elif [ $platform = "new" ]; then
