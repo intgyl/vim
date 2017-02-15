@@ -18,7 +18,7 @@ source $HOME/.vim/bin/tools/common/make_cscope
 source $HOME/.vim/bin/android_tools/common/flash.sh
 source $HOME/.vim/bin/android_tools/common/screen_off_timeout.sh
 source $HOME/.vim/bin/android_tools/common/packimage.sh
-source $HOME/.vim/bin/android_tools/qcom/edl-flash.sh
+source $HOME/.vim/bin/android_tools/qcom/edl-flash/edl-flash.sh
 source $HOME/.vim/bin/android_tools/qcom/powertop.sh
 source $HOME/.vim/bin/android_tools/common/dtc.sh
 source $HOME/.vim/bin/android_tools/common/make_image.sh
