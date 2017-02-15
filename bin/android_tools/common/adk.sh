@@ -23,6 +23,8 @@ adk() {
 
 	case "$1" in
 	ftyrst)
+		adb root > /dev/null
+		adb wait-for-device
 		adb shell am broadcast -a android.intent.action.MASTER_CLEAR;;
 
 	smartisan-active)
