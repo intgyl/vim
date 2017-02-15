@@ -1,4 +1,11 @@
 adk() {
+
+	tmp=`adb devices | sed -n '/device$/p'`
+	if [ -z "$tmp"  ]; then
+		echo -e "\nConnect the devce and authorize it\n"
+		return
+	fi
+
 	host_platform=""
 	case `uname` in
 		Linux) host_platform=linux ;;
@@ -19,7 +26,7 @@ adk() {
 		adb shell am broadcast -a android.intent.action.MASTER_CLEAR;;
 
 	smartisan-active)
-		adb shell am start -n com.smartisanos.setupwizard/com.smartisanos.setupwizard.SetupWizardCompleteActivity;;
+		__skip-first-time;;
 
 	smartisan-launcher)
 		adb shell am start -n com.smartisanos.launcher/com.smartisanos.launcher.Launcher;;
@@ -72,6 +79,17 @@ adk() {
 	fps)
 		__fps;;
 
+	charging-disble)
+		__charging_disable;;
+
+	file-log)
+
+		__file_log $1 $2;;
+	dtc)
+		__dtc $2;;
+	screen-off-time)
+		__screen_off_time $2;;
+
 	*)
 		print_adk_usage;;
 	esac
@@ -80,7 +98,7 @@ adk() {
 
 function __adk_root
 {
-	adb root
+	adb root > /dev/null
 	adb wait-for-device
 	for string in `adb shell cat /proc/mounts | grep ro, | awk '{printf ("%s@%s\n",$1, $2) }'`; do
 		drive=$(echo $string  |awk -F'@' '$0=$1')
@@ -91,7 +109,7 @@ function __adk_root
 
 function __adk_panic
 {
-	adb root
+	adb root > /dev/null
 	adb wait-for-device
 	adb shell "echo c > /proc/sysrq-trigger"
 }
@@ -120,7 +138,7 @@ function __adk_hexdump
 	dump_path="/data/hexdump"
 	#blk_path="/dev/block/bootdevice/by-name"
 	blk_path=`adb shell cat /proc/mounts | grep system | awk '{print $1}' | sed "s/\/system//g"`
-	adb root
+	adb root > /dev/null
 	adb wait-for-device
 	adb shell "mkdir $dump_path"
 	for partition in `adb shell ls $blk_path | grep -v "system\|cache\|userdata\|udisk"`; do
@@ -135,7 +153,7 @@ function __adk_hexdump
 
 function __adk_cpu-performance
 {
-	adb root
+	adb root > /dev/null
 	adb wait-for-device
 	adb shell stop thermal-engine
 	cpus=0
@@ -154,7 +172,7 @@ function __adk_net-shell
 	tcpport=5555
 	adb disconnect
 	adb shell svc wifi enable
-	adb root
+	adb root > /dev/null
 	adb wait-for-device
 	adb shell setprop service.adb.tcp.port $tcpport
 	ipaddr=`adb shell "ifconfig wlan0" | grep "inet addr" | awk {'print $2'} | sed {"s/\(.*\):\(.*\)/\2/g"}`
@@ -271,9 +289,82 @@ function __fps {
 	adb shell "while true ; do dumpsys SurfaceFlinger | grep \"vsync period\" ; sleep 0.1 ; done"
 }
 
+function __skip-first-time () {
+
+	adbd_string="adbd cannot run as root in production builds"
+
+	adb wait-for-device
+	user=`adb root`
+
+	if [ "$user" = "$adbd_string" ]; then
+		adb wait-for-device
+		adb shell settings put secure user_setup_complete 1
+		adb shell settings put global device_provisioned  1
+		return
+	fi
+
+	adb wait-for-device
+	adb shell "am start -n com.smartisanos.setupwizard/com.smartisanos.setupwizard.SetupWizardCompleteActivity"
+}
+
+function __charging_disable() {
+
+	adb root > /dev/null
+	adb wait-for-device
+	adb shell "echo 0 > /sys/class/power_supply/battery/charging_enabled"
+}
+
+function __file_log () {
+
+	if [ $# != 2 ]; then
+		echo "usage: adk file-log xxx.c"
+		return
+	fi
+
+	adb root > /dev/null
+	adb shell "echo \'file $2 +p\' >  /sys/kernel/debug/dynamic_debug/control"
+
+}
+
+function __dtc() {
+
+
+	if [ $# != 1 ]; then
+		echo "Please input the dtb file"
+		echo "adk dtc xxx.dtb"
+		return
+	fi
+
+	if [ -z `echo $1 | sed 's/^.*\.//'` ]; then
+		echo "Please input the dtb file"
+		echo "adk dtc xxx.dtb"
+		return
+
+	elif [ `echo $1 | sed 's/^.*\.//'` != "dtb" ]; then
+		echo "Please input the dtb file"
+		echo "adk dtc xxx.dtb"
+		return
+	fi
+
+	bin_dir=`dirname "$BASH_SOURCE"`
+	$bin_dir/dtc_bin -I dtb -O dts -o $(echo $1 | sed 's/\.[^.]*$//').dts $1
+}
+
+function __screen_off_time() {
+
+	if [ $# = 0 ]; then
+		echo "usage: adk screen-off-time ms"
+		return
+	fi
+
+	adb shell settings put system screen_off_timeout $1
+}
+
+
 supported_adk="root ftyrst hexdump meminfo pmap-all cpu-performance listapk
 		focusedapk panic net-shell clk cpuclk gpuclk airplane_on
-		airplane_off fps"
+		airplane_off fps smartisan-active charging-disble file-log dtc
+		screen-off-time"
 
 function _comp_adk {
 	local curw
@@ -307,38 +398,63 @@ fi
 function print_adk_usage {
 
 	echo "
-		root
-		将adb重启为root权限，并且remount所有ro分区为rw
+	1. root
+	   将adb重启为root权限，并且remount所有ro分区为rw
 
-		ftyrst
-		执行恢复出厂设置
+	2. ftyrst
+	   执行恢复出厂设置
 
-		hexdump
-		将userdata，system，cache之外的分区，都已二进制形式dump到当前目录中
+	3. hexdump
+	   将userdata，system，cache之外的分区，都已二进制形式dump到当前目录中
 
-		meminfo
-		监控系统的内存状态
+	4. meminfo
+	   监控系统的内存状态
 
-		pmap-all
-		把所有用户进程的pmap打印出来，用来查看动态库被哪些进程引用了
+	5. pmap-all
+	   把所有用户进程的pmap打印出来，用来查看动态库被哪些进程引用了
 
-		cpu-performance
-		将Android设置成高性能状态，锁定在最高频。
+	6. cpu-performance
+	   将Android设置成高性能状态，锁定在最高频。
 
-		listapk
-		打印Android当前所有安装的apk
+	7. listapk
+	   打印Android当前所有安装的apk
 
-		focusedapk
-		打印当前主界面的apk名称
+	8. focusedapk
+	   打印当前主界面的apk名称
 
-		panic
-		触发panic
+	9. panic
+	   触发panic
 
-		net-shell
-		建立一个adb net的shell通道，可以不依赖USB进行调试
+	10. net-shell
+	   建立一个adb net的shell通道，可以不依赖USB进行调试
 
-		fps
-		获取当前fps
+	11. fps
+	   获取当前fps
+
+	12. clk
+	   cpuclk gpuclk gpubusy
+
+	13. airplane_on
+	   打开飞行模式
+
+	14. airplane_off
+	   关闭飞行模式
+
+	15. smartisan-active
+
+	16. charging-disble
+
+	17. file-log
+	   打开指定文件dmesg log
+	   usage: adk file-log xxx.c
+
+	18. dtc
+	   反编译dtb文件
+	   usage: adk dtc xxx.dtb
+
+	19. screen-off-time
+	   配置灭屏时间
+	   usage: adk screen-off-time ms
 
 	"
 }
