@@ -365,8 +365,8 @@ function __screen_off_time() {
 
 supported_adk="root ftyrst hexdump meminfo pmap-all cpu-performance listapk
 		focusedapk panic net-shell clk cpuclk gpuclk airplane_on
-		airplane_off fps smartisan-active charging-disble file-log dtc
-		screen-off-time"
+		airplane_off fps smartisan-active smartisan-launcher charging-disble
+		file-log dtc screen-off-time"
 
 function _comp_adk {
 	local curw
@@ -433,7 +433,7 @@ function print_adk_usage {
 	$GREEN    打开飞行模式 $END
 	$RED 14. airplane_off $END
 	$GREEN    关闭飞行模式 $END
-	$RED 15. smartisan-active $END
+	$RED 15. smartisan-active smartisan-launcher $END
 	$RED 16. charging-disble $END
 	$RED 17. file-log $END
 	$GREEN   打开指定文件dmesg log $END
