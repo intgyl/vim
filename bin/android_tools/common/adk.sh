@@ -396,67 +396,54 @@ else
 	complete -F _comp_adk adk
 fi
 
+RED="\033[31m"
+GREEN="\033[32m"
+YELLOW="\033[33m"
+
+END="\033[0m"
 
 function print_adk_usage {
 
-	echo "
-	1. root
-	   将adb重启为root权限，并且remount所有ro分区为rw
-
-	2. ftyrst
-	   执行恢复出厂设置
-
-	3. hexdump
-	   将userdata，system，cache之外的分区，都已二进制形式dump到当前目录中
-
-	4. meminfo
-	   监控系统的内存状态
-
-	5. pmap-all
-	   把所有用户进程的pmap打印出来，用来查看动态库被哪些进程引用了
-
-	6. cpu-performance
-	   将Android设置成高性能状态，锁定在最高频。
-
-	7. listapk
-	   打印Android当前所有安装的apk
-
-	8. focusedapk
-	   打印当前主界面的apk名称
-
-	9. panic
-	   触发panic
-
-	10. net-shell
-	   建立一个adb net的shell通道，可以不依赖USB进行调试
-
-	11. fps
-	   获取当前fps
-
-	12. clk
-	   cpuclk gpuclk gpubusy
-
-	13. airplane_on
-	   打开飞行模式
-
-	14. airplane_off
-	   关闭飞行模式
-
-	15. smartisan-active
-
-	16. charging-disble
-
-	17. file-log
-	   打开指定文件dmesg log
-	   usage: adk file-log xxx.c
-
-	18. dtc
-	   反编译dtb文件
-	   usage: adk dtc xxx.dtb
-
-	19. screen-off-time
-	   配置灭屏时间
-	   usage: adk screen-off-time ms
+	echo -e "
+	$RED 1. root $END
+	   $GREEN 将adb重启为root权限，并且remount所有ro分区为rw $END
+	$RED 2. ftyrst $END
+	$GREEN    执行恢复出厂设置 $END
+	$RED 3. hexdump $END
+	$GREEN    将userdata，system，cache之外的分区，都已二进制形式dump到当前目录中 $END
+	$RED 4. meminfo $END
+	$GREEN    监控系统的内存状态 $END
+	$RED 5. pmap-all $END
+	$GREEN    把所有用户进程的pmap打印出来，用来查看动态库被哪些进程引用了 $END
+	$RED 6. cpu-performance $END
+	$GREEN    将Android设置成高性能状态，锁定在最高频。$END
+	$RED 7. listapk $END1
+	$GREEN    打印Android当前所有安装的apk $END
+	$RED 8. focusedapk $END
+	$GREEN    打印当前主界面的apk名称 $END
+	$RED 9. panic $END
+	$GREEN    触发panic $END
+	$RED 10. net-shell $END
+	$GREEN    建立一个adb net的shell通道，可以不依赖USB进行调试 $END
+	$RED 11. fps $EDN
+	$GREEN    获取当前fps $END
+	$RED 12. clk $END
+	$GREEN    cpuclk gpuclk gpubusy $END
+	$RED 13. airplane_on $END
+	$GREEN    打开飞行模式 $END
+	$RED 14. airplane_off $END
+	$GREEN    关闭飞行模式 $END
+	$RED 15. smartisan-active $END
+	$RED 16. charging-disble $END
+	$RED 17. file-log $END
+	$GREEN   打开指定文件dmesg log $END
+	$YELLOW   usage: adk file-log xxx.c $EDN
+	$RED 18. dtc $END
+	$GREEN    反编译dtb文件 $END
+	$YELLOW   usage: adk dtc xxx.dtb $END
+	$RED 19. screen-off-time $END
+	$GREEN    配置灭屏时间 $EDN
+	$YELLOW   usage: adk screen-off-time ms $END
 
 	"
 }
