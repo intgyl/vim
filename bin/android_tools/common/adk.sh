@@ -126,7 +126,7 @@ function __adk_listapk
 		cat /tmp/tmplog.pid.$$ | grep $dir
 	done
 
-	rm /tmp/tmplog.pid.$$
+	rm -rf /tmp/tmplog.pid.$$
 }
 function __adk_focusedapk
 {
