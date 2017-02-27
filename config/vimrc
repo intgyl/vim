@@ -173,6 +173,12 @@ noremap <leader>n :set mouse=n<ENTER>
 noremap <leader>= :set mouse=<ENTER>
 noremap ]  <C-]>
 
+"insert mode
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+
 map <F5> :Sex<Enter>
 map <F6> :Sex!<Enter>
 
