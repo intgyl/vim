@@ -187,7 +187,8 @@ sudo $apt install ant daemon expect htop lib32z1 \
 	libdatetime-perl liblua5.2-dev  libstring-approx-perl \
 	libstring-shellquote-perl libswitch-perl libtext-glob-perl \
 	libxml2:i386  libxml-parser-perl lua5.2 mysql-client \
-	python-mysqldb subversion xbindkeys  xclip xmlstarlet zlib1g-dev -y --force-yes
+	python-mysqldb subversion xbindkeys  xclip xmlstarlet \
+	libssl-dev zlib1g-dev -y --force-yes
 
 #openjdk-8-jdk
 sudo add-apt-repository ppa:openjdk-r/ppa -y
