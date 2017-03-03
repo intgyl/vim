@@ -26,7 +26,7 @@ source $HOME/.vim/bin/android_tools/common/packramdisk.sh
 source $HOME/.vim/bin/android_tools/common/unpackramdisk.sh
 source $HOME/.vim/bin/android_tools/common/adk.sh
 
-
+alias git='LANG=en_GB git'
 alias lindent='$HOME/.vim/bin/tools/common/lindent'
 alias ..='cd ..'
 alias c2='cd ../../'
@@ -88,9 +88,18 @@ export PATH=$PATH:$HOME/.vim/bin/android_tools/common/
 export PATH=$PATH:$HOME/.vim/bin/android_tools/
 export PATH=$PATH:$HOME/.vim/bin/android_tools/qcom/parse-script/
 
-#export JAVA_HOME=$HOME/tools/jdk/jdk1.6.0_35
-#export PATH=$JAVA_HOME/bin:$PATH
-#export CLASSPATH=:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+function git_branch {
+	branch_id="`git rev-parse --short HEAD 2> /dev/null`"
+	branch_name="`git branch -a 2> /dev/null | grep "\->" | awk -F "\->" '{print $2}'`"
+
+	if [ "$branch_id" != "" ]; then
+		echo " ($branch_id$branch_name)"
+	fi
+}
+
+export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n\$ '
+
+
 
 
 #if [ "$color_prompt" = yes  ]; then
@@ -106,3 +115,6 @@ export PATH=$PATH:$HOME/.vim/bin/android_tools/qcom/parse-script/
 #     ;;
 # esac
 
+#export JAVA_HOME=$HOME/tools/jdk/jdk1.6.0_35
+#export PATH=$JAVA_HOME/bin:$PATH
+#export CLASSPATH=:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
