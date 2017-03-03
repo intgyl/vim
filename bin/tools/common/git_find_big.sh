@@ -33,3 +33,7 @@ git-find-big() {
 
 	echo -e $output | column -t -s ', '
 }
+
+	# git filter-branch -f --prune-empty --index-filter "git rm -rf --cached --ignore-unmatch finename" --tag-name-filter cat -- --all
+	# git reflog expire --expire=now --all
+	# git gc --prune=now
