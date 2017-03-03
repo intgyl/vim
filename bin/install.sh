@@ -71,8 +71,8 @@ sudo $apt install openssh-server -y --force-yes
 
 #stardict
 sudo $apt install stardict -y --force-yes
-sudo rm /usr/share/stardict/dic -rf
-sudo ln -s $HOME/.vim/soft_config/stardict/dic/ /usr/share/stardict/dic
+# sudo rm /usr/share/stardict/dic -rf
+# sudo ln -s $HOME/.vim/soft_config/stardict/dic/ /usr/share/stardict/dic
 
 #android adb fastboot
 sudo $apt install android-tools-adb -y --force-yes
