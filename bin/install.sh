@@ -110,7 +110,7 @@ sudo $apt install cups-pdf -y --force-yes
 
 # used to modify the noticication
 sudo $apt install mate-notification-daemon -y --force-yes
-sudo $apt remove notify-osd
+sudo $apt remove notify-osd -y --force-yes
 
 sudo $apt install dconf-editor -y --force-yes
 
