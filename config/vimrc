@@ -171,7 +171,8 @@ nnoremap f 0
 nnoremap e #
 noremap <leader>n :set mouse=n<ENTER>
 noremap <leader>= :set mouse=<ENTER>
-noremap ]  <C-]>
+noremap <C-k>  <C-]>
+noremap <C-j>  <C-t>
 
 "insert mode
 inoremap <C-a> <Home>
