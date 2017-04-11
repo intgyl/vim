@@ -200,11 +200,11 @@ sudo $apt install openjdk-8-jdk -y --force-yes
 gsettings set com.canonical.desktop.interface scrollbar-mode normal
 
 #tweak
-sudo add-apt-repository ppa:tualatrix/ppa -y
-sudo $apt update
-sudo $apt install ubuntu-tweak -y --force-yes
-rm -rf $HOME/.config/ubuntu-tweak/
-sudo ln -s $HOME/.vim/soft_config/ubuntu-tweak/ $HOME/.config/ubuntu-tweak/
+#sudo add-apt-repository ppa:tualatrix/ppa -y
+#sudo $apt update
+#sudo $apt install ubuntu-tweak -y --force-yes
+#rm -rf $HOME/.config/ubuntu-tweak/
+#sudo ln -s $HOME/.vim/soft_config/ubuntu-tweak/ $HOME/.config/ubuntu-tweak/
 
 #caro-dock
 # sudo add-apt-repository ppa:cairo-dock-team/ppa -y
