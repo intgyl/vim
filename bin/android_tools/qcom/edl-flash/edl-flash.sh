@@ -22,6 +22,12 @@ edl-flash() {
 			xml_file="rawprogram_unsparse.xml"
 			platform="old"
 			;;
+
+		sdm660-full-flash)
+			prog_ddr_file="prog_emmc_ufs_firehose_Sdm660_ddr.elf"
+			xml_file="rawprogram_unsparse_full_flash.xml"
+			platform="old"
+			;;
 		8953)
 			prog_ddr_file="prog_emmc_firehose_8953_ddr.mbn"
 			xml_file="rawprogram_unsparse.xml"
@@ -146,7 +152,7 @@ function print_edl-flash_usage {
 	echo 'edl-flash <platform>'
 }
 
-supported_edl_flash="sdm660 8916 8936 8956 8976 8953 8953-full-flash 8992 8996 8996-full-flash"
+supported_edl_flash="sdm660 sdm660-full-flash 8916 8936 8956 8976 8953 8953-full-flash 8992 8996 8996-full-flash"
 
 function _comp_edl_flash {
 	local curw
