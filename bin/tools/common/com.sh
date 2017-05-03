@@ -2,8 +2,8 @@
 #[ "`whoami`" = root ] || exec sudo "$0" "$@"
 com() {
 	if [  ! -d $HOME/log/minicom_log/ ]; then
-		echo there is no log derectery, please input this command
-		echo "mkdir $HOME/log/minicom_log/"
+		echo "there is no log directory"
+		echo "mkdir -p $HOME/log/minicom_log/"
 		mkdir -p $HOME/log/minicom_log/
 	fi
 	today_dir=`LCALL=C date +%F`
@@ -18,7 +18,7 @@ com() {
 	#cat $HOME/.data_my_passwd | sudo -S ls > /dev/null
 
 	logname=$today_dir/`LCALL=C date +%H%M%S`
-	#echo param=$#
+
 	if [ $# != 0 ]; then
 		sudo minicom -w $@
 	else
