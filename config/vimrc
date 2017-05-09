@@ -48,9 +48,9 @@ if v:version >= 702
 	set   noexpandtab
 	set   fileencodings=utf-8,gb2312,gbk,gb18030,chinese
 	set   fileformat=unix
-	set   foldenable
-	"set  foldmethod=syntax "折叠
-	set   foldcolumn=0
+	set   nofoldenable
+	set   foldmethod=syntax "折叠
+	set   foldlevel=99
 	"set  expandtab "tab键展开为空格
 	set   cursorline
 	hi    CursorLine   cterm=NONE ctermbg=darkblue guibg=black guifg=NONE
@@ -164,7 +164,7 @@ nmap Q :q<ENTER>
 nmap wQ :wq!<ENTER>
 nmap WQ :wq!<ENTER>
 "nnoremap <C-w> <C-w>w
-nnoremap <space> $
+nnoremap <C-e> $
 nnoremap s %
 nnoremap ; *
 nnoremap f 0
@@ -187,6 +187,8 @@ nmap t16 :%!xxd<CR>
 nmap t2 :%!xxd -r<CR>
 
 nmap delline :g/^$/d
+
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
 "********************************************************************************
 "vim-go
