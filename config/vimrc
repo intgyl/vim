@@ -14,6 +14,7 @@ call vundle#rc()
 "from http://vim-scripts.org/vim/scripts.html
 "you can just write Bundle 'name'
 
+Bundle 'https://github.com/nathanaelkane/vim-indent-guides'
 Bundle 'https://github.com/fatih/vim-go'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Auto-Pairs'
@@ -88,22 +89,16 @@ if v:version >= 702
 	set   cmdheight=1
 	"set  invlist "show all char
 	"set  nolist
+	set   tag=tags;
 
 	" 显示tab和空格
-	 set list
+	set list
 	" 设置tab和空格样式
-	 set lcs=tab:\│\ ,nbsp:%,trail:-
+	set lcs=tab:\│\ ,nbsp:%,trail:-
 	" 设定行首tab为灰色
-	 highlight LeaderTab guifg=#666666
-	 " 匹配行首tab
-	 match LeaderTab /^\t/"
-endif
-
-"********************************************************************************
-" Config for vim73
-set tag=tags;
-if v:version >= 703
-	set colorcolumn=+1
+	highlight LeaderTab guifg=#666666
+	" 匹配行首tab
+	match LeaderTab /^\t/"
 endif
 
 "********************************************************************************
