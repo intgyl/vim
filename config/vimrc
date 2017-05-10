@@ -263,9 +263,6 @@ let g:neosnippet#enable_preview=1
 
 "********************************************************************************
 
-" Man.vim
-set csprg=gtags-cscope
-
 source $VIMRUNTIME/ftplugin/man.vim
 " plugin shortcuts
 function! RunShell(Msg, Shell)
@@ -284,19 +281,4 @@ nmap <leader>si :cs find i <C-R>=expand("<cfile>")<cr><cr>
 nmap <leader>sd :cs find d <C-R>=expand("<cword>")<cr><cr>
 nmap <leader>zz <C-w>o
 nmap <leader>gs :GetScripts<cr>
-
-
-"********************************************************************************
-"This tip provides the same autoloading functionality for Cscope
-function! LoadCscope()
-	let db = findfile("GTAGS", ".;")
-	if (!empty(db))
-		let path = strpart(db, 0, match(db, "/GTAGS$"))
-		set nocscopeverbose " suppress 'duplicate connection' error
-		exe "cs add " . db . " " . path
-		set cscopeverbose
-	endif
-endfunction
-au BufEnter /* call LoadCscope()
-"********************************************************************************
 
