@@ -14,7 +14,6 @@ call vundle#rc()
 "from http://vim-scripts.org/vim/scripts.html
 "you can just write Bundle 'name'
 
-Bundle 'https://github.com/nathanaelkane/vim-indent-guides'
 Bundle 'https://github.com/fatih/vim-go'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Auto-Pairs'
@@ -24,6 +23,7 @@ Bundle 'https://github.com/scrooloose/nerdcommenter.git'
 " Bundle 'https://github.com/vim-scripts/vcscommand.vim.git'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'vim-scripts/Tagbar'
+Bundle 'vim-scripts/gtags.vim'
 "********************************************************************************
 
 " Enable file type detection.
@@ -264,6 +264,8 @@ let g:neosnippet#enable_preview=1
 "********************************************************************************
 
 " Man.vim
+set csprg=gtags-cscope
+
 source $VIMRUNTIME/ftplugin/man.vim
 " plugin shortcuts
 function! RunShell(Msg, Shell)
@@ -287,9 +289,9 @@ nmap <leader>gs :GetScripts<cr>
 "********************************************************************************
 "This tip provides the same autoloading functionality for Cscope
 function! LoadCscope()
-	let db = findfile("cscope.out", ".;")
+	let db = findfile("GTAGS", ".;")
 	if (!empty(db))
-		let path = strpart(db, 0, match(db, "/cscope.out$"))
+		let path = strpart(db, 0, match(db, "/GTAGS$"))
 		set nocscopeverbose " suppress 'duplicate connection' error
 		exe "cs add " . db . " " . path
 		set cscopeverbose
