@@ -168,6 +168,8 @@ noremap <leader>n :set mouse=n<ENTER>
 noremap <leader>= :set mouse=<ENTER>
 noremap <C-k>  <C-]>
 noremap <C-j>  <C-t>
+noremap <C-h> <C-w>h
+noremap <C-l> <C-w>l
 
 "insert mode
 inoremap <C-a> <Home>
