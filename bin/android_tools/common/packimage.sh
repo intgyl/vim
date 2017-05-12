@@ -13,7 +13,7 @@ pack() {
 	out_path=$3
 
 	case $1 in
-		8953|8976|8956|8953|8992)
+		8953|8976|8956|8953|8992|sdm660)
 			system_xml="rawprogram_unsparse.xml"
 			userdata_xml="rawprogram_unsparse.xml"
 			cache_xml="rawprogram_unsparse.xml"
@@ -55,7 +55,7 @@ echo 'pack <platform> <img> <out_path>'
 echo 'example: pack 8996 system ~/tmp'
 }
 
-supported="8976 8956 8953 8992 8996"
+supported="8976 8956 8953 8992 8996 sdm660"
 
 function _comp_pack {
 	local curw
