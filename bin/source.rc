@@ -90,7 +90,7 @@ export PATH=$PATH:$HOME/.vim/bin/android_tools/qcom/parse-script/
 
 function git_branch {
 	branch_id="`git rev-parse --short HEAD 2> /dev/null`"
-	branch_name="`git branch -a 2> /dev/null | grep "\->" | awk -F "\->" '{print $2}'`"
+	branch_name="`git branch -a 2> /dev/null | grep "\->" | awk -F "->" '{print $2}'`"
 
 	if [ "$branch_id" != "" ]; then
 		echo " ($branch_id$branch_name)"
