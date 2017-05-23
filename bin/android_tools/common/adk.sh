@@ -1,10 +1,5 @@
 adk() {
 
-	tmp=`adb devices | sed -n '/device$/p'`
-	if [ -z "$tmp"  ]; then
-		echo -e "\nConnect the devce and authorize it\n"
-		return
-	fi
 
 	host_platform=""
 	case `uname` in
@@ -23,17 +18,43 @@ adk() {
 
 	case "$1" in
 	ftyrst)
+		__check_online
+
+		if [ $? = 1 ]; then
+			return
+		fi
+
 		adb root > /dev/null
 		adb wait-for-device
 		adb shell am broadcast -a android.intent.action.MASTER_CLEAR;;
 
 	smartisan-active)
+		__check_online
+
+		if [ $? = 1 ]; then
+			return
+		fi
+
 		__skip-first-time;;
 
 	smartisan-launcher)
+
+		__check_online
+
+		if [ $? = 1 ]; then
+			return
+		fi
+
 		adb shell am start -n com.smartisanos.launcher/com.smartisanos.launcher.Launcher;;
 
 	hexdump)
+
+		__check_online
+
+		if [ $? = 1 ]; then
+			return
+		fi
+
 		__adk_hexdump;;
 
 #	flash-dir)
@@ -43,59 +64,180 @@ adk() {
 #		__adk_symbol-dir;;
 
 	pmap-all)
+
+		__check_online
+
+		if [ $? = 1 ]; then
+			return
+		fi
+
 		__adk_pmap-all;;
 
 	root)
+
+		__check_online
+
+		if [ $? = 1 ]; then
+			return
+		fi
+
 		__adk_root;;
 
 	cpu-performance)
+		__check_online
+
+		if [ $? = 1 ]; then
+			return
+		fi
+
 		__adk_cpu-performance;;
 
 	panic)
+
+		__check_online
+
+		if [ $? = 1 ]; then
+			return
+		fi
+
 		__adk_panic;;
 
 	listapk)
+
+		__check_online
+
+		if [ $? = 1 ]; then
+			return
+		fi
+
 		__adk_listapk;;
 
 	focusedapk)
+
+		__check_online
+
+		if [ $? = 1 ]; then
+			return
+		fi
+
 		__adk_focusedapk;;
 
 	net-shell)
+
+		__check_online
+
+		if [ $? = 1 ]; then
+			return
+		fi
+
 		__adk_net-shell;;
 
 	clk)
+
+		__check_online
+
+		if [ $? = 1 ]; then
+			return
+		fi
+
 		__clk;;
 
 	cpuclk)
+
+		__check_online
+
+		if [ $? = 1 ]; then
+			return
+		fi
+
 		__cpuclk;;
 
 	gpuclk)
+
+		__check_online
+
+		if [ $? = 1 ]; then
+			return
+		fi
+
 		__gpuclk;;
 
 	airplane_on)
+
+		__check_online
+
+		if [ $? = 1 ]; then
+			return
+		fi
+
 		__airplane_mode_on;;
 
 	airplane_off)
+
+		__check_online
+
+		if [ $? = 1 ]; then
+			return
+		fi
+
 		__airplane_mode_off;;
 
 	fps)
+
+		__check_online
+
+		if [ $? = 1 ]; then
+			return
+		fi
+
 		__fps;;
 
 	charging-disble)
+
+		__check_online
+
+		if [ $? = 1 ]; then
+			return
+		fi
+
 		__charging_disable;;
 
 	file-log)
+
+		__check_online
+
+		if [ $? = 1 ]; then
+			return
+		fi
 
 		__file_log $1 $2;;
 	dtc)
 		__dtc $2;;
 	screen-off-time)
+
+		__check_online
+
+		if [ $? = 1 ]; then
+			return
+		fi
+
 		__screen_off_time $2;;
 
 	*)
 		print_adk_usage;;
 	esac
 
+}
+
+function __check_online()
+{
+	tmp=`adb devices | sed -n '/device$/p'`
+	if [ -z "$tmp"  ]; then
+		echo -e "\nConnect the devce and authorize it\n"
+		return 1
+	fi
+
+	return 0
 }
 
 function __adk_root
