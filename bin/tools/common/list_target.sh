@@ -26,7 +26,9 @@ list_target()
 		fi
 
 		if [ "$file2" = "$target" ]; then
-			echo "$1/$file2,`cat $1/$file2`"
+			echo "$1/$file2"
+			echo "`cat $1/$file2`"
+			echo ""
 			file2=""
 		fi
 	done
