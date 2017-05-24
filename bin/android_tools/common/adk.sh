@@ -466,7 +466,7 @@ function __file_log () {
 	fi
 
 	adb root > /dev/null
-	adb shell "echo \'file $2 +p\' >  /sys/kernel/debug/dynamic_debug/control"
+	adb shell "echo 'file $2 +p' > /sys/kernel/debug/dynamic_debug/control"
 
 }
 
