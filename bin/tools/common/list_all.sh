@@ -21,7 +21,9 @@ list_all()
 		fi
 
 		if [ -a $1/$file2 ]; then
-			echo "$1/$file2,`cat $1/$file2`"
+			echo "$1/$file2"
+			echo "`cat $1/$file2`"
+			echo ""
 		fi
 	done
 }
