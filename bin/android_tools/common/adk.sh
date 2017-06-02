@@ -315,16 +315,16 @@ function __adk_net-shell
 {
 	tcpport=5555
 	adb disconnect
-	adb shell svc wifi enable
 	adb root > /dev/null
 	adb wait-for-device
-	adb shell setprop service.adb.tcp.port $tcpport
-	ipaddr=`adb shell "ifconfig wlan0" | grep "inet addr" | awk {'print $2'} | sed {"s/\(.*\):\(.*\)/\2/g"}`
-	#ip=`adb shell ifconfig wlan0|grep 'inet addr'|awk -F'[ : ]' '{print $13}'`
-	# adb tcpip $tcpport
-	echo $ipaddr:$tcpport
+	# adb shell setprop service.adb.tcp.port $tcpport
+	adb tcpip 5555
+	adb wait-for-device
+	# ipaddr=`adb shell "ifconfig wlan0" | grep "inet addr" | awk {'print $2'} | sed {"s/\(.*\):\(.*\)/\2/g"}`
+	ipaddr=`adb shell ifconfig wlan0|grep 'inet addr'|awk -F'[ : ]' '{print $13}'`
 	adb wait-for-device
 	adb connect $ipaddr:$tcpport
+	sleep 2
 	adb -s $ipaddr:$tcpport shell
 }
 
