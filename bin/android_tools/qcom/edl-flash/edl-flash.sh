@@ -99,7 +99,7 @@ edl-flash() {
 			echo "###################################"
 			echo "######   No Device Found!!   ######"
 			echo "###################################"
-			exit 1
+			return
 		fi
 		lsusb | grep 'QDL mode' > /dev/null
 	done
