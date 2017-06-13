@@ -9,45 +9,45 @@ edl-flash() {
 		8936)
 			prog_ddr_file="prog_emmc_firehose_8936.mbn"
 			xml_file="rawprogram0.xml"
-			platform="old"
+			platform="unseparated"
 			;;
 		8956|8976)
 			prog_ddr_file="prog_emmc_firehose_8976_ddr.mbn"
 			xml_file="rawprogram0.xml"
-			platform="old"
+			platform="unseparated"
 			;;
 
 		sdm660)
 			prog_ddr_file="prog_emmc_ufs_firehose_Sdm660_ddr.elf"
 			xml_file="rawprogram_unsparse.xml"
-			platform="old"
+			platform="unseparated"
 			;;
 
 		sdm660-full-flash)
 			prog_ddr_file="prog_emmc_ufs_firehose_Sdm660_ddr.elf"
 			xml_file="rawprogram_unsparse_full_flash.xml"
-			platform="old"
+			platform="unseparated"
 			;;
 		8953)
 			prog_ddr_file="prog_emmc_firehose_8953_ddr.mbn"
 			xml_file="rawprogram_unsparse.xml"
-			platform="old"
+			platform="unseparated"
 			;;
 
 		8953-full-flash)
 			prog_ddr_file="prog_emmc_firehose_8953_ddr.mbn"
 			xml_file="rawprogram_unsparse_full_flash.xml"
-			platform="old"
+			platform="unseparated"
 			;;
 
 		8992)
 			prog_ddr_file="prog_emmc_firehose_8992_lite.mbn"
 			xml_file="rawprogram_unsparse.xml"
-			platform="old"
+			platform="unseparated"
 			;;
 		8996)
 			prog_ddr_file="prog_ufs_firehose_8996_ddr.elf"
-			platform="new"
+			platform="separated"
 			xml0="rawprogram_unsparse0.xml"
 			xml1="rawprogram1.xml"
 			xml2="rawprogram2.xml"
@@ -58,7 +58,7 @@ edl-flash() {
 
 		8996-full-flash)
 			prog_ddr_file="prog_ufs_firehose_8996_ddr.elf"
-			platform="new"
+			platform="separated"
 			xml0="rawprogram_unsparse0_full_flash.xml"
 			xml1="rawprogram1_full_flash.xml"
 			xml2="rawprogram2_full_flash.xml"
@@ -108,7 +108,7 @@ edl-flash() {
 
 	script_dir=`dirname "$BASH_SOURCE"`
 
-	if [ $platform = "old" ]; then
+	if [ $platform = "unseparated" ]; then
 
 		sudo $script_dir/QSaharaServer -p /dev/$port_num -s 13:$prog_ddr_file
 
@@ -121,7 +121,7 @@ edl-flash() {
 		# busybox sleep 3
 		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --reset
 
-	elif [ $platform = "new" ]; then
+	elif [ $platform = "separated" ]; then
 
 		sudo $script_dir/QSaharaServer -p /dev/$port_num -s 13:$prog_ddr_file
 
