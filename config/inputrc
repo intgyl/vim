@@ -45,7 +45,7 @@ set output-meta on
 "\e[B": history-search-forward
 
 "\C-p": history-search-backward
-"\c-n": history-search-forward
+"\C-n": history-search-forward
 
 # Allow 8-bit input/output
 #$if Bash
