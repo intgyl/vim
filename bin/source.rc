@@ -49,6 +49,10 @@ alias gdth='git difftool -y -t vimdiff HEAD^'
 alias arb='adb reboot bootloader'
 alias sf='sudo fastboot'
 alias R='ctags -R'
+ alias ls='ls --show-control-chars --color=auto'
+ alias ll='ls -alF'
+ alias la='ls -A'
+ alias l='ls -CF'
 alias lh='ll -h'
 alias lsh='ls -Slh'
 alias sl='ls'
@@ -101,9 +105,9 @@ login=`who -m | awk -F ' ' '{print $5}'`
 
 if [ "$login" != "(:0.0)" -a "$login" != "" -a "$login" != "(:0)" ]; then
 
-	export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
+	export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[32m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
 else
-	export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n\$ '
+	export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[32m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n\$ '
 fi
 
 
