@@ -93,7 +93,7 @@ sudo $apt install meld -y --force-yes
 sudo $apt install tree -y --force-yes
 
 #for goagent
-sudo $apt insatll python-vte -y --force-yes
+sudo $apt install python-vte -y --force-yes
 
 #for XX-net
 sudo $apt install libnss3-tools -y --force-yes
@@ -114,9 +114,9 @@ sudo $apt remove notify-osd -y --force-yes
 
 sudo $apt install dconf-editor -y --force-yes
 
-sudo add-apt-repository ppa:wiznote-team -y
-sudo $apt update
-sudo $apt install wiznote
+# sudo add-apt-repository ppa:wiznote-team -y
+# sudo $apt update
+# sudo $apt install wiznote -y --force-yes
 
 #sudo $apt install compizconfig-settings-manager
 #sudo $apt install compiz-plugins
@@ -189,7 +189,10 @@ sudo $apt install ant daemon expect htop lib32z1 \
 	libstring-shellquote-perl libswitch-perl libtext-glob-perl \
 	libxml2:i386  libxml-parser-perl lua5.2 mysql-client \
 	python-mysqldb subversion xbindkeys  xclip xmlstarlet \
-	libssl-dev zlib1g-dev global -y --force-yes
+	libssl-dev zlib1g-dev global qemu libncurses5-dev \
+	gcc-arm-linux-gnueabi build-essential gdb-arm-none-eabi \
+	gcc-aarch64-linux-gnu trace-cmd kernelshark g++-arm-linux-gnueabi \
+	g++-aarch64-linux-gnu libdw-dev systemtap -y --force-yes
 
 #openjdk-8-jdk
 sudo add-apt-repository ppa:openjdk-r/ppa -y
