@@ -101,14 +101,14 @@ function git_branch {
 	fi
 }
 
-login=`who -m | awk -F ' ' '{print $5}'`
-
-if [ "$login" != "(:0.0)" -a "$login" != "" -a "$login" != "(:0)" ]; then
-
-	export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[32m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
-else
+#login=`who -m | awk -F ' ' '{print $5}'`
+#
+#if [ "$login" != "(:0.0)" -a "$login" != "" -a "$login" != "(:0)" ]; then
+#
+#	export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[32m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
+#else
 	export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[32m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n\$ '
-fi
+#fi
 
 
 
