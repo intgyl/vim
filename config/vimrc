@@ -24,6 +24,7 @@ Bundle 'https://github.com/scrooloose/nerdcommenter.git'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'vim-scripts/Tagbar'
 Bundle 'vim-scripts/gtags.vim'
+Bundle 'https://github.com/luochen1990/rainbow'
 "********************************************************************************
 
 " Enable file type detection.
@@ -31,7 +32,6 @@ filetype plugin indent on
 " Syntax highlighting.
 syntax on
 " Setting colorscheme
-
 "********************************************************************************
 " Config for vim72
 
@@ -284,3 +284,4 @@ nmap <leader>sd :cs find d <C-R>=expand("<cword>")<cr><cr>
 nmap <leader>zz <C-w>o
 nmap <leader>gs :GetScripts<cr>
 
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
