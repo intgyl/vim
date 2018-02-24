@@ -192,7 +192,7 @@ sudo $apt install ant daemon expect htop lib32z1 \
 	libssl-dev zlib1g-dev global qemu libncurses5-dev \
 	gcc-arm-linux-gnueabi build-essential gdb-arm-none-eabi \
 	gcc-aarch64-linux-gnu trace-cmd kernelshark g++-arm-linux-gnueabi \
-	g++-aarch64-linux-gnu libdw-dev systemtap -y --force-yes
+	g++-aarch64-linux-gnu libdw-dev systemtap xfsprogs -y --force-yes
 
 #openjdk-8-jdk
 sudo add-apt-repository ppa:openjdk-r/ppa -y
