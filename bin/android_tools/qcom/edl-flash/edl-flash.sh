@@ -6,6 +6,11 @@ edl-flash() {
 	fi
 
 	case $1 in
+		8909)
+			prog_ddr_file="prog_emmc_firehose_8909_ddr.mbn"
+			xml_file="rawprogram0.xml"
+			platform="unseparated"
+			;;
 		8936)
 			prog_ddr_file="prog_emmc_firehose_8936.mbn"
 			xml_file="rawprogram0.xml"
@@ -112,14 +117,17 @@ edl-flash() {
 
 		sudo $script_dir/QSaharaServer -p /dev/$port_num -s 13:$prog_ddr_file
 
-		# busybox sleep 5
-		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=$xml_file
+		# busybox sleep 10
+		sleep 10
+		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --memoryname=emmc --sendxml=$xml_file
 
 		# busybox sleep 5
-		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --sendxml=patch0.xml
+		sleep 10
+		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --memoryname=emmc --sendxml=patch0.xml
 
 		# busybox sleep 3
-		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --reset
+		sleep 5
+		sudo $script_dir/fh_loader --port=/dev/$port_num --noprompt --showpercentagecomplete --zlpawarehost=0 --memoryname=emmc --reset
 
 	elif [ $platform = "separated" ]; then
 
@@ -152,7 +160,7 @@ function print_edl-flash_usage {
 	echo 'edl-flash <platform>'
 }
 
-supported_edl_flash="sdm660 sdm660-full-flash 8916 8936 8956 8976 8953 8953-full-flash 8992 8996 8996-full-flash"
+supported_edl_flash="8909 sdm660 sdm660-full-flash 8916 8936 8956 8976 8953 8953-full-flash 8992 8996 8996-full-flash"
 
 function _comp_edl_flash {
 	local curw
