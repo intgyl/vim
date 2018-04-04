@@ -39,6 +39,7 @@ ln -s $HOME/.vim/config/tigrc .tigrc
 echo "source $HOME/.vim/bin/source.rc" >> $HOME/.bashrc
 
 #sudo echo "gyl ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+#authorized_keys
 
 #vim
 sudo $apt install vim -y --force-yes
