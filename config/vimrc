@@ -166,6 +166,8 @@ nnoremap f 0
 nnoremap e #
 noremap <leader>n :set mouse=n<ENTER>
 noremap <leader>= :set mouse=<ENTER>
+noremap <leader>w :set wrap<ENTER>
+noremap <leader>q :set nowrap<ENTER>
 noremap <C-k>  <C-]>
 noremap <C-j>  <C-t>
 noremap <C-h> <C-w>h
