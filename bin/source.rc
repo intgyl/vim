@@ -66,15 +66,15 @@ alias rm='rm -i'
 if [ `uname -s` == "Linux" ]; then
 	alias grep='$HOME/.vim/bin/tools/linux/grep --color=auto'
 	alias astyle='$HOME/.vim/bin/tools/linux/astyle'
-#	alias cp='$HOME/.vim/bin/tools/linux/cp -ag'
-#	alias mv='$HOME/.vim/bin/tools/linux/mv -g'
+	alias cp='$HOME/.vim/bin/tools/linux/cp -ag'
+	alias mv='$HOME/.vim/bin/tools/linux/mv -g'
 	alias gl='$HOME/.vim/bin/tools/linux/tig log'
 	alias tig='$HOME/.vim/bin/tools/linux/tig'
 elif [ `uname -s` == "Darwin" ]; then
 	alias grep='$HOME/.vim/bin/tools/mac/grep --color=auto'
 	alias astyle='$HOME/.vim/bin/tools/mac/astyle'
-#	alias cp='$HOME/.vim/bin/tools/mac/cp -ag'
-#	alias mv='$HOME/.vim/bin/tools/mac/mv -g'
+	alias cp='$HOME/.vim/bin/tools/mac/cp -ag'
+	alias mv='$HOME/.vim/bin/tools/mac/mv -g'
 	alias gl='$HOME/.vim/bin/tools/mac/tig log'
 	alias tig='$HOME/.vim/bin/tools/mac/tig'
 	source $HOME/.vim/soft_config/iterm2/tab_color.sh
@@ -102,13 +102,12 @@ function git_branch {
 }
 
 login=`who -m | awk -F ' ' '{print $5}'`
-myip=`hostname -I | sed 's/[ \t ]*$//g'`
 
 if [ "$login" != "(:0.0)" -a "$login" != "" -a "$login" != "(:0)" ]; then
 
-	export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[32m\][\u@$myip]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
+	export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[32m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
 else
-	export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[32m\][\u@myip]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n\$ '
+	export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[32m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n\$ '
 fi
 
 
