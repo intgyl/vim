@@ -22,9 +22,10 @@ Bundle 'https://github.com/Shougo/neosnippet.vim.git'
 Bundle 'https://github.com/scrooloose/nerdcommenter.git'
 " Bundle 'https://github.com/vim-scripts/vcscommand.vim.git'
 Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'vim-scripts/Tagbar'
+Bundle 'https://github.com/majutsushi/tagbar'
 Bundle 'vim-scripts/gtags.vim'
 Bundle 'https://github.com/luochen1990/rainbow'
+Bundle 'scrooloose/nerdtree'
 "********************************************************************************
 
 " Enable file type detection.
@@ -119,6 +120,14 @@ endif
 if &diff
 	colors my
 endif
+
+"********************************************************************************
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd w
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeWinPos="right"
+let g:NERDTreeSize=15
+" let g:NERDTreeShowLineNumbers=1
 
 "********************************************************************************
 
