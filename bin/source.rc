@@ -112,12 +112,10 @@ export PATH=$PATH:$HOME/.vim/bin/android_tools/
 export PATH=$PATH:$HOME/.vim/bin/android_tools/qcom/parse-script/
 
 function git_branch {
-	branch_id="`git rev-parse --short HEAD 2> /dev/null`"
-	branch_name="`git branch -a 2> /dev/null | grep "\->" | awk -F "->" '{print $2}'`"
+	branch_name_native=`git rev-parse --abbrev-ref HEAD`
+	branch_name_remote=`git branch -vv | grep "* $branch_name_native" |  awk -F ' ' '{print $4}'`
 
-	if [ "$branch_id" != "" ]; then
-		echo " ($branch_id$branch_name)"
-	fi
+	echo " ($branch_name_native->$branch_name_remote)"
 }
 
 #if [ "$color_prompt" = yes  ]; then
