@@ -430,7 +430,8 @@ function __airplane_mode_off {
 
 function __fps {
 	adb wait-for-device
-	adb shell "while true ; do dumpsys SurfaceFlinger | grep \"vsync period\" ; sleep 0.1 ; done"
+	# adb shell "while true ; do dumpsys SurfaceFlinger | grep \"vsync period\" ; sleep 0.1 ; done"
+	adb shell "while true ; do dumpsys SurfaceFlinger | grep \"fps\" ; sleep 0.1 ; done"
 }
 
 function __skip-first-time () {

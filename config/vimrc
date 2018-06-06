@@ -56,7 +56,10 @@ if v:version >= 702
 	set   foldlevel=99
 	"set  expandtab "tab键展开为空格
 	set   cursorline
+	" set   fillchars=vert:\│
 	hi    CursorLine   cterm=NONE ctermbg=darkblue guibg=black guifg=NONE
+	" hi VertSplit guibg=#31312D guifg=#526A83 ctermfg=White ctermbg=Black term=none cterm=none gui=none
+	hi    VertSplit  ctermfg=white term=none cterm=none gui=none
 	set   helpheight=10
 	set   helplang=cn
 	set   hidden
@@ -252,7 +255,7 @@ let g:ycm_semantic_triggers =  {
 			\ 'cs,lua,javascript': ['re!\w{2}'],
 			\ }
 hi YcmErrorSection  cterm=NONE ctermbg=darkblue guibg=black guifg=NONE
-" let g:ycm_show_diagnostics_ui = 0
+let g:ycm_show_diagnostics_ui = 0
 "********************************************************************************
 set t_Co=256
 
