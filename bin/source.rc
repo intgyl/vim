@@ -61,6 +61,8 @@ alias LS='ls'
 alias lsl='ls'
 alias sls='ls'
 alias rm='rm -i'
+alias proxy='export all_proxy=socks5://127.0.0.1:1086'
+alias unproxy='unset all_proxy'
 #alias fastboot='cat $HOME/.data_my_passwd | sudo -S fastboot'
 
 login=`who -m | awk -F ' ' '{print $5}'`

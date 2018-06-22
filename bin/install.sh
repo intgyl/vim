@@ -42,6 +42,8 @@ echo "source $HOME/.vim/bin/source.rc" >> $HOME/.bashrc
 #authorized_keys
 
 #vim
+sudo add-apt-repository ppa:jonathonf/vim -y
+sudo $apt update
 sudo $apt install vim -y --force-yes
 
 #indent
