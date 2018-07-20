@@ -264,6 +264,10 @@ set t_Co=256
  "let g:Powerline_symbols = 'unicode'
  let g:Powerline_mode_n = 'NORMAL'
  "highlight StatusLine cterm=bold ctermfg=yellow ctermbg=blue
+ call Pl#Theme#RemoveSegment('fileformat')
+ call Pl#Theme#RemoveSegment('fileencoding')
+ call Pl#Theme#RemoveSegment('filetype')
+ " call Pl#Theme#RemoveSegment('lineinfo')
 
 "********************************************************************************
 " cscope.vim
