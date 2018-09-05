@@ -64,6 +64,7 @@ alias rm='rm -i'
 alias cp='cp -a'
 alias proxy='export all_proxy=socks5://127.0.0.1:1086'
 alias unproxy='unset all_proxy'
+#curl cip.cc
 #alias fastboot='cat $HOME/.data_my_passwd | sudo -S fastboot'
 
 login=`who -m | awk -F ' ' '{print $5}'`

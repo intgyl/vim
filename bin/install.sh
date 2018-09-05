@@ -18,7 +18,7 @@ cd $HOME
 #mv $HOME/.vim $HOME/.vim.old
 #mv $HOME/.vimrc $HOME/.vimrc.old
 #mv $HOME/.gvimrc $HOME/.gvimrc.old
-#git clone https://github.com/gyl33333/vim $HOME/.vim
+#git clone https://github.com/intgyl/vim $HOME/.vim
 
 #mkdir software
 #cd software
@@ -220,13 +220,13 @@ gsettings set com.canonical.desktop.interface scrollbar-mode normal
 # sudo $apt update
 
 #yahei fonts
-sudo mkdir -p /usr/share/fonts/winfonts
-sudo cp $HOME/.vim/bin/winfonts/* /usr/share/fonts/winfonts
-sudo chmod 644 /usr/share/fonts/winfonts/*
-cd /usr/share/fonts/winfonts/
-sudo mkfontscale
-sudo mkfontdir
-sudo fc-cache -fv
+# sudo mkdir -p /usr/share/fonts/winfonts
+# sudo cp $HOME/.vim/bin/winfonts/* /usr/share/fonts/winfonts
+# sudo chmod 644 /usr/share/fonts/winfonts/*
+# cd /usr/share/fonts/winfonts/
+# sudo mkfontscale
+# sudo mkfontdir
+# sudo fc-cache -fv
 
 cd $HOME
 source $HOME/.bashrc
