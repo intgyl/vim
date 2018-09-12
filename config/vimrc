@@ -48,7 +48,7 @@ set eventignore+=FileType
 " save memory when other file is viewed
 setlocal bufhidden=unload
 " is read-only (write with :w new_filename)
-setlocal buftype=nowrite
+" setlocal buftype=nowrite
 " no undo possible
 setlocal undolevels=-1
 " display message
@@ -243,6 +243,8 @@ let g:AutoPairsShortcutToggle = '<leader>a'
 let g:NERDSpaceDelims=1
 
 "********************************************************************************
+nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
+nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>
 let g:ycm_server_python_interpreter='/usr/bin/python'
 let g:ycm_global_ycm_extra_conf = '/home/gyl/.vim/config/ycm_extra_conf.py'
 " 不显示开启vim时检查ycm_extra_conf文件的信息
@@ -342,6 +344,7 @@ function! RunShell(Msg, Shell)
 	call system(a:Shell)
 	echon 'done'
 endfunction
+set cscopequickfix=s-,c-,d-,i-,t-,e-
 nmap <leader>sa :cs add cscope.out<cr>
 nmap <leader>ss :cs find s <C-R>=expand("<cword>")<cr><cr>
 nmap <leader>sg :cs find g <C-R>=expand("<cword>")<cr><cr>
