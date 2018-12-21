@@ -72,8 +72,8 @@ login=`who -m | awk -F ' ' '{print $5}'`
 if [ `uname -s` == "Linux" ]; then
 	alias grep='$HOME/.vim/bin/tools/linux/grep --color=auto'
 	alias astyle='$HOME/.vim/bin/tools/linux/astyle'
-#	alias cp='$HOME/.vim/bin/tools/linux/cp -ag'
-#	alias mv='$HOME/.vim/bin/tools/linux/mv -g'
+	alias cpg='$HOME/.vim/bin/tools/linux/cp -ag'
+	alias mvg='$HOME/.vim/bin/tools/linux/mv -g'
 	alias gl='$HOME/.vim/bin/tools/linux/tig log'
 	alias tig='$HOME/.vim/bin/tools/linux/tig'
 
@@ -88,8 +88,8 @@ if [ `uname -s` == "Linux" ]; then
 elif [ `uname -s` == "Darwin" ]; then
 	alias grep='$HOME/.vim/bin/tools/mac/grep --color=auto'
 	alias astyle='$HOME/.vim/bin/tools/mac/astyle'
-#	alias cp='$HOME/.vim/bin/tools/mac/cp -ag'
-#	alias mv='$HOME/.vim/bin/tools/mac/mv -g'
+	alias cpg='$HOME/.vim/bin/tools/mac/cp -ag'
+	alias mvg='$HOME/.vim/bin/tools/mac/mv -g'
 	alias gl='$HOME/.vim/bin/tools/mac/tig log'
 	alias tig='$HOME/.vim/bin/tools/mac/tig'
 	source $HOME/.vim/soft_config/iterm2/tab_color.sh
