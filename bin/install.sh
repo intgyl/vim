@@ -198,7 +198,7 @@ sudo $apt install ant daemon expect htop lib32z1 \
 	gcc-arm-linux-gnueabi build-essential gdb-arm-none-eabi \
 	gcc-aarch64-linux-gnu trace-cmd kernelshark g++-arm-linux-gnueabi \
 	g++-aarch64-linux-gnu libdw-dev systemtap xfsprogs libncursesw5-dev \
-	unity-tweak-tool policycoreutils -y --force-yes
+	unity-tweak-tool policycoreutils liblz4-tool -y --force-yes
 
 #openjdk-8-jdk
 sudo add-apt-repository ppa:openjdk-r/ppa -y

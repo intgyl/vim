@@ -15,6 +15,7 @@ source $HOME/.vim/bin/tools/common/list_all.sh
 source $HOME/.vim/bin/tools/common/list_target.sh
 source $HOME/.vim/bin/tools/common/make_cscope
 source $HOME/.vim/bin/tools/common/git_find_big.sh
+source $HOME/.vim/bin/tools/common/find-big.sh
 
 source $HOME/.vim/bin/android_tools/common/flash.sh
 source $HOME/.vim/bin/android_tools/common/packimage.sh
