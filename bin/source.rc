@@ -81,9 +81,9 @@ if [ `uname -s` == "Linux" ]; then
 	myip=`hostname -I | sed 's/[ \t ]*$//g'`
 	if [ "$login" != "(:0.0)" -a "$login" != "" -a "$login" != "(:0)" ]; then
 
-		export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[32m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
+		export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[36m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
 	else
-		export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[32m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n\$ '
+		export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[36m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n\$ '
 	fi
 
 elif [ `uname -s` == "Darwin" ]; then
@@ -96,9 +96,9 @@ elif [ `uname -s` == "Darwin" ]; then
 	source $HOME/.vim/soft_config/iterm2/tab_color.sh
 	if [ "$login" != "(:0.0)" -a "$login" != "" -a "$login" != "(:0)" ]; then
 
-		export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[32m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
+		export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[36m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
 	else
-		export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[32m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n\$ '
+		export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[36m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n\$ '
 
 	fi
 
