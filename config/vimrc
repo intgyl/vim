@@ -15,18 +15,20 @@ call vundle#rc()
 "you can just write Bundle 'name'
 
 Bundle 'https://github.com/fatih/vim-go'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'https://github.com/Lokaltog/vim-powerline'
 Bundle 'Auto-Pairs'
 Bundle 'autoload_cscope.vim'
-Bundle 'https://github.com/Shougo/neosnippet.vim.git'
-Bundle 'https://github.com/scrooloose/nerdcommenter.git'
+Bundle 'https://github.com/Shougo/neosnippet.vim'
+Bundle 'https://github.com/preservim/nerdcommenter'
+Bundle 'https://github.com/Shougo/deoplete.nvim'
+Bundle 'https://github.com/honza/vim-snippets'
 " Bundle 'https://github.com/vim-scripts/vcscommand.vim.git'
-Bundle 'bronson/vim-trailing-whitespace'
+" Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'https://github.com/axelf4/vim-strip-trailing-whitespace'
 Bundle 'https://github.com/majutsushi/tagbar'
-Bundle 'vim-scripts/gtags.vim'
 Bundle 'https://github.com/luochen1990/rainbow'
-Bundle 'scrooloose/nerdtree'
-Bundle 'https://github.com/Valloric/YouCompleteMe'
+Bundle 'https://github.com/preservim/nerdtree'
+" Bundle 'https://github.com/Valloric/YouCompleteMe'
 "********************************************************************************
 
 " Enable file type detection.
@@ -279,7 +281,7 @@ let g:ycm_semantic_triggers =  {
 hi YcmErrorSection  cterm=NONE ctermbg=darkblue guibg=black guifg=NONE
 let g:ycm_show_diagnostics_ui = 0
 "********************************************************************************
-set t_Co=256
+ set t_Co=256
 
  let g:Powerline_colorscheme = 'solarized16'
  let g:Powerline_stl_path_style = 'full'
@@ -290,7 +292,6 @@ set t_Co=256
  call Pl#Theme#RemoveSegment('fileencoding')
  call Pl#Theme#RemoveSegment('filetype')
  " call Pl#Theme#RemoveSegment('lineinfo')
-
 "********************************************************************************
 " cscope.vim
 if has("cscope")
@@ -313,7 +314,7 @@ let g:OmniCpp_SelectFirstItem=2
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
-xmap <C-l>     <Plug>(neosnippet_start_unite_snippet_target)
+"xmap <C-l>     <Plug>(neosnippet_start_unite_snippet_target)
 
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
