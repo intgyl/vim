@@ -27,7 +27,7 @@ source $HOME/.vim/bin/android_tools/common/packramdisk.sh
 source $HOME/.vim/bin/android_tools/common/unpackramdisk.sh
 source $HOME/.vim/bin/android_tools/common/adk.sh
 
-# alias git='LANG=en_GB git'
+alias git='LANG=en_GB git'
 alias lindent='$HOME/.vim/bin/tools/common/lindent'
 alias ..='cd ..'
 alias c2='cd ../../'
