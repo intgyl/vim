@@ -28,6 +28,7 @@ Bundle 'https://github.com/axelf4/vim-strip-trailing-whitespace'
 Bundle 'https://github.com/majutsushi/tagbar'
 Bundle 'https://github.com/luochen1990/rainbow'
 Bundle 'https://github.com/preservim/nerdtree'
+Bundle 'https://github.com/tpope/vim-surround'
 " Bundle 'https://github.com/Valloric/YouCompleteMe'
 "********************************************************************************
 
