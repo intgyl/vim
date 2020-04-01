@@ -68,7 +68,7 @@ alias unproxy='unset http_proxy; unset https_proxy'
 #curl cip.cc
 #alias fastboot='cat $HOME/.data_my_passwd | sudo -S fastboot'
 
-login=`who am i | awk -F " " '{print $6}'`
+login=`who am i | awk -F " " '{print $5}'`
 
 if [ `uname -s` == "Linux" ]; then
 	alias grep='$HOME/.vim/bin/tools/linux/grep --color=auto'
