@@ -74,7 +74,7 @@ if v:version >= 702
 	set   fileencodings=utf-8,gb2312,gbk,gb18030,chinese
 	set   fileformat=unix
 	set   nofoldenable
-	set   foldmethod=syntax "折叠
+	" set   foldmethod=syntax "折叠
 	set   foldlevel=99
 	"set  expandtab "tab键展开为空格
 	set   cursorline
