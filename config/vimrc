@@ -30,6 +30,7 @@ Bundle 'https://github.com/majutsushi/tagbar'
 Bundle 'https://github.com/luochen1990/rainbow'
 Bundle 'https://github.com/preservim/nerdtree'
 Bundle 'https://github.com/tpope/vim-surround'
+Bundle 'https://github.com/Yggdroot/indentLine'
 " Bundle 'https://github.com/Valloric/YouCompleteMe'
 "********************************************************************************
 
@@ -121,7 +122,7 @@ if v:version >= 702
 	" 显示tab和空格
 	set list
 	" 设置tab和空格样式
-	set lcs=tab:\│\ ,nbsp:%,trail:-
+	set lcs=tab:\┊\ ,nbsp:%,trail:-
 	" 设定行首tab为灰色
 	highlight LeaderTab guifg=#666666
 	" 匹配行首tab
@@ -227,6 +228,15 @@ nmap delline :g/^$/d
 
 nnoremap <C-e> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
+"********************************************************************************
+" indentLine
+let g:indentLine_enabled = 1
+" let g:indentLine_conceallevel = 2
+let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_color_term = 255
+let g:indentLine_first_char = '┊'
+let g:indentLine_char = '┊'
+" let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 "********************************************************************************
 "vim-go
 let g:go_highlight_functions = 1
