@@ -70,6 +70,8 @@ alias unproxy='unset http_proxy; unset https_proxy'
 
 login=`who am i | awk -F " " '{print $5}'`
 
+#export PS1='\n\[\e[30;44m\]💻\u@\h\[\e[34;42m\]\[\e[30;42m\]⏰\T\[\e[32;43m\]\[\e[30;43m\]📂\w\[\e[0;33m\]\[\e[0;0m\]$(__git_ps1 " (%s)")\n➤ '
+
 if [ `uname -s` == "Linux" ]; then
 	alias grep='$HOME/.vim/bin/tools/linux/grep --color=auto'
 	alias astyle='$HOME/.vim/bin/tools/linux/astyle'
