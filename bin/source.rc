@@ -63,6 +63,7 @@ alias lsl='ls'
 alias sls='ls'
 alias rm='rm -i'
 alias cp='cp -a'
+alias yd='$HOME/.vim/bin/tools/common/yd'
 alias proxy='export http_proxy=socks5://127.0.0.1:1080 ; export https_proxy=socks5://127.0.0.1:1080'
 alias unproxy='unset http_proxy; unset https_proxy'
 #curl cip.cc
