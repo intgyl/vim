@@ -189,6 +189,10 @@ sudo $apt install -y libxml2-utils
 sudo $apt install -y xsltproc
 sudo $apt install -y libxml2-utils
 sudo $apt install -y libncurses5-dev
+sudo $apt install -y libssl-dev
+sudo $apt install -y device-tree-compiler
+sudo $apt install -y openssl
+sudo $apt install -y expect-dev
 sudo $apt install -y ant daemon expect htop lib32z1 \
 	libdatetime-perl liblua5.2-dev  libstring-approx-perl \
 	libstring-shellquote-perl libswitch-perl libtext-glob-perl \
