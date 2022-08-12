@@ -193,6 +193,7 @@ sudo $apt install -y libssl-dev
 sudo $apt install -y device-tree-compiler
 sudo $apt install -y openssl
 sudo $apt install -y expect-dev
+sudo $apt install -y texinfo
 sudo $apt install -y ant daemon expect htop lib32z1 \
 	libdatetime-perl liblua5.2-dev  libstring-approx-perl \
 	libstring-shellquote-perl libswitch-perl libtext-glob-perl \
