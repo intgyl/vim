@@ -79,6 +79,7 @@ if [ `uname -s` == "Linux" ]; then
 	alias cpg='$HOME/.vim/bin/tools/linux/cp -ag'
 	alias mvg='$HOME/.vim/bin/tools/linux/mv -g'
 	alias gl='$HOME/.vim/bin/tools/linux/tig log'
+	alias gla='function _gla(){ $HOME/.vim/bin/tools/mac/tig log --author="$1";};_gla'
 	alias tig='$HOME/.vim/bin/tools/linux/tig'
 
 	myip=`hostname -I | sed 's/[ \t ]*$//g'`
@@ -95,6 +96,7 @@ elif [ `uname -s` == "Darwin" ]; then
 	alias cpg='$HOME/.vim/bin/tools/mac/cp -ag'
 	alias mvg='$HOME/.vim/bin/tools/mac/mv -g'
 	alias gl='$HOME/.vim/bin/tools/mac/tig log'
+	alias gla='function _gla(){ $HOME/.vim/bin/tools/mac/tig log --author="$1";};_gla'
 	alias tig='$HOME/.vim/bin/tools/mac/tig'
 	source $HOME/.vim/soft_config/iterm2/tab_color.sh
 	if [ "$login" != "(:0.0)" -a "$login" != "" -a "$login" != "(:0)" ]; then
