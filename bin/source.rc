@@ -80,7 +80,7 @@ if [ `uname -s` == "Linux" ]; then
 	alias cpg='$HOME/.vim/bin/tools/linux/cp -ag'
 	alias mvg='$HOME/.vim/bin/tools/linux/mv -g'
 	alias gl='$HOME/.vim/bin/tools/linux/tig log'
-	alias gla='function _gla(){ $HOME/.vim/bin/tools/mac/tig log --author="$1";};_gla'
+	alias gla='function _gla(){ $HOME/.vim/bin/tools/linux/tig log --author="$1";};_gla'
 	alias tig='$HOME/.vim/bin/tools/linux/tig'
 
 	myip=`hostname -I | sed 's/[ \t ]*$//g'`
