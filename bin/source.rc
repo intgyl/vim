@@ -74,6 +74,8 @@ login=`who am i | awk -F " " '{print $5}'`
 
 #export PS1='\n\[\e[30;44m\]💻\u@\h\[\e[34;42m\]\[\e[30;42m\]⏰\T\[\e[32;43m\]\[\e[30;43m\]📂\w\[\e[0;33m\]\[\e[0;0m\]$(__git_ps1 " (%s)")\n➤ '
 
+# add ip_addr
+#export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[36m\][\u@$(ip_addr)]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
 if [ `uname -s` == "Linux" ]; then
 	alias grep='$HOME/.vim/bin/tools/linux/grep --color=auto'
 	alias astyle='$HOME/.vim/bin/tools/linux/astyle'
@@ -129,6 +131,11 @@ function git_branch {
 	if [ "$branch_name_native" != "" ]; then
 		echo " ($branch_name_native->[$branch_name_remote])"
 	fi
+}
+
+function ip_addr {
+	ip=`ifconfig -a | grep inet | grep -v 127.0.0.1 | grep -v inet6 | awk '{print $2}'|tr -d "addr:"`
+	echo "$ip"
 }
 
 #if [ "$color_prompt" = yes  ]; then
