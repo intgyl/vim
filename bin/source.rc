@@ -89,6 +89,7 @@ if [ `uname -s` == "Linux" ]; then
 	if [ "$login" != "(:0.0)" -a "$login" != "" -a "$login" != "(:0)" ]; then
 
 		export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[36m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
+		#export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[36m\][\u@$(ip_addr)]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
 	else
 		export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[36m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n\$ '
 	fi
