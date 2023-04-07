@@ -49,7 +49,7 @@ sudo $apt install -y vim
 #indent
 sudo $apt install -y indent
 
-sudo $apt install -y exuberant-ctags
+sudo $apt install -y universal-ctags
 sudo $apt install -y cscope
 
 sudo cp $HOME/.vim/bin/other/vim.desktop /usr/share/applications/
@@ -199,12 +199,13 @@ sudo $apt install -y libcurl4-openssl-dev
 sudo $apt install -y libsystemd-dev
 sudo $apt install -y libssl-dev
 sudo $apt install -y u-boot-tools
+sudo $apt install -y libncurses5
 sudo $apt install -y ant daemon expect htop lib32z1 \
 	libdatetime-perl liblua5.2-dev  libstring-approx-perl \
 	libstring-shellquote-perl libswitch-perl libtext-glob-perl \
 	libxml2:i386  libxml-parser-perl lua5.2 mysql-client \
 	python-mysqldb subversion xbindkeys  xclip xmlstarlet \
-	libssl-dev zlib1g-dev global qemu libncurses5-dev \
+	libssl-dev zlib1g-dev global qemu \
 	gcc-arm-linux-gnueabi build-essential gdb-arm-none-eabi \
 	gcc-aarch64-linux-gnu trace-cmd kernelshark g++-arm-linux-gnueabi \
 	g++-aarch64-linux-gnu libdw-dev systemtap xfsprogs libncursesw5-dev \
