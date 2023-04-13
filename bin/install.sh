@@ -200,6 +200,8 @@ sudo $apt install -y libsystemd-dev
 sudo $apt install -y libssl-dev
 sudo $apt install -y u-boot-tools
 sudo $apt install -y libncurses5
+sudo $apt install -y gawk
+sudo $apt install -y liblz4-tool
 sudo $apt install -y ant daemon expect htop lib32z1 \
 	libdatetime-perl liblua5.2-dev  libstring-approx-perl \
 	libstring-shellquote-perl libswitch-perl libtext-glob-perl \
