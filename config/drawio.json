@@ -1,0 +1,127 @@
+{
+  "autosaveDelay": 30,
+  "customPresetColors": [
+    "E6D0DE",
+    "CDA2BE",
+    "B5739D",
+    "E1D5E7",
+    "C3ABD0",
+    "A680B8",
+    "D4E1F5",
+    "A9C4EB",
+    "7EA6E0",
+    "D5E8D4",
+    "9AC7BF",
+    "67AB9F",
+    "D5E8D4",
+    "B9E0A5",
+    "97D077",
+    "FFF2CC",
+    "FFE599",
+    "FFD966",
+    "FFF4C3",
+    "FFCE9F",
+    "FFB570",
+    "F8CECC",
+    "F19C99",
+    "EA6B66"
+  ],
+  "customFonts": [
+    "宋体",
+    "Monaco",
+    "微软雅黑"
+  ],
+  "customColorSchemes": [
+    [
+      {},
+      {
+        "fill": "#E6D0DE",
+        "stroke": "#CDA2BE",
+        "font": "#B5739D"
+      },
+      {
+        "fill": "#d4e1f5",
+        "stroke": "#a9c4eb",
+        "font": "#7ea6e0"
+      },
+      {
+        "fill": "#d5e8d4",
+        "stroke": "#9ac7bf",
+        "font": "#67ab9f"
+      },
+      {
+        "fill": "#e1d5e7",
+        "stroke": "#c3abd0",
+        "font": "#a680b8"
+      },
+      {
+        "fill": "#fff4c3",
+        "stroke": "#ffce9f",
+        "font": "#ffb570"
+      },
+      {
+        "fill": "#d5e8d4",
+        "stroke": "#b9e0a5",
+        "font": "#70a057"
+      }
+    ],
+    [
+      {},
+      {
+        "fill": "none",
+        "stroke": "#7ea6e0",
+        "font": "#7ea6e0"
+      },
+      {
+        "fill": "none",
+        "stroke": "#a680b8",
+        "font": "#a680b8"
+      },
+      {
+        "fill": "none",
+        "stroke": "#ea6b66",
+        "font": "#ea6b66"
+      },
+      {
+        "fill": "none",
+        "stroke": "#67ab9f",
+        "font": "#67ab9f"
+      },
+      {
+        "fill": "none",
+        "stroke": "#ffd966",
+        "font": "#f4bc1b"
+      },
+      {
+        "fill": "none",
+        "stroke": "#ffb570",
+        "font": "#ffb570"
+      }
+    ]
+  ],
+  "defaultVertexStyle": {
+    "fontFamily": "宋体",
+    "fontSize": "8",
+    "strokeWidth": "0.5",
+    "arcSize": "10",
+    "absoluteArcSize": "0",
+    "rounded": "0",
+    "shadow": "0",
+    "comic": "0"
+  },
+  "defaultEdgeStyle": {
+    "fontFamily": "宋体",
+    "fontSize": "8",
+    "strokeWidth": "0.5",
+    "arcSize": "6",
+    "absoluteArcSize": "0",
+    "rounded": "0",
+    "shadow": "0",
+    "comic": "0",
+    "jumpStyle": "arc",
+    "endArrow": "blockThin",
+    "edgeStyle": "orthogonalEdgeStyle",
+    "endFill": "1"
+  },
+  "fontCss": ""
+}
