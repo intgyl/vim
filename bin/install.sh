@@ -30,6 +30,10 @@ cd $HOME
 
 cd $HOME
 
+mkdir -p $HOME/.config/gitui
+
+ln -s $HOME/.vim/config/key_bindings.ron $HOME/.config/gitui/key_bindings.ron
+
 ln -s $HOME/.vim/config/vimrc .vimrc
 ln -s $HOME/.vim/config/gvimrc .gvimrc
 ln -s $HOME/.vim/config/inputrc .inputrc
