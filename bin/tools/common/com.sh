@@ -20,8 +20,8 @@ com() {
 	logname=$today_dir/`LCALL=C date +%H%M%S`
 
 	if [ $# != 0 ]; then
-		sudo minicom -w $@
+		sudo minicom -c on -w $@
 	else
-		sudo minicom -w -C $HOME/log/minicom_log/${logname}.log
+		sudo minicom -c on -w -C $HOME/log/minicom_log/${logname}.log
 	fi
 }
