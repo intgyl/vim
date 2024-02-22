@@ -61,6 +61,7 @@ sudo sed -i 's/gedit/vim/g' /etc/gnome/defaults.list
 
 #UART DEBUG
 sudo $apt install -y minicom
+sudo $apt install -y lrzsz
 
 #easystroke
 #sudo $apt install -y easystroke
