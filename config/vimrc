@@ -180,8 +180,8 @@ function! TagbarByFileType()
 	endif
 endfunction
 autocmd FileType * call TagbarByFileType()
-" autocmd FileType java set shiftwidth=4 | set expandtab
-" autocmd FileType python set shiftwidth=2 | set expandtab
+autocmd FileType java set shiftwidth=4 | set expandtab
+autocmd FileType python set shiftwidth=2 | set expandtab
 
 "********************************************************************************
 "
