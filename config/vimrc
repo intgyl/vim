@@ -182,6 +182,7 @@ endfunction
 autocmd FileType * call TagbarByFileType()
 autocmd FileType java set shiftwidth=4 | set expandtab
 autocmd FileType python set shiftwidth=4 | set expandtab
+let g:tagbar_left = 1
 
 "********************************************************************************
 "
