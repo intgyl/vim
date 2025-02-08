@@ -203,7 +203,7 @@ nnoremap s %
 nnoremap ; *
 nnoremap f 0
 nnoremap e #
-noremap <leader>n :set mouse=a<ENTER>
+noremap <leader>n :set mouse=n<ENTER>
 noremap <leader>= :set mouse=<ENTER>
 noremap <leader>w :set wrap<ENTER>
 noremap <leader>q :set nowrap<ENTER>
