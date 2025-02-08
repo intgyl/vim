@@ -91,7 +91,7 @@ if v:version >= 702
 	set   ignorecase
 	set   incsearch
 	set   laststatus=2
-	"set   mouse=n
+	set   mouse=a
 	set   selection=exclusive
 	set   selectmode=mouse,key
 
