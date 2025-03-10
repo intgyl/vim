@@ -128,8 +128,8 @@ export PATH=$PATH:$HOME/.vim/bin/android_tools/
 export PATH=$PATH:$HOME/.vim/bin/android_tools/qcom/parse-script/
 
 function git_branch {
-	branch_name_native="`/usr/local/bin/git rev-parse --abbrev-ref HEAD 2> /dev/null`"
-	branch_name_remote=`/usr/local/bin/git branch -vv 2> /dev/null | grep "* $branch_name_native" | awk -F '[' '{print $2}' | awk -F ']' '{print $1}'`
+	branch_name_native="`git rev-parse --abbrev-ref HEAD 2> /dev/null`"
+	branch_name_remote=`git branch -vv 2> /dev/null | grep "* $branch_name_native" | awk -F '[' '{print $2}' | awk -F ']' '{print $1}'`
 
 	if [ "$branch_name_native" != "" ]; then
 		echo " ($branch_name_native->[$branch_name_remote])"
