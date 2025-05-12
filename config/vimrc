@@ -217,6 +217,7 @@ inoremap <C-a> <Home>
 inoremap <C-e> <End>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
+inoremap jk <ESC>
 
 map <F3> : NERDTreeToggle<CR>
 map <F5> :Sex<Enter>
