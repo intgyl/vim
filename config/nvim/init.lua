@@ -26,5 +26,6 @@ require("plugins/luasnip")
 require("plugins/colorscheme")
 require("plugins/hlchunk")
 require("plugins/toggleterm")
+require("plugins/nerdcommenter")
 --require("plugins/gtags_telscope")
 
