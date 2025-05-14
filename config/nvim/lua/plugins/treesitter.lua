@@ -13,7 +13,7 @@ vim.api.nvim_set_hl(0, "@comment.todo", { fg = "#ff9e64", bold = true }) -- æ©™è
 vim.cmd([[
   augroup TodoHighlight
   autocmd!
-  autocmd FileType * syntax match TodoComment /TODO\|FIXME\|BUG\|NOTE\|HACK\|WARN\|XXX/
+  autocmd FileType * syntax match TodoComment /TODO\|FIXME\|XXX/
   autocmd FileType * highlight link TodoComment Todo
   augroup END
 ]])
