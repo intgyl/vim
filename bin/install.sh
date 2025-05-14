@@ -11,6 +11,11 @@ fi
 sudo $apt install -y axel
 sudo $apt install -y git
 sudo $apt install -y gitg
+sudo $apt install -y clangd
+
+#intercept-build-14 make
+sudo $apt install -y clang-tools
+
 cd $HOME
 #git use English
 #echo alias git=\'LANG=en_GB git\' >> $HOME/.bashrc
@@ -224,7 +229,7 @@ python3 -m pip install ninja
 sudo apt install -y python3-pyelftools python-pyelftools
 # sudo pip3 install meson
 # sudo pip3 install ninja
-
+pip3 install 'python-lsp-server[all]'
 #openjdk-8-jdk
 sudo add-apt-repository ppa:openjdk-r/ppa -y
 sudo $apt update
