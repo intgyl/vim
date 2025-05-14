@@ -86,46 +86,6 @@ cmp.setup{
 		[                         end
 		[                 }),
 		]]
-		-- 取消tab选择
-		--[[
-		[                 ["<Tab>"] = cmp.mapping({
-		[                         c = function()
-		[                                 if cmp.visible() then
-		[                                         cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-		[                                 else
-		[                                         cmp.complete()
-		[                                 end
-		[                         end,
-		[                         i = function(fallback)
-		[                                 if cmp.visible() then
-		[                                         cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-		[                                 elseif luasnip.expand_or_jumpable() then
-		[                                         luasnip.expand_or_jump()
-		[                                 else
-		[                                         fallback()
-		[                                 end
-		[                         end
-		[                 }),
-		[                 ["<S-Tab>"] = cmp.mapping({
-		[                         c = function()
-		[                                 if cmp.visible() then
-		[                                         cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
-		[                                 else
-		[                                         cmp.complete()
-		[                                 end
-		[                         end,
-		[                         i = function(fallback)
-		[                                 if cmp.visible() then
-		[                                         cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
-		[                                 elseif luasnip.jumpable(-1) then
-		[                                         luasnip.jump(-1)
-		[                                 else
-		[                                         fallback()
-		[                                 end
-		[ 
-		[                         end
-		[                 }),
-		]]
 
 		-- Tab：仅在 snippet 中跳转，不用于补全选择
 		["<Tab>"] = function(fallback)
