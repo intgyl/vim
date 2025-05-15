@@ -6,7 +6,7 @@ require("tokyonight").setup({
 	end,
 	on_highlights = function(highlights, colors)
 		-- highlights.Function = { fg = colors.blue}
-		-- highlights.Comment  = { fg = colors.cyan, italic = true }
+		highlights.Comment  = { fg = "#8a98c8", italic = true }
 		-- highlights.String   = { fg = "#98c379" }
 		-- highlights.Type     = { fg = colors.green }
 	end,
