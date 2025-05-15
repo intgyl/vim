@@ -31,6 +31,7 @@ Bundle 'https://github.com/luochen1990/rainbow'
 Bundle 'https://github.com/preservim/nerdtree'
 Bundle 'https://github.com/tpope/vim-surround'
 Bundle 'https://github.com/Yggdroot/indentLine'
+Bundle 'https://github.com/github/copilot.vim'
 " Bundle 'https://github.com/Valloric/YouCompleteMe'
 "********************************************************************************
 

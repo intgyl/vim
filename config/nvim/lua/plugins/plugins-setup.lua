@@ -56,6 +56,18 @@ local plugins = {
 		dependencies = { 'nvim-lua/plenary.nvim' },
 	},
 
+	"github/copilot.vim",
+	{
+		"CopilotC-Nvim/CopilotChat.nvim",
+		dependencies = {
+			{ "github/copilot.vim" },
+			{ "nvim-lua/plenary.nvim"},
+		},
+	},
+
+
+
+
 }
 local opts = {} -- 注意要定义这个变量
 require("lazy").setup(plugins, opts)

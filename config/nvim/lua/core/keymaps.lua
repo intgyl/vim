@@ -30,6 +30,9 @@ keymap.set("n", "<C-j>", "<C-w>j")
 keymap.set("n", "<C-h>", "<C-w>h")
 keymap.set("n", "<C-l>", "<C-w>l")
 
+-- copilot
+keymap.set("n", "<C-i>", ":Copilot panel<CR>")
+
 -- Lazy
 keymap.set("n", "<F5>", ":Lazy<ENTER>")
 
@@ -37,6 +40,7 @@ keymap.set("i", "<C-a>", "<Home>")
 keymap.set("i", "<C-e>", "<End>")
 keymap.set("i", "<C-b>", "<Left>")
 keymap.set("i", "<C-f>", "<Right>")
+
 
 
 -- 鼠标模式

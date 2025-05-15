@@ -27,5 +27,6 @@ require("plugins/colorscheme")
 require("plugins/hlchunk")
 require("plugins/toggleterm")
 require("plugins/nerdcommenter")
+require("plugins/copilot-chat")
 --require("plugins/gtags_telscope")
 
