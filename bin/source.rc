@@ -77,7 +77,7 @@ login=`who am i | awk -F " " '{print $5}'`
 # add ip_addr
 #export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[36m\][\u@$(ip_addr)]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
 if [ `uname -s` == "Linux" ]; then
-	alias grep='$HOME/.vim/bin/tools/linux/grep --color=auto'
+	# alias grep='$HOME/.vim/bin/tools/linux/grep --color=auto'
 	alias astyle='$HOME/.vim/bin/tools/linux/astyle'
 	alias cpg='$HOME/.vim/bin/tools/linux/cp -ag'
 	alias mvg='$HOME/.vim/bin/tools/linux/mv -g'
@@ -89,8 +89,8 @@ if [ `uname -s` == "Linux" ]; then
 	myip=`hostname -I | sed 's/[ \t ]*$//g'`
 	if [ "$login" != "(:0.0)" -a "$login" != "" -a "$login" != "(:0)" ]; then
 
-		export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[36m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
-		#export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[36m\][\u@$(ip_addr)]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
+		#export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[36m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
+		export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[36m\][\u@$(ip_addr)]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
 	else
 		export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[36m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n\$ '
 	fi
@@ -107,7 +107,8 @@ elif [ `uname -s` == "Darwin" ]; then
 	source $HOME/.vim/soft_config/iterm2/tab_color.sh
 	if [ "$login" != "(:0.0)" -a "$login" != "" -a "$login" != "(:0)" ]; then
 
-		export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[36m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
+		#export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[36m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
+		export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[36m\][\u@$(ip_addr)]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n@ '
 	else
 		export PS1='${debian_chroot:+($debian_chroot)}\n\[\e[31m\][\t]\[\e[m\]\[\e[36m\][\u]\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]$(git_branch)\[\e[m\]\n\$ '
 
@@ -137,7 +138,10 @@ function git_branch {
 }
 
 function ip_addr {
-	ip=`ifconfig -a | grep inet | grep -v 127.0.0.1 | grep -v inet6 | awk '{print $2}'|tr -d "addr:"`
+	if [ -n "$SSH_CONNECTION" ]; then
+		ip=`echo "$SSH_CONNECTION" | awk '{print $3}'`
+	fi
+
 	echo "$ip"
 }
 
