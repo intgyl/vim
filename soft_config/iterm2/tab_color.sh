@@ -11,6 +11,8 @@ color-ssh() {
 
 	tab-color 0 255 0
 	ssh $*
+	printf '\e[>4;0m'
+	printf '\e[?1000l\e[?1002l\e[?1003l\e[?1005l\e[?1006l\e[?1015l\e[?1016l\e[?9l'
 	tab-reset
 }
 
