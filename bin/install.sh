@@ -17,23 +17,6 @@ sudo $apt install -y clangd
 sudo $apt install -y clang-tools
 
 cd $HOME
-#git use English
-#echo alias git=\'LANG=en_GB git\' >> $HOME/.bashrc
-
-#mv $HOME/.vim $HOME/.vim.old
-#mv $HOME/.vimrc $HOME/.vimrc.old
-#mv $HOME/.gvimrc $HOME/.gvimrc.old
-#git clone https://github.com/intgyl/vim $HOME/.vim
-
-#mkdir software
-#cd software
-#git clone https://github.com/goagent/goagent
-#git clone https://github.com/huhamhire/huhamhire-hosts
-#git clone https://github.com/XX-net/XX-Net.git
-#cd $HOME/software/goagent*/local/
-#./addto-startup.py
-
-cd $HOME
 
 mkdir -p $HOME/.config/gitui
 
@@ -82,11 +65,6 @@ sudo $apt install -y ccache
 #ssh server
 sudo $apt install -y openssh-server
 
-#stardict
-sudo $apt install -y stardict
-# sudo rm /usr/share/stardict/dic -rf
-# sudo ln -s $HOME/.vim/soft_config/stardict/dic/ /usr/share/stardict/dic
-
 #android adb fastboot
 sudo $apt install -y android-tools-adb
 sudo $apt install -y android-tools-fastboot
@@ -108,9 +86,6 @@ sudo $apt install -y tree
 #for goagent
 sudo $apt install -y python-vte
 
-#for XX-net
-sudo $apt install -y libnss3-tools
-
 #16 editor
 sudo $apt install -y hexedit
 
@@ -127,28 +102,6 @@ sudo $apt remove notify-osd
 
 sudo $apt install -y dconf-editor
 
-# sudo add-apt-repository ppa:wiznote-team -y
-# sudo $apt update
-# sudo $apt install -y wiznote
-
-#sudo $apt install -y compizconfig-settings-manager
-#sudo $apt install -y compiz-plugins
-
-#docky
-#sudo $apt install -y docky
-
-#chrome
-#wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-#wget https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
-
-#wine
-#sudo add-apt-repository ppa:ubuntu-wine/ppa -y
-#sudo $apt update
-
-#disable automount
-#gsettings set org.gnome.desktop.media-handling automount "false"
-#dconf write /org/gnome/desktop/media-handling/automount  "false"
-
 #open the terminal on right click
 
 if [ $version -lt 15 ]
@@ -156,22 +109,11 @@ then
 	sudo $apt install -y nautilus-open-terminal
 fi
 
-#krusader
-#sudo $apt install -y krusader
-
 #codec
 sudo $apt intall ubuntu-restricted-extras
 
-#the min window view
-#sudo $apt install -y libappindicator1
-#sudo apt-add-repository ppa:gurqn/systray-trusty
-#sudo $apt update
-#sudo $apt upgrade
-
 git config --global core.editor vim
 git config --global merge.tool vimdiff
-
-#sudo $apt install -y cairo-dock
 
 sudo curl -o /usr/local/bin/imgcat -O https://raw.githubusercontent.com/gnachman/iTerm2/master/tests/imgcat && sudo chmod +x /usr/local/bin/imgcat
 
@@ -223,40 +165,13 @@ sudo $apt install -y ant daemon expect htop lib32z1 \
 	g++-aarch64-linux-gnu libdw-dev systemtap xfsprogs libncursesw5-dev \
 	unity-tweak-tool policycoreutils liblz4-tool cflow graphviz gawk
 
+# icecream-sundae
+
 sudo $apt install -y python3 python3-pip
 python3 -m pip install meson
 python3 -m pip install ninja
 sudo apt install -y python3-pyelftools python-pyelftools
-# sudo pip3 install meson
-# sudo pip3 install ninja
 pip3 install 'python-lsp-server[all]'
-#openjdk-8-jdk
-sudo add-apt-repository ppa:openjdk-r/ppa -y
-sudo $apt update
-sudo $apt install -y openjdk-8-jdk
-
-#scrollbar-mode normal
-gsettings set com.canonical.desktop.interface scrollbar-mode normal
-
-#tweak
-#sudo add-apt-repository ppa:tualatrix/ppa -y
-#sudo $apt update
-#sudo $apt install -y ubuntu-tweak
-#rm -rf $HOME/.config/ubuntu-tweak/
-#sudo ln -s $HOME/.vim/soft_config/ubuntu-tweak/ $HOME/.config/ubuntu-tweak/
-
-#caro-dock
-# sudo add-apt-repository ppa:cairo-dock-team/ppa -y
-# sudo $apt update
-
-#yahei fonts
-# sudo mkdir -p /usr/share/fonts/winfonts
-# sudo cp $HOME/.vim/bin/winfonts/* /usr/share/fonts/winfonts
-# sudo chmod 644 /usr/share/fonts/winfonts/*
-# cd /usr/share/fonts/winfonts/
-# sudo mkfontscale
-# sudo mkfontdir
-# sudo fc-cache -fv
 
 cd $HOME
 source $HOME/.bashrc
