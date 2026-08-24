@@ -1,6 +1,10 @@
 #!/bin/bash
 
 tounix () {
+	# zsh does not word-split unquoted command substitutions by default
+	if [ -n "$ZSH_VERSION" ]; then
+		setopt localoptions shwordsplit
+	fi
 	if [ -d $1 ]; then
 
 		for file in `ls $1`

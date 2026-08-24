@@ -1,5 +1,9 @@
 list_target()
 {
+	# zsh does not word-split unquoted command substitutions by default
+	if [ -n "$ZSH_VERSION" ]; then
+		setopt localoptions shwordsplit
+	fi
 	if [ $# != 2 ]; then
 		print_list_target_usage
 		return

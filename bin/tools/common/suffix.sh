@@ -1,6 +1,10 @@
 #!/bin/bash
 
 suffix() {
+	# zsh does not word-split unquoted command substitutions by default
+	if [ -n "$ZSH_VERSION" ]; then
+		setopt localoptions shwordsplit
+	fi
 	if [ -z $1 ]; then
 		print_suffix_usage
 		return
@@ -31,7 +35,7 @@ suffix() {
 				suffix "$old_name" "$new_name" "$3/$file2"
 			fi
 
-			if [ `echo $3/$file2 | sed 's/^.*\.//'` == $old_name ]; then
+			if [ `echo $3/$file2 | sed 's/^.*\.//'` = $old_name ]; then
 				mv $3/$file2 `echo $3/$file2 | sed 's/\.[^.]*$//'`.${new_name}
 				file2=""
 			fi

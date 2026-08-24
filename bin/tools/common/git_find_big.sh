@@ -9,7 +9,11 @@
 
 # set the internal field spereator to line break, so that we can iterate easily over the verify-pack output
 git-find-big() {
-	IFS=$'\n';
+	# zsh does not word-split unquoted parameter expansions by default
+	if [ -n "$ZSH_VERSION" ]; then
+		setopt localoptions shwordsplit
+	fi
+	local IFS=$'\n';
 
 	# list all objects including their size, sort by size, take top 10
 	objects=`git verify-pack -v .git/objects/pack/pack-*.idx | grep -v chain | sort -k3nr | head`
@@ -31,7 +35,7 @@ git-find-big() {
 		output="${output}\n${size},${compressedSize},${other}"
 	done
 
-	echo -e $output | column -t -s ', '
+	printf '%b\n' "$output" | column -t -s ', '
 }
 
 	# git filter-branch -f --prune-empty --index-filter "git rm -rf --cached --ignore-unmatch finename" --tag-name-filter cat -- --all

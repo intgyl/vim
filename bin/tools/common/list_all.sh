@@ -1,5 +1,9 @@
 list_all()
 {
+	# zsh does not word-split unquoted command substitutions by default
+	if [ -n "$ZSH_VERSION" ]; then
+		setopt localoptions shwordsplit
+	fi
 	if [ -z $1 ]; then
 		print_list_all_usage
 		return
@@ -20,7 +24,7 @@ list_all()
 			list_all "$1/$file2"
 		fi
 
-		if [ -a $1/$file2 ]; then
+		if [ -e "$1/$file2" ]; then
 			echo "$1/$file2"
 			echo "`cat $1/$file2`"
 			echo ""

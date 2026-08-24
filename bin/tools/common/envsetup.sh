@@ -19,6 +19,10 @@ EOF
     T=$(gettop)
     local A
     A=""
+    # zsh does not word-split unquoted command substitutions by default
+    if [ -n "$ZSH_VERSION" ]; then
+        setopt localoptions shwordsplit
+    fi
     for i in `cat $T/build/envsetup.sh | sed -n "/^function /s/function \([a-z_]*\).*/\1/p" | sort`; do
       A="$A $i"
     done
@@ -241,6 +245,7 @@ function addcompletions()
         return
     fi
 
+    # command substitution in the for list relies on word splitting
     dir="sdk/bash_completion"
     if [ -d ${dir} ]; then
         for f in `/bin/ls ${dir}/[a-z]*.bash 2> /dev/null`; do
@@ -348,6 +353,10 @@ function chooseproduct()
 
 function choosevariant()
 {
+    # zsh arrays are 1-based by default; ksharrays gives bash-like 0-based indexing
+    if [ -n "$ZSH_VERSION" ]; then
+        setopt localoptions ksharrays
+    fi
     echo "Variant choices are:"
     local index=1
     local v
@@ -452,6 +461,10 @@ function print_lunch_menu()
 
 function lunch()
 {
+    # zsh arrays are 1-based by default; ksharrays gives bash-like 0-based indexing
+    if [ -n "$ZSH_VERSION" ]; then
+        setopt localoptions ksharrays
+    fi
     local answer
 
     if [ "$1" ] ; then
@@ -534,7 +547,9 @@ function _lunch()
     COMPREPLY=( $(compgen -W "${LUNCH_MENU_CHOICES[*]}" -- ${cur}) )
     return 0
 }
-complete -F _lunch lunch
+if [ -z "$ZSH_VERSION" ]; then
+    complete -F _lunch lunch
+fi
 
 # Configures the build to build unbundled apps.
 # Run tapas with one ore more app names (from LOCAL_PACKAGE_NAME)
@@ -1000,6 +1015,10 @@ function cgrep()
 
 function resgrep()
 {
+    # zsh does not word-split unquoted command substitutions by default
+    if [ -n "$ZSH_VERSION" ]; then
+        setopt localoptions shwordsplit
+    fi
     for dir in `find . -name .repo -prune -o -name .git -prune -o -name res -type d`; do find $dir -type f -name '*\.xml' -print0 | xargs -0 grep --color -n "$@"; done;
 }
 
@@ -1148,6 +1167,10 @@ function runhat()
 
 function getbugreports()
 {
+    # zsh does not word-split unquoted command substitutions by default
+    if [ -n "$ZSH_VERSION" ]; then
+        setopt localoptions shwordsplit
+    fi
     local reports=(`adb shell ls /sdcard/bugreports | tr -d '\r'`)
 
     if [ ! "$reports" ]; then
@@ -1252,6 +1275,10 @@ function runtest()
 }
 
 function godir () {
+    # zsh arrays are 1-based and unquoted command substitutions are not word-split
+    if [ -n "$ZSH_VERSION" ]; then
+        setopt localoptions ksharrays shwordsplit
+    fi
     if [[ -z "$1" ]]; then
         echo "Usage: godir <regex>"
         return
@@ -1324,7 +1351,7 @@ function pez {
 
 if [ "x$SHELL" != "x/bin/bash" ]; then
     case `ps -o command -p $$` in
-        *bash*)
+        *bash*|*zsh*)
             ;;
         *)
             echo "WARNING: Only bash is supported, use of other shell would lead to erroneous results"
@@ -1333,12 +1360,20 @@ if [ "x$SHELL" != "x/bin/bash" ]; then
 fi
 
 # Execute the contents of any vendorsetup.sh files we can find.
-for f in `test -d device && find device -maxdepth 6 -name 'vendorsetup.sh' 2> /dev/null` \
-         `test -d vendor && find vendor -maxdepth 6 -name 'vendorsetup.sh' 2> /dev/null`
-do
-    echo "including $f"
-    . $f
-done
+function load_vendorsetups()
+{
+    # zsh does not word-split unquoted command substitutions by default
+    if [ -n "$ZSH_VERSION" ]; then
+        setopt localoptions shwordsplit
+    fi
+    for f in `test -d device && find device -maxdepth 6 -name 'vendorsetup.sh' 2> /dev/null` \
+             `test -d vendor && find vendor -maxdepth 6 -name 'vendorsetup.sh' 2> /dev/null`
+    do
+        echo "including $f"
+        . $f
+    done
+}
+load_vendorsetups
 unset f
 
 addcompletions

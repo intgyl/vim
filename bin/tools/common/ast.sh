@@ -3,7 +3,7 @@ ast () {
 	value="$@"
 	sysos=`uname -s`
 
-	if [ $sysos == "Linux" ]; then
+	if [ "$sysos" = "Linux" ]; then
 		if [ -d $value ]; then
 			if [ $(find $value -type d | wc -l) -gt 1 ]; then
 
@@ -30,7 +30,7 @@ ast () {
 			clang-format -i $value
 			$HOME/.vim/bin/tools/linux/astyle --style=linux -p --indent=force-tab=8 --break-blocks=all  --pad-oper --pad-comma --pad-header --suffix=none --align-pointer=name --align-reference=name --break-one-line-headers --attach-return-type --attach-return-type-decl $value
 		fi
-	elif [ $sysos == "Darwin" ]; then
+	elif [ "$sysos" = "Darwin" ]; then
 		if [ -d $value ]; then
 			if [ $(find $value -type d | wc -l) -gt 1 ]; then
 

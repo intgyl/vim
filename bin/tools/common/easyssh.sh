@@ -84,5 +84,13 @@ function _comp_ssh {
     return 0
 }
 
-shopt -s progcomp
-complete -F _comp_ssh ssg
+if [ -n "$ZSH_VERSION" ]; then
+	# ZSH completion command
+	function _compzsh_ssg {
+		reply=("${(@f)$(_l_server)}")
+	}
+	compctl -K _compzsh_ssg ssg
+else
+	shopt -s progcomp
+	complete -F _comp_ssh ssg
+fi
