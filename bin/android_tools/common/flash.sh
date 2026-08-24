@@ -160,12 +160,12 @@ function _comp_flash {
 }
 
 # ZSH completion command
-function _compzsh {
-	reply=($(_l))
+function _compzsh_flash {
+	reply=(${=supported_partition})
 }
 
-if [ $ZSH_VERSION ]; then
-	compctl -K _compzsh flash
+if [ -n "$ZSH_VERSION" ]; then
+	compctl -K _compzsh_flash flash
 else
 	shopt -s progcomp
 	complete -F _comp_flash flash

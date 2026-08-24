@@ -528,12 +528,12 @@ function _comp_adk {
 }
 
 # ZSH completion command
-function _compzsh {
-	reply=($(_l))
+function _compzsh_adk {
+	reply=(${=supported_adk})
 }
 
-if [ $ZSH_VERSION ]; then
-	compctl -K _compzsh adk
+if [ -n "$ZSH_VERSION" ]; then
+	compctl -K _compzsh_adk adk
 else
 	shopt -s progcomp
 	complete -F _comp_adk adk

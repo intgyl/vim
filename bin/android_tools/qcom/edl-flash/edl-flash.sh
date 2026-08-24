@@ -179,12 +179,12 @@ function _comp_edl_flash {
 }
 
 # ZSH completion command
-function _compzsh {
-	reply=($(_l))
+function _compzsh_edl_flash {
+	reply=(${=supported_edl_flash})
 }
 
-if [ $ZSH_VERSION ]; then
-	compctl -K _compzsh edl-flash
+if [ -n "$ZSH_VERSION" ]; then
+	compctl -K _compzsh_edl_flash edl-flash
 else
 	shopt -s progcomp
 	complete -F _comp_edl_flash edl-flash

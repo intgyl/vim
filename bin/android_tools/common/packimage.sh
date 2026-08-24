@@ -74,12 +74,12 @@ function _comp_pack {
 }
 
 # ZSH completion command
-function _compzsh {
-	reply=($(_l))
+function _compzsh_pack {
+	reply=(${=supported})
 }
 
-if [ $ZSH_VERSION ]; then
-	compctl -K _compzsh pack
+if [ -n "$ZSH_VERSION" ]; then
+	compctl -K _compzsh_pack pack
 else
 	shopt -s progcomp
 	complete -F _comp_pack pack

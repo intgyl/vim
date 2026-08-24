@@ -84,13 +84,13 @@ function _comp_gt {
 }
 
 # ZSH completion command
-function _compzsh {
+function _compzsh_gt {
     reply=("${(@f)$(_l_gt)}")
 }
 
 
 if [ -n "$ZSH_VERSION" ]; then
-	compctl -K _compzsh gt
+	compctl -K _compzsh_gt gt
 else
 	shopt -s progcomp
 	complete -F _comp_gt gt

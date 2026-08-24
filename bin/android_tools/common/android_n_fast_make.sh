@@ -67,12 +67,12 @@ function _comp_fmk {
 }
 
 # ZSH completion command
-function _compzsh {
-	reply=($(_l))
+function _compzsh_fmk {
+	reply=(${=supported_fmk})
 }
 
-if [ $ZSH_VERSION ]; then
-	compctl -K _compzsh fmk
+if [ -n "$ZSH_VERSION" ]; then
+	compctl -K _compzsh_fmk fmk
 else
 	shopt -s progcomp
 	complete -F _comp_fmk fmk
