@@ -1,64 +1,22 @@
 
 ast () {
 	value="$@"
-	sysos=`uname -s`
 
-	if [ "$sysos" = "Linux" ]; then
-		if [ -d $value ]; then
-			if [ $(find $value -type d | wc -l) -gt 1 ]; then
-
-				clang-format -i *.c
-				clang-format -i *.h
-				clang-format -i *.cpp
-				clang-format -i *.cc
-				$HOME/.vim/bin/tools/linux/astyle --style=linux -p --indent=force-tab=8 --break-blocks=all  --pad-oper --pad-comma --pad-header --suffix=none --recursive --align-pointer=name --align-reference=name --break-one-line-headers --attach-return-type --attach-return-type-decl $value/*.cc
-				$HOME/.vim/bin/tools/linux/astyle --style=linux -p --indent=force-tab=8 --break-blocks=all  --pad-oper --pad-comma --pad-header --suffix=none --recursive --align-pointer=name --align-reference=name --break-one-line-headers --attach-return-type --attach-return-type-decl $value/*.cpp
-				$HOME/.vim/bin/tools/linux/astyle --style=linux -p --indent=force-tab=8 --break-blocks=all  --pad-oper --pad-comma --pad-header --suffix=none --recursive --align-pointer=name --align-reference=name --break-one-line-headers --attach-return-type --attach-return-type-decl $value/*.h
-				$HOME/.vim/bin/tools/linux/astyle --style=linux -p --indent=force-tab=8 --break-blocks=all  --pad-oper --pad-comma --pad-header --suffix=none --recursive --align-pointer=name --align-reference=name --break-one-line-headers --attach-return-type --attach-return-type-decl $value/*.c
-			else
-				clang-format -i *.c
-				clang-format -i *.h
-				clang-format -i *.cpp
-				clang-format -i *.cc
-				$HOME/.vim/bin/tools/linux/astyle --style=linux -p --indent=force-tab=8 --break-blocks=all  --pad-oper --pad-comma --pad-header --suffix=none --align-pointer=name --align-reference=name --break-one-line-headers --attach-return-type --attach-return-type-decl $value/*.cc
-				$HOME/.vim/bin/tools/linux/astyle --style=linux -p --indent=force-tab=8 --break-blocks=all  --pad-oper --pad-comma --pad-header --suffix=none --align-pointer=name --align-reference=name --break-one-line-headers --attach-return-type --attach-return-type-decl $value/*.cpp
-				$HOME/.vim/bin/tools/linux/astyle --style=linux -p --indent=force-tab=8 --break-blocks=all  --pad-oper --pad-comma --pad-header --suffix=none --align-pointer=name --align-reference=name --break-one-line-headers --attach-return-type --attach-return-type-decl $value/*.h
-				$HOME/.vim/bin/tools/linux/astyle --style=linux -p --indent=force-tab=8 --break-blocks=all  --pad-oper --pad-comma --pad-header --suffix=none --align-pointer=name --align-reference=name --break-one-line-headers --attach-return-type --attach-return-type-decl $value/*.c
-
-			fi
+	if [ -d "$value" ]; then
+		if [ $(find "$value" -type d | wc -l) -gt 1 ]; then
+			depth=""
 		else
-			clang-format -i $value
-			$HOME/.vim/bin/tools/linux/astyle --style=linux -p --indent=force-tab=8 --break-blocks=all  --pad-oper --pad-comma --pad-header --suffix=none --align-pointer=name --align-reference=name --break-one-line-headers --attach-return-type --attach-return-type-decl $value
+			depth="-maxdepth 1"
 		fi
-	elif [ "$sysos" = "Darwin" ]; then
-		if [ -d $value ]; then
-			if [ $(find $value -type d | wc -l) -gt 1 ]; then
-
-				clang-format -i *.c
-				clang-format -i *.h
-				clang-format -i *.cpp
-				clang-format -i *.cc
-				$HOME/.vim/bin/tools/mac/astyle --style=linux -p --indent=force-tab=8 --break-blocks=all  --pad-oper --pad-comma --pad-header --suffix=none --recursive --align-pointer=name --align-reference=name --break-one-line-headers --attach-return-type --attach-return-type-decl $value/*.cc
-				$HOME/.vim/bin/tools/mac/astyle --style=linux -p --indent=force-tab=8 --break-blocks=all  --pad-oper --pad-comma --pad-header --suffix=none --recursive --align-pointer=name --align-reference=name --break-one-line-headers --attach-return-type --attach-return-type-decl $value/*.cpp
-				$HOME/.vim/bin/tools/mac/astyle --style=linux -p --indent=force-tab=8 --break-blocks=all  --pad-oper --pad-comma --pad-header --suffix=none --recursive --align-pointer=name --align-reference=name --break-one-line-headers --attach-return-type --attach-return-type-decl $value/*.h
-				$HOME/.vim/bin/tools/mac/astyle --style=linux -p --indent=force-tab=8 --break-blocks=all  --pad-oper --pad-comma --pad-header --suffix=none --recursive --align-pointer=name --align-reference=name --break-one-line-headers --attach-return-type --attach-return-type-decl $value/*.c
-			else
-				clang-format -i *.c
-				clang-format -i *.h
-				clang-format -i *.cpp
-				clang-format -i *.cc
-				$HOME/.vim/bin/tools/mac/astyle --style=linux -p --indent=force-tab=8 --break-blocks=all  --pad-oper --pad-comma --pad-header --suffix=none --align-pointer=name --align-reference=name --break-one-line-headers --attach-return-type --attach-return-type-decl $value/*.cc
-				$HOME/.vim/bin/tools/mac/astyle --style=linux -p --indent=force-tab=8 --break-blocks=all  --pad-oper --pad-comma --pad-header --suffix=none --align-pointer=name --align-reference=name --break-one-line-headers --attach-return-type --attach-return-type-decl $value/*.cpp
-				$HOME/.vim/bin/tools/mac/astyle --style=linux -p --indent=force-tab=8 --break-blocks=all  --pad-oper --pad-comma --pad-header --suffix=none --align-pointer=name --align-reference=name --break-one-line-headers --attach-return-type --attach-return-type-decl $value/*.h
-				$HOME/.vim/bin/tools/mac/astyle --style=linux -p --indent=force-tab=8 --break-blocks=all  --pad-oper --pad-comma --pad-header --suffix=none --align-pointer=name --align-reference=name --break-one-line-headers --attach-return-type --attach-return-type-decl $value/*.c
-
-			fi
-		else
-			clang-format -i $value
-			$HOME/.vim/bin/tools/mac/astyle --style=linux -p --indent=force-tab=8 --break-blocks=all  --pad-oper --pad-comma --pad-header --suffix=none --align-pointer=name --align-reference=name --break-one-line-headers --attach-return-type --attach-return-type-decl $value
-
-		fi
+		find "$value" $depth -type f \( -name '*.c' -o -name '*.h' -o -name '*.cpp' -o -name '*.cc' \) \
+			-exec clang-format -style=file:$HOME/.clang-format -i {} +
+		find "$value" $depth -type f \( -name '*.c' -o -name '*.h' -o -name '*.cpp' -o -name '*.cc' \) \
+			-exec uncrustify -c "$HOME/.uncrustify.cfg" --replace --no-backup -q {} +
+		find "$value" $depth -type f \( -name '*.c' -o -name '*.h' -o -name '*.cpp' -o -name '*.cc' \) \
+			-exec perl "$HOME/.vim/bin/tools/common/ast_post.pl" {} +
+	else
+		clang-format -style=file:$HOME/.clang-format -i "$value"
+		uncrustify -c "$HOME/.uncrustify.cfg" --replace --no-backup -q "$value"
+		perl "$HOME/.vim/bin/tools/common/ast_post.pl" "$value"
 	fi
-	value=""
 }
-
