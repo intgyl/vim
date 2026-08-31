@@ -162,11 +162,29 @@ bindkey '^N' history-search-forward
 
 bindkey '^V' create_completion
 
+# The z plugin's Tab wrapper (_zshz_zle_completion_widget) starts with an
+# underscore, so zsh-autosuggestions never wraps it; zsh-syntax-highlighting
+# (which clears region_highlight on zsh <= 5.8) then runs last on Tab and
+# wipes the ghost suggestion's fg=8 highlight after path completion. Bind
+# the widget through autosuggestions explicitly so its highlight is
+# re-applied last and the remaining suggestion stays gray.
+if (( $+functions[_zsh_autosuggest_bind_widget] )) && (( $+widgets[_zshz_zle_completion_widget] )); then
+	_zsh_autosuggest_bind_widget _zshz_zle_completion_widget modify
+fi
+
 # No bell
 unsetopt beep
 
 # Completion: case insensitive
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# oh-my-zsh sets `menu select' unconditionally, which makes a single
+# unambiguous match enter menu-selection silently: the inserted text looks
+# like the accepted autosuggestion, the list renders late, and ^C only
+# leaves MENUSELECT without clearing the buffer. Require at least two
+# matches before starting menu selection. Must come after oh-my-zsh is
+# loaded (this file is sourced last in ~/.zshrc, so that holds).
+zstyle ':completion:*:*:*:*:*' menu select=2
 
 autoload -Uz compinit
 compinit
