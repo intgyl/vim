@@ -160,6 +160,8 @@ bindkey '^[[B' history-search-forward
 bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward
 
+bindkey '^V' create_completion
+
 # No bell
 unsetopt beep
 
