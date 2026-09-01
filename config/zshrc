@@ -87,6 +87,8 @@ alias sls='ls'
 
 alias rm='rm -i'
 alias cp='cp -a'
+alias cat='ccat'
+alias less='cless'
 
 alias yd='$HOME/.vim/bin/tools/common/yd'
 
