@@ -25,10 +25,33 @@ source "$HOME/.vim/bin/android_tools/common/packramdisk.sh"
 source "$HOME/.vim/bin/android_tools/common/unpackramdisk.sh"
 source "$HOME/.vim/bin/android_tools/common/adk.sh"
 
-# Automatically correct minor mistakes in cd paths.
-setopt CORRECT
+# Disable spelling correction: it nags on command arguments like file names.
+unsetopt correct
+unsetopt correct_all
 
-unset LS_COLORS
+# Populate LS_COLORS via dircolors so extension-based colors (archives in
+# red, images in magenta, ...) work like in bash. The compiled-in default
+# of GNU ls only covers file types, not extensions. On macOS this requires
+# GNU coreutils (brew install coreutils), which provides gdircolors/gls;
+# the stock BSD ls only supports type-based colors via LSCOLORS and can
+# never color files by extension.
+_dircolors_cmd=""
+if command -v dircolors >/dev/null 2>&1; then
+	_dircolors_cmd="dircolors"
+elif command -v gdircolors >/dev/null 2>&1; then
+	_dircolors_cmd="gdircolors"
+fi
+
+if [ -n "$_dircolors_cmd" ]; then
+	if [ -r "$HOME/.dircolors" ]; then
+		eval "$("$_dircolors_cmd" -b "$HOME/.dircolors")"
+	else
+		eval "$("$_dircolors_cmd" -b)"
+	fi
+else
+	unset LS_COLORS
+fi
+unset _dircolors_cmd
 export CLICOLOR=1
 export LSCOLORS='Exfxcxdxcxegedabagacad'
 
@@ -87,8 +110,6 @@ alias sls='ls'
 
 alias rm='rm -i'
 alias cp='cp -a'
-alias cat='ccat'
-alias less='cless'
 
 alias yd='$HOME/.vim/bin/tools/common/yd'
 
@@ -117,6 +138,12 @@ case "$(uname -s)" in
 	;;
 
 Darwin)
+	# Prefer GNU ls (coreutils) so LS_COLORS extension colors apply; BSD ls
+	# can only color by file type. Requires: brew install coreutils
+	if command -v gls >/dev/null 2>&1; then
+		alias ls='gls --show-control-chars --color=auto'
+	fi
+
 	alias grep='$HOME/.vim/bin/tools/mac/grep --color=auto'
 	alias astyle='$HOME/.vim/bin/tools/mac/astyle'
 	alias cpg='$HOME/.vim/bin/tools/mac/cp -ag'
