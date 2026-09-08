@@ -250,12 +250,28 @@ ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 # full prompt redraw erases the candidate list and complist only repaints
 # the selected line. Skip the reset during menu selection; the prompt
 # still refreshes on the next normal redraw.
+#
+# Note: MENUSELECT is NOT unset by zsh after menu selection ends (seen on
+# zsh 5.9.2 with stock `zsh -f`), so it stays non-empty forever after the
+# first menu completion. Without the clearing hooks below, this wrapper
+# would suppress every later reset and the realtime clock freezes.
 if (( $+functions[_p9k_reset_prompt] )); then
 	functions[_p9k_reset_prompt_orig]=$functions[_p9k_reset_prompt]
 	_p9k_reset_prompt() {
 		[[ -n $MENUSELECT ]] && return 0
 		_p9k_reset_prompt_orig "$@"
 	}
+fi
+
+# Clear the stale MENUSELECT flag when a command line is finished (and at
+# the start of a new one, e.g. after ^C which skips line-finish). Menu
+# selection is definitely over at those points; complist re-sets the
+# variable itself when a new selection starts.
+_p9k_clear_stale_menuselect() { unset MENUSELECT 2>/dev/null; }
+autoload -Uz add-zle-hook-widget
+if (( $+functions[add-zle-hook-widget] )); then
+	add-zle-hook-widget line-finish _p9k_clear_stale_menuselect
+	add-zle-hook-widget line-init _p9k_clear_stale_menuselect
 fi
 
 # p10k realtime time watchdog.
