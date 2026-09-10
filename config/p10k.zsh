@@ -427,9 +427,11 @@
     [[ -z $VCS_STATUS_LOCAL_BRANCH && -z $VCS_STATUS_TAG ]] &&  # <-- this line
       res+="${meta}@${clean}${VCS_STATUS_COMMIT[1,8]}"
 
-    # Show tracking branch name if it differs from local branch.
-    if [[ -n ${VCS_STATUS_REMOTE_BRANCH:#$VCS_STATUS_LOCAL_BRANCH} ]]; then
-      res+="${meta}:${clean}${(V)VCS_STATUS_REMOTE_BRANCH//\%/%%}"
+    # Always show tracking branch name in the form "->[remote/branch]".
+    if [[ -n $VCS_STATUS_REMOTE_BRANCH ]]; then
+      local remote_branch=${(V)VCS_STATUS_REMOTE_BRANCH}
+      [[ -n $VCS_STATUS_REMOTE_NAME ]] && remote_branch="${VCS_STATUS_REMOTE_NAME}/${remote_branch}"
+      res+="${meta}->[${clean}${remote_branch//\%/%%}${meta}]"
     fi
 
     # Display "wip" if the latest commit's summary contains "wip" or "WIP".
